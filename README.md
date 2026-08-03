@@ -8,7 +8,9 @@ deterministic hardware-register shims. All emitted bytes are conspicuously marke
 `REPORT.md` contains the technical findings. `METHODOLOGY.md` documents the
 source-tracing, executable differential controls, non-operational assessment of
 enumeration feasibility, and the evidence standard for attributing public thefts.
-It deliberately excludes real private keys and executable wallet-search methods.
+`PUBLIC_INCIDENTS.md` applies that standard to current public reports and
+time-stamped on-chain observations. It deliberately excludes real private keys
+and executable wallet-search methods.
 
 It does **not** use a real wallet, derive keys, search key space, interact with
 hardware, emulate a complete device, or assess the physical STM32 RNG.
@@ -51,7 +53,8 @@ python3 run_upstream_evidence.py
 python3 -m unittest -v
 python3 -m json.tool evidence/upstream-execution.json >/dev/null
 python3 -m json.tool evidence/source-dfu-mapping.json >/dev/null
-python3 -m py_compile coldhax_model.py generate_evidence.py run_upstream_evidence.py test_coldhax_model.py
+python3 -m json.tool evidence/public-incidents.json >/dev/null
+python3 -m py_compile coldhax_model.py generate_evidence.py run_upstream_evidence.py test_coldhax_model.py test_public_incidents.py
 sha256sum -c evidence/artifact-hashes.txt
 ```
 
@@ -94,10 +97,15 @@ limits; no match was forced.
 - `harness/` — native build, shims, and MicroPython API stubs outside upstream.
 - `setup_sources.sh` — fetches and verifies pinned public upstream source only.
 - `METHODOLOGY.md` — safe research, feasibility, and attribution methodology.
+- `PUBLIC_INCIDENTS.md` — public case accounting with attribution limits,
+  transaction evidence, and separately time-stamped destination balances.
 - `run_upstream_evidence.py` — rebuilds and runs both exact-upstream controls.
 - `evidence/upstream-execution.json` — machine-readable tier-(b) results.
 - `evidence/source-dfu-mapping.json` — machine-readable mapping evidence/blockers.
+- `evidence/public-incidents.json` — machine-readable public incident observations.
 - `coldhax_model.py` / `test_coldhax_model.py` — model and native/model cross-checks.
+- `test_public_incidents.py` — incident-schema, accounting, attribution, and
+  obvious-sensitive-material regression checks.
 - `generate_evidence.py` — provenance, DFU parsing, model gates, artifact hashes.
 - `logs/` and `state/` — private raw build/execution and investigation records.
 

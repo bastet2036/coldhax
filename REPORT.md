@@ -230,6 +230,17 @@ double-counting later hops. Current balance and amount stolen are separate,
 time-stamped measurements. A lack of publicly verified cases must be reported as
 such rather than interpreted as proof that no theft occurred.
 
+`PUBLIC_INCIDENTS.md` records the public evidence found through 2026-08-03
+02:00:29 UTC. Galaxy Research's latest reviewed cumulative estimate is 1,367.05
+BTC across 4,585 source addresses in three suspected Coldcard-linked waves.
+Owner/witness reports identify Mk3-origin wallets in later sweeps, including one
+Mk3 testing-wallet report with a public transaction ID. These facts establish
+public unauthorized-spend reports and strong circumstantial clustering, but no
+reviewed source publicly reconstructed a victim seed and matched it to a drained
+address. The report therefore labels defect attribution as suspected rather
+than conclusive, keeps current destination balances separate, and does not add
+cumulative waves, fees, or later hops.
+
 ## Remediation
 
 Follow the vendor advisory, not this research harness: install Mk3 firmware 4.2.0

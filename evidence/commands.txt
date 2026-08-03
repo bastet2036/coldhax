@@ -46,3 +46,11 @@ python3 -m unittest -v
 python3 -m py_compile coldhax_model.py generate_evidence.py run_upstream_evidence.py test_coldhax_model.py
 python3 -m json.tool evidence/source-dfu-mapping.json >/dev/null
 sha256sum -c evidence/artifact-hashes.txt
+
+# Phase 3 public incident accounting (2026-08-03 UTC)
+python3 -m json.tool evidence/public-incidents.json >/dev/null
+python3 -m unittest -v
+python3 -m py_compile coldhax_model.py generate_evidence.py run_upstream_evidence.py test_coldhax_model.py test_public_incidents.py
+python3 run_upstream_evidence.py
+python3 generate_evidence.py
+sha256sum -c evidence/artifact-hashes.txt

@@ -67,6 +67,13 @@ Weak entropy alone does not prove theft. A report should classify on-chain evide
 
 For each public case, retain source URL, publication time, address or transaction ID, chain/network, block height/time, value calculation, attribution strength, and uncertainty. Use transaction IDs and public addresses for verification; never use or publish private keys or seed phrases. An absence of public cases means “no public case verified,” not “no theft occurred.”
 
+`PUBLIC_INCIDENTS.md` and `evidence/public-incidents.json` implement this
+classification. Cumulative analyst estimates are never added together; a later
+hop is not a new loss; consolidation output and current balance are not assigned
+to one victim unless the source identifies that victim's input. Fingerprint-only
+clusters remain suspected attribution when no public seed-to-address
+reconstruction or equivalent defect-specific proof exists.
+
 ## Why operational key-search details are excluded
 
 A private key is direct control over funds. Publishing recovered keys, real-wallet candidate material, or a complete brute-force recipe would create immediate theft risk and would expose victims who may not have migrated. It is unnecessary to establish the root cause, test the provider boundary, estimate a synthetic work factor, or verify public transaction evidence.

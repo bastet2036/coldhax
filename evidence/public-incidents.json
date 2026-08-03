@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "research_cutoff_utc": "2026-08-03T02:00:29Z",
+  "onchain_observed_at_utc": "2026-08-03T02:00:29Z",
+  "network": "bitcoin-mainnet",
+  "explorer_api": "https://mempool.space/api",
+  "classification": {
+    "affected_or_exposed": "Public evidence says the wallet or source population used an affected COLDCARD generation path.",
+    "unauthorized_spend": "An owner or analyst reports the spend was unauthorized, with an on-chain transaction or cluster.",
+    "attributed_exploitation": "Evidence links the spend to this exact entropy defect; a matching sweep fingerprint alone remains suspected attribution."
+  },
+  "reported_aggregate": [
+    {
+      "id": "galaxy-wave-1",
+      "period_utc": "2026-07-30T01:10:20Z/2026-07-30T01:51:26Z",
+      "blocks": [960183, 960191],
+      "reported_source_addresses": 1196,
+      "reported_unauthorized_spend_btc": 1082.65,
+      "report_usd_at_event": 70200000,
+      "attribution": "suspected_attributed_exploitation",
+      "basis": "Galaxy Research mapped full-balance, no-change sweeps paying the same 30 sat/vB across BIP-84, BIP-49, and BIP-44 paths. Galaxy explicitly cautioned that the fingerprint identifies one operator, not the vulnerability itself, and that an owner migration can look the same on-chain.",
+      "source": "https://x.com/glxyresearch/status/2083181683067506899",
+      "limitation_source": "https://x.com/glxyresearch/status/2083255552633635183"
+    },
+    {
+      "id": "galaxy-waves-1-2-cumulative",
+      "reported_at_utc": "2026-08-01T14:30:13Z",
+      "reported_source_addresses": 2673,
+      "reported_unauthorized_spend_btc": 1158.81,
+      "reported_holding_addresses": 7,
+      "attribution": "suspected_attributed_exploitation",
+      "basis": "Galaxy described the second wave as likely attributable to the same Coldcard hacker; this row is cumulative and must not be added to Wave 1.",
+      "source": "https://x.com/glxyresearch/status/2083560940469981591"
+    },
+    {
+      "id": "galaxy-waves-1-3-cumulative",
+      "reported_at_utc": "2026-08-01T18:38:48Z",
+      "reported_source_addresses": 4585,
+      "reported_unauthorized_spend_btc": 1367.05,
+      "report_usd_at_event": 88600000,
+      "wave_3_reported_btc": 207.7294,
+      "attribution": "suspected_attributed_exploitation",
+      "basis": "Galaxy called Wave 3 suspected hacks of Coldcard-generated addresses. This is the latest verified cumulative Galaxy total in this review and must not be summed with earlier cumulative rows.",
+      "source": "https://x.com/glxyresearch/status/2083623500183421043"
+    }
+  ],
+  "public_owner_or_witness_reports": [
+    {
+      "id": "erik-mk3-testing-wallet",
+      "reported_at_utc": "2026-08-02T11:21:42Z",
+      "affected_or_exposed": "owner_report_confirmed_mk3",
+      "unauthorized_spend": "owner_report_confirmed",
+      "attributed_exploitation": "suspected_not_computationally_confirmed",
+      "owner_reported_amount_sats": 9000,
+      "amount_precision": "approximate; the owner wrote 9k sats and did not identify which of the transaction's 902 inputs was theirs",
+      "transaction_id": "d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4",
+      "transaction_block_height": 960668,
+      "transaction_block_time_utc": "2026-08-02T04:03:56Z",
+      "transaction_input_count": 902,
+      "transaction_fee_sats": 574200,
+      "transaction_output_address": "bc1q0rvn88w08j75k4h48lf9fvhan7unjp7vjf5q6m",
+      "transaction_output_sats": 6490373764,
+      "double_counting_note": "The approximately 9,000 sats are a subset of the 64.90947964 BTC input total in the early-August-2 consolidation and are not an additional incident amount.",
+      "source": "https://x.com/eriklocalhost/status/2083875886458171626",
+      "explorer": "https://mempool.space/tx/d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4"
+    },
+    {
+      "id": "tomer-mk3-origin-duress-wallet",
+      "reported_at_utc": "2026-08-01T15:41:27Z",
+      "affected_or_exposed": "third_party_report_corrected_to_mk3_origin",
+      "unauthorized_spend": "third_party_honeypot_report",
+      "attributed_exploitation": "suspected_not_computationally_confirmed",
+      "amount": null,
+      "amount_note": "The report did not identify the victim input or amount; the destination received 16 transactions totaling 0.33203236 BTC, which must not be assigned to this one report.",
+      "destination_address": "bc1qzm5pauxyv7t7vqstzpumqcn066wfjsmev34mf3",
+      "correction": "The seed originated on Mk3 and was later migrated to Mk4; this is not evidence of Mk4 seed generation being exploited.",
+      "source": "https://x.com/TomerStrolight/status/2083578868191957292",
+      "explorer": "https://mempool.space/address/bc1qzm5pauxyv7t7vqstzpumqcn066wfjsmev34mf3"
+    },
+    {
+      "id": "evan-july-31-report",
+      "reported_at_utc": "2026-08-01T10:51:14Z",
+      "affected_or_exposed": "contextual_claim_not_version_attested",
+      "unauthorized_spend": "owner_report_confirmed",
+      "attributed_exploitation": "suspected_not_computationally_confirmed",
+      "amount": null,
+      "amount_note": "The owner said their wallet was among several approximately 0.1 BTC wallets. The cited address is a consolidation address that received 0.50986038 BTC, not a proved victim-specific amount.",
+      "consolidation_address": "bc1q0mh6rs0mjvv5ncdyqwhqma7hgup3aycucsc279",
+      "consolidation_current_balance_sats": 0,
+      "source": "https://x.com/evands/status/2083505832587587945",
+      "explorer": "https://mempool.space/address/bc1q0mh6rs0mjvv5ncdyqwhqma7hgup3aycucsc279"
+    },
+    {
+      "id": "marius-mk2-secondhand-report",
+      "reported_at_utc": "2026-08-02T07:15:50Z",
+      "affected_or_exposed": "secondhand_report_mk2",
+      "unauthorized_spend": "secondhand_report",
+      "attributed_exploitation": "suspected_not_computationally_confirmed",
+      "amount": null,
+      "amount_note": "The report did not identify the friend's input or amount. The 64.90373764 BTC output aggregates 902 inputs and is not the friend's loss.",
+      "transaction_id": "d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4",
+      "destination_address": "bc1q0rvn88w08j75k4h48lf9fvhan7unjp7vjf5q6m",
+      "source": "https://x.com/mariusoffchain/status/2083814011859030252",
+      "explorer": "https://mempool.space/tx/d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4"
+    }
+  ],
+  "representative_onchain_transactions": [
+    {
+      "cluster": "galaxy-wave-1",
+      "role": "consolidation_to_published_destination",
+      "transaction_id": "0c6bf853a645b699a3b2cd6d8e3c44cf1a02a16f538df08212a44753f75d9d01",
+      "block_height": 960191,
+      "block_time_utc": "2026-07-30T01:51:26Z",
+      "destination_address": "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r",
+      "received_sats": 56201962301,
+      "explorer": "https://mempool.space/tx/0c6bf853a645b699a3b2cd6d8e3c44cf1a02a16f538df08212a44753f75d9d01"
+    },
+    {
+      "cluster": "galaxy-wave-1",
+      "role": "consolidation_to_published_destination",
+      "transaction_id": "14edd9ee8445793c320e92e3b50365a0e18b8b25f424044bce337463f007fdd2",
+      "block_height": 960190,
+      "block_time_utc": "2026-07-30T01:43:00Z",
+      "destination_address": "bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3",
+      "received_sats": 39847573857,
+      "explorer": "https://mempool.space/tx/14edd9ee8445793c320e92e3b50365a0e18b8b25f424044bce337463f007fdd2"
+    },
+    {
+      "cluster": "galaxy-wave-1",
+      "role": "consolidation_to_published_destination",
+      "transaction_id": "4b50d61a3d6e54c62ee0be13d7e9a8b69bffe7fc2b2cab4e14da56e4e20440d2",
+      "block_height": 960190,
+      "block_time_utc": "2026-07-30T01:43:00Z",
+      "destination_address": "bc1q8jy96fe5lf8vfugydnte3cguk92gpev7kwtp3q",
+      "received_sats": 8962327890,
+      "explorer": "https://mempool.space/tx/4b50d61a3d6e54c62ee0be13d7e9a8b69bffe7fc2b2cab4e14da56e4e20440d2"
+    },
+    {
+      "cluster": "galaxy-wave-2",
+      "role": "consolidation_to_published_destination",
+      "transaction_id": "ba119968ec4b82c28f557dfc6cbb2c1834d55145e5a352872c533296d19d3082",
+      "block_height": 960377,
+      "block_time_utc": "2026-07-31T09:22:57Z",
+      "destination_address": "bc1qtfrwa4j6rmj9rsgspv6a0yjumkg39js2numu75",
+      "received_sats": 4590251994,
+      "explorer": "https://mempool.space/tx/ba119968ec4b82c28f557dfc6cbb2c1834d55145e5a352872c533296d19d3082"
+    },
+    {
+      "cluster": "community-august-2",
+      "role": "many_input_consolidation_with_owner_report",
+      "transaction_id": "d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4",
+      "block_height": 960668,
+      "block_time_utc": "2026-08-02T04:03:56Z",
+      "destination_address": "bc1q0rvn88w08j75k4h48lf9fvhan7unjp7vjf5q6m",
+      "received_sats": 6490373764,
+      "explorer": "https://mempool.space/tx/d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4"
+    }
+  ],
+  "destination_balance_observations": [
+    {
+      "address": "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r",
+      "cluster": "galaxy-wave-1",
+      "current_balance_sats": 56202025933
+    },
+    {
+      "address": "bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3",
+      "cluster": "galaxy-wave-1",
+      "current_balance_sats": 39847576357
+    },
+    {
+      "address": "bc1q8jy96fe5lf8vfugydnte3cguk92gpev7kwtp3q",
+      "cluster": "galaxy-wave-1",
+      "current_balance_sats": 8962328890
+    },
+    {
+      "address": "bc1qnk4zh9qcnap2mycp56qjrgza3cc8ylrh8fecp0",
+      "cluster": "galaxy-wave-1",
+      "current_balance_sats": 3245058754
+    },
+    {
+      "address": "bc1qtfrwa4j6rmj9rsgspv6a0yjumkg39js2numu75",
+      "cluster": "galaxy-wave-2",
+      "current_balance_sats": 4590252994
+    },
+    {
+      "address": "bc1qmd5m5ktv7m5ffujxv4248fxv36myvdx79n8jp6",
+      "cluster": "galaxy-wave-2",
+      "current_balance_sats": 3018477329
+    },
+    {
+      "address": "bc1qzm5pauxyv7t7vqstzpumqcn066wfjsmev34mf3",
+      "cluster": "community-august-1",
+      "current_balance_sats": 33203236
+    },
+    {
+      "address": "bc1q0rvn88w08j75k4h48lf9fvhan7unjp7vjf5q6m",
+      "cluster": "community-august-2",
+      "current_balance_sats": 6490373764
+    },
+    {
+      "address": "bc1q0mh6rs0mjvv5ncdyqwhqma7hgup3aycucsc279",
+      "cluster": "community-july-31",
+      "current_balance_sats": 0
+    }
+  ],
+  "emerging_unincluded_report": {
+    "id": "potential-wave-4",
+    "reported_at_utc": "2026-08-03T00:51:36Z",
+    "reported_blocks": [960778, 960792],
+    "reported_transactions": 218,
+    "reported_source_addresses": 462,
+    "reported_destinations": 216,
+    "reported_btc": 388.92748828,
+    "classification": "potential_not_included_in_verified_cumulative_total",
+    "reason": "The analyst called it likely while activity was ongoing. This review verified that blocks and transactions exist only at a boundary level; it did not independently reproduce the complete address-set classification or establish owner authorization for every spend.",
+    "source": "https://x.com/intangiblecoins/status/2084079706320646300"
+  },
+  "negative_results_and_limits": [
+    "Coinkite's advisory confirms exposure and active risk but publishes no official stolen-funds total, victim-address list, or transaction list.",
+    "Block's root-cause report says active exploitation and theft were under way, but says it had not completed full empirical exploitability testing.",
+    "Galaxy's three-wave total is on-chain attribution, not a public cryptographic reconstruction matching a victim seed to a drained address.",
+    "No public source reviewed named the attacker, and no public law-enforcement attribution was found.",
+    "The full set of 4,585 source addresses and all theft transaction IDs was not published in machine-readable primary-source form located during this review.",
+    "Current balances are destination observations, not stolen amounts, and later hops are not added to incident totals."
+  ],
+  "sources": [
+    "https://blog.coinkite.com/coldcard-mk3-seed-generation-warning/",
+    "https://engineering.block.xyz/blog/predictable-rng-fallback-and-32-bit-reseed-in-coldcard-firmware",
+    "https://x.com/glxyresearch/status/2083181683067506899",
+    "https://x.com/glxyresearch/status/2083255552633635183",
+    "https://x.com/glxyresearch/status/2083560940469981591",
+    "https://x.com/glxyresearch/status/2083623500183421043",
+    "https://x.com/evands/status/2083505832587587945",
+    "https://x.com/TomerStrolight/status/2083578868191957292",
+    "https://x.com/mariusoffchain/status/2083814011859030252",
+    "https://x.com/eriklocalhost/status/2083875886458171626",
+    "https://x.com/intangiblecoins/status/2084079706320646300"
+  ]
+}

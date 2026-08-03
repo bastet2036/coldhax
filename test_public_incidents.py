@@ -37,8 +37,8 @@ class PublicIncidentTests(unittest.TestCase):
             r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$",
         )
         observations = self.data["destination_balance_observations"]
-        self.assertEqual(len(observations), 9)
-        self.assertEqual(len({row["address"] for row in observations}), 9)
+        self.assertEqual(len(observations), 18)
+        self.assertEqual(len({row["address"] for row in observations}), 18)
         for row in observations:
             self.assertIsInstance(row["current_balance_sats"], int)
             self.assertGreaterEqual(row["current_balance_sats"], 0)
@@ -75,6 +75,11 @@ class PublicIncidentTests(unittest.TestCase):
             "potential_not_included_in_verified_cumulative_total",
         )
         self.assertIn("did not independently reproduce", emerging["reason"])
+        self.assertEqual(emerging["primary_reported_surviving_core_addresses"], 709)
+        self.assertEqual(emerging["primary_reported_surviving_core_btc"], 448.73)
+        self.assertIn("do not reconcile", emerging["arithmetic_limitation"])
+        self.assertIn("no direct victim", emerging["victim_confirmation"])
+        self.assertEqual(emerging["secondary_reconstruction"]["derived_btc"], 443.34)
 
     def test_public_artifacts_contain_no_obvious_secret_material(self) -> None:
         patterns = (

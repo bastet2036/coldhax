@@ -1,6 +1,6 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-03 02:00:29 UTC**. On-chain balances below were
+Research cutoff: **2026-08-03 05:16:42 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
 same time. The machine-readable observations and exact classifications are in
 [`evidence/public-incidents.json`](evidence/public-incidents.json).
@@ -20,6 +20,12 @@ source reconstructed a victim seed and matched it to a drained address, and no
 source named or established the identity of an attacker. Therefore this report
 classifies the aggregate waves and individual cases as **suspected attribution
 to this defect**, not conclusively attributed exploitation.
+
+An August 3 fourth-wave alert has now been revised from its initial in-progress
+figures to a **709-address / 448.73 BTC surviving core after excluding 89
+multisig addresses / 20.58 BTC**. The analyst explicitly says there is still no
+direct victim report confirming this wave. It remains a separate potential
+wave and is not added to Galaxy's reviewed Waves 1–3 cumulative figure.
 
 ## Classification rules
 
@@ -110,7 +116,7 @@ consolidation total nor a guessed 0.1 BTC is recorded as his exact loss.
 
 | Cluster | Destination | Current balance at cutoff |
 | --- | --- | ---: |
-| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02025933 BTC |
+| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02026773 BTC |
 | Galaxy Wave 1 | [`bc1qx76…fhe3`](https://mempool.space/address/bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3) | 398.47576357 BTC |
 | Galaxy Wave 1 | [`bc1q8jy…tp3q`](https://mempool.space/address/bc1q8jy96fe5lf8vfugydnte3cguk92gpev7kwtp3q) | 89.62328890 BTC |
 | Galaxy Wave 1 | [`bc1qnk4…fecp0`](https://mempool.space/address/bc1qnk4zh9qcnap2mycp56qjrgza3cc8ylrh8fecp0) | 32.45058754 BTC |
@@ -120,9 +126,22 @@ consolidation total nor a guessed 0.1 BTC is recorded as his exact loss.
 | Community Aug 2 | [`bc1q0rv…f5q6m`](https://mempool.space/address/bc1q0rvn88w08j75k4h48lf9fvhan7unjp7vjf5q6m) | 64.90373764 BTC |
 | Community Jul 31 | [`bc1q0mh…sc279`](https://mempool.space/address/bc1q0mh6rs0mjvv5ncdyqwhqma7hgup3aycucsc279) | 0 BTC |
 
-The four published Wave 1 destinations total 1,082.56989934 BTC at the cutoff;
+Nine higher-value destinations from the community
+[Coldcard Hack Tracker](https://github.com/SamSamskies/coldcard-hack-tracker)
+Wave 4 reconstruction were also checked at the cutoff. Eight still held their
+reported receipts: `bc1q05g…u0ml` (8.55600708 BTC), `bc1qjen…4z23`
+(5.07348539 BTC), `342L6…jZtz` (2.02374869 BTC), `bc1q65e…9u8`
+(1.14852067 BTC), `36XfM…1x3G` (1.09429601 BTC), `bc1qcmn…jvtl`
+(1.04998888 BTC), `bc1pj7…ulc2` (1.03514173 BTC), and `34nHY…4qDQ`
+(0.96227191 BTC). `1N8kn…fDo`, which had received 5.61303754 BTC, had zero
+current balance after an outbound peel. These are **community-reconstructed
+potential attacker destinations**, not victim addresses and not independent
+proof of defect attribution. Their balances are observations, not additional
+losses.
+
+The four published Wave 1 destinations total 1,082.56990774 BTC at the cutoff;
 the two listed Wave 2 destinations total 76.08730323 BTC. Their six-address sum
-is 1,158.65720257 BTC. These sums are not replacements for Galaxy's stolen-BTC
+is 1,158.65721097 BTC. These sums are not replacements for Galaxy's stolen-BTC
 figures: transaction fees and any destination omitted from this public list
 explain why held balance and reported source value differ.
 
@@ -139,7 +158,7 @@ of all victim spends:
 | Galaxy Wave 2 | [`ba1199…d3082`](https://mempool.space/tx/ba119968ec4b82c28f557dfc6cbb2c1834d55145e5a352872c533296d19d3082) | 960377 / 2026-07-31 09:22:57 | 45.90251994 BTC |
 | Community Aug 2 | [`d72e2d…c89a4`](https://mempool.space/tx/d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4) | 960668 / 2026-08-02 04:03:56 | 64.90373764 BTC |
 
-## Emerging report not included in the verified total
+## Potential Wave 4 — not included in the verified cumulative total
 
 At 2026-08-03 00:51 UTC, Galaxy's Alex Thorn
 [reported a *likely* fourth wave](https://x.com/intangiblecoins/status/2084079706320646300)
@@ -147,15 +166,32 @@ then still in progress: 218 confirmed transactions, 462 source addresses, 216
 fresh destinations, and 388.92748828 BTC in blocks 960778–960792. The blocks and
 transactions exist, but this review did not independently reproduce the entire
 address-set classifier or establish authorization for every spend. It is
-therefore preserved as an **emerging, potential wave** and is **not added** to
-the 1,367.05 BTC Galaxy cumulative total.
+therefore preserved as a **potential wave** and is **not added** to the 1,367.05
+BTC Galaxy cumulative total.
+
+At 03:22 UTC Thorn
+[published a correction](https://x.com/intangiblecoins/status/2084117621864046698)
+after Nunchuk identified multisig transactions in the confirmed-plus-mempool
+pastebins. The update states: 857 addresses / 486.11 BTC as circulated; remove
+89 addresses / 20.58 BTC for multisig; surviving core 709 addresses / 448.73
+BTC. Those address counts and amounts do not arithmetically reconcile by simple
+subtraction, so this report preserves the stated surviving-core values rather
+than inventing a derivation. Thorn also states that Waves 1–3 contain zero
+multisigs and that no direct victim report had yet confirmed Wave 4.
+
+The community tracker separately subtracts six destinations with prior history
+and publishes a derived 703-address / 443.34 BTC figure. Because that step
+assumes those six do not overlap the 89 multisig exclusions, it is recorded as
+a secondary reconstruction rather than replacing Thorn's primary stated core.
 
 ## Search scope and negative results
 
 This review searched current Coinkite and Block publications; Galaxy Research,
-owner, and analyst posts; public GitHub issue/repository search; Hacker News;
-Bing-indexed reporting; and public explorer data. Reddit's public search endpoint
-was inaccessible (HTTP 403). No reviewed primary source provided:
+owner, and analyst posts (including live RSS mirrors and X's public syndication
+endpoint); public GitHub issue/repository search; the community tracker and a
+new 221-destination ledger pull request; Hacker News; Google/Bing-indexed
+reporting; and public explorer data. Reddit's public search endpoint was
+inaccessible (HTTP 403). No reviewed primary source provided:
 
 - an official Coinkite loss total or complete victim list;
 - a machine-readable primary-source list of all 4,585 source addresses and every

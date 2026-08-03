@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "research_cutoff_utc": "2026-08-03T02:00:29Z",
-  "onchain_observed_at_utc": "2026-08-03T02:00:29Z",
+  "research_cutoff_utc": "2026-08-03T05:16:42Z",
+  "onchain_observed_at_utc": "2026-08-03T05:16:42Z",
   "network": "bitcoin-mainnet",
   "explorer_api": "https://mempool.space/api",
   "classification": {
@@ -160,7 +160,7 @@
     {
       "address": "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r",
       "cluster": "galaxy-wave-1",
-      "current_balance_sats": 56202025933
+      "current_balance_sats": 56202026773
     },
     {
       "address": "bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3",
@@ -201,6 +201,52 @@
       "address": "bc1q0mh6rs0mjvv5ncdyqwhqma7hgup3aycucsc279",
       "cluster": "community-july-31",
       "current_balance_sats": 0
+    },
+    {
+      "address": "bc1q05g20l8k0tqjks9sq73mqgqx48pmw2cknju0ml",
+      "cluster": "potential-wave-4-community-reconstruction",
+      "current_balance_sats": 855600708
+    },
+    {
+      "address": "bc1qjenjhm6wgyz9m50svnvlyv6339z6jtmlmv4z23",
+      "cluster": "potential-wave-4-community-reconstruction",
+      "current_balance_sats": 507348539
+    },
+    {
+      "address": "1N8knQCfjqUeJQwjkZZavbboXXL6WVqfDo",
+      "cluster": "potential-wave-4-community-reconstruction",
+      "current_balance_sats": 0,
+      "note": "Community tracker reports 5.61303754 BTC initially received; this observation is the later current balance after an outbound peel, not a stolen amount."
+    },
+    {
+      "address": "342L6n3b61n1CGoh8wCzuzyXUvyZTSjZtz",
+      "cluster": "potential-wave-4-community-reconstruction",
+      "current_balance_sats": 202374869
+    },
+    {
+      "address": "bc1q65e6cd2k5ee2326fwwxsng370vf9pz85yce9u8",
+      "cluster": "potential-wave-4-community-reconstruction",
+      "current_balance_sats": 114852067
+    },
+    {
+      "address": "36XfMDAYuCn76DDJt5HV6kJxCukb1F1x3G",
+      "cluster": "potential-wave-4-community-reconstruction",
+      "current_balance_sats": 109429601
+    },
+    {
+      "address": "bc1qcmnjt058q8hs4fvjr9wlu2kt974fyqnprfjvtl",
+      "cluster": "potential-wave-4-community-reconstruction",
+      "current_balance_sats": 104998888
+    },
+    {
+      "address": "bc1pj7f35576cz0cznm75h6scp9eknqeqx4r666kdpcnk9slgh4sp5vs4sulc2",
+      "cluster": "potential-wave-4-community-reconstruction",
+      "current_balance_sats": 103514173
+    },
+    {
+      "address": "34nHYNnc9DLxo3iCzvSHiyD2YsC3jP4qDQ",
+      "cluster": "potential-wave-4-community-reconstruction",
+      "current_balance_sats": 96227191
     }
   ],
   "emerging_unincluded_report": {
@@ -212,8 +258,26 @@
     "reported_destinations": 216,
     "reported_btc": 388.92748828,
     "classification": "potential_not_included_in_verified_cumulative_total",
-    "reason": "The analyst called it likely while activity was ongoing. This review verified that blocks and transactions exist only at a boundary level; it did not independently reproduce the complete address-set classification or establish owner authorization for every spend.",
-    "source": "https://x.com/intangiblecoins/status/2084079706320646300"
+    "revision_reported_at_utc": "2026-08-03T03:22:16Z",
+    "circulated_confirmed_plus_mempool_addresses": 857,
+    "circulated_confirmed_plus_mempool_btc": 486.11,
+    "excluded_multisig_addresses": 89,
+    "excluded_multisig_btc": 20.58,
+    "primary_reported_surviving_core_addresses": 709,
+    "primary_reported_surviving_core_btc": 448.73,
+    "arithmetic_limitation": "The published circulated, excluded, and surviving address/BTC figures do not reconcile by simple subtraction. This record preserves the analyst's stated surviving-core values without deriving a replacement.",
+    "victim_confirmation": "The analyst explicitly stated that no direct victim report had yet confirmed Wave 4.",
+    "secondary_reconstruction": {
+      "source": "https://github.com/SamSamskies/coldcard-hack-tracker/commit/b6c7529e5b994cd47b0719d0996c9d1ff35887ef",
+      "additional_prior_history_destinations_excluded": 6,
+      "additional_prior_history_btc_excluded": 5.39,
+      "derived_addresses": 703,
+      "derived_btc": 443.34,
+      "limitation": "The community tracker assumes the six prior-history destinations do not overlap the 89 multisig exclusions; this derived figure does not replace the primary analyst's stated core."
+    },
+    "reason": "The analyst called it likely, corrected false-positive multisigs, and explicitly reported no direct victim confirmation. This review did not independently reproduce the complete classifier or establish authorization for every spend.",
+    "source": "https://x.com/intangiblecoins/status/2084079706320646300",
+    "revision_source": "https://x.com/intangiblecoins/status/2084117621864046698"
   },
   "negative_results_and_limits": [
     "Coinkite's advisory confirms exposure and active risk but publishes no official stolen-funds total, victim-address list, or transaction list.",
@@ -221,7 +285,8 @@
     "Galaxy's three-wave total is on-chain attribution, not a public cryptographic reconstruction matching a victim seed to a drained address.",
     "No public source reviewed named the attacker, and no public law-enforcement attribution was found.",
     "The full set of 4,585 source addresses and all theft transaction IDs was not published in machine-readable primary-source form located during this review.",
-    "Current balances are destination observations, not stolen amounts, and later hops are not added to incident totals."
+    "Current balances are destination observations, not stolen amounts, and later hops are not added to incident totals.",
+    "The potential Wave 4 primary correction has internally non-reconciling arithmetic and no direct victim confirmation; its 448.73 BTC core is excluded from the Waves 1–3 cumulative headline."
   ],
   "sources": [
     "https://blog.coinkite.com/coldcard-mk3-seed-generation-warning/",
@@ -234,6 +299,8 @@
     "https://x.com/TomerStrolight/status/2083578868191957292",
     "https://x.com/mariusoffchain/status/2083814011859030252",
     "https://x.com/eriklocalhost/status/2083875886458171626",
-    "https://x.com/intangiblecoins/status/2084079706320646300"
+    "https://x.com/intangiblecoins/status/2084079706320646300",
+    "https://x.com/intangiblecoins/status/2084117621864046698",
+    "https://github.com/SamSamskies/coldcard-hack-tracker"
   ]
 }

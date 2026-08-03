@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "research_cutoff_utc": "2026-08-03T17:55:25Z",
-  "onchain_observed_at_utc": "2026-08-03T17:55:25Z",
+  "research_cutoff_utc": "2026-08-03T21:05:00Z",
+  "onchain_observed_at_utc": "2026-08-03T21:05:00Z",
   "network": "bitcoin-mainnet",
   "explorer_api": "https://mempool.space/api",
   "classification": {
@@ -243,8 +243,8 @@
     {
       "address": "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r",
       "cluster": "galaxy-wave-1",
-      "current_balance_sats": 56202043828,
-      "note": "The 17,055-sat increase since the prior observation is unsolicited inbound activity at a public destination and is not added to stolen-funds totals."
+      "current_balance_sats": 56202063443,
+      "note": "The additional 19,615-sat increase since the prior observation is unsolicited inbound activity at a public destination and is not added to stolen-funds totals."
     },
     {
       "address": "bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3",
@@ -353,8 +353,8 @@
     "victim_confirmation": "The analyst explicitly stated that no direct victim report had yet confirmed Wave 4.",
     "secondary_reconstruction": {
       "source": "https://github.com/SamSamskies/coldcard-hack-tracker/commit/b6c7529e5b994cd47b0719d0996c9d1ff35887ef",
-      "latest_reviewed_revision": "15ca1f6a0051a0b53e33da745ed7168fa2c829f1",
-      "latest_reviewed_at_utc": "2026-08-03T17:55:25Z",
+      "latest_reviewed_revision": "ec16c39d1b31febcb267252eabb670aff236f97c",
+      "latest_reviewed_at_utc": "2026-08-03T21:05:00Z",
       "additional_prior_history_destinations_excluded": 6,
       "additional_prior_history_btc_excluded": 5.39,
       "derived_addresses": 703,

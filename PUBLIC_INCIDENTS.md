@@ -1,6 +1,6 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-03 17:55:25 UTC**. On-chain balances below were
+Research cutoff: **2026-08-03 21:05:00 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
 same time. The machine-readable observations and exact classifications are in
 [`evidence/public-incidents.json`](evidence/public-incidents.json).
@@ -189,7 +189,7 @@ consolidation total nor a guessed 0.1 BTC is recorded as his exact loss.
 
 | Cluster | Destination | Current balance at cutoff |
 | --- | --- | ---: |
-| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02043828 BTC |
+| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02063443 BTC |
 | Galaxy Wave 1 | [`bc1qx76…fhe3`](https://mempool.space/address/bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3) | 398.47576357 BTC |
 | Galaxy Wave 1 | [`bc1q8jy…tp3q`](https://mempool.space/address/bc1q8jy96fe5lf8vfugydnte3cguk92gpev7kwtp3q) | 89.62328890 BTC |
 | Galaxy Wave 1 | [`bc1qnk4…fecp0`](https://mempool.space/address/bc1qnk4zh9qcnap2mycp56qjrgza3cc8ylrh8fecp0) | 32.45058754 BTC |
@@ -213,7 +213,7 @@ proof of defect attribution. Their balances are observations, not additional
 losses.
 
 The tracker was reviewed again at pinned revision
-[`15ca1f6`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/15ca1f6a0051a0b53e33da745ed7168fa2c829f1).
+[`ec16c39`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/ec16c39d1b31febcb267252eabb670aff236f97c).
 It now records that the 5.61303754 BTC initially received by `1N8kn…fDo` was
 fully spent in two transactions. Direct mempool.space checks confirm that
 transaction [`6f19b1…dd235`](https://mempool.space/tx/6f19b1b9e3d602335c62861ce3d90631b34945fd2998d9bcd7e6a14a68fdd235)
@@ -224,13 +224,13 @@ that input with 33 others, so neither its 146.77351359 BTC main output nor the
 tracker's secondary service attribution is assigned to this source. These are
 later-hop movement observations, **not additional theft amounts**.
 
-The Wave 1 main destination gained 17,055 sats since the prior observation.
+The Wave 1 main destination gained another 19,615 sats since the prior observation.
 That unsolicited inbound activity at a published address is reflected in the
 current balance but is not treated as stolen value or a new victim payment.
 
-The four published Wave 1 destinations total 1,082.57007829 BTC at the cutoff;
+The four published Wave 1 destinations total 1,082.57027444 BTC at the cutoff;
 the two listed Wave 2 destinations total 76.08730323 BTC. Their six-address sum
-is 1,158.65738152 BTC. These sums are not replacements for Galaxy's stolen-BTC
+is 1,158.65757767 BTC. These sums are not replacements for Galaxy's stolen-BTC
 figures: transaction fees and any destination omitted from this public list
 explain why held balance and reported source value differ.
 
@@ -282,9 +282,13 @@ owner, and analyst posts (including live RSS mirrors and X's public syndication
 endpoint); public GitHub issue/repository search; the community tracker and a
 new 221-destination ledger pull request; Bloomberg's new owner interview;
 new CoinDesk, Decrypt, Bitcoin Magazine, and Protos coverage; Hacker News;
-Google/Bing-indexed reporting; Bitcoin Magazine and new Fortune/The Block news
-index entries; and public explorer data. This review added Thorn's nearly 30 BTC
-Coldcard-victim report, but it contains no public address or transaction ID.
+Google/Bing-indexed reporting; Bitcoin Magazine and newer Fortune, Cybernews,
+Fox, and Bitcoin News coverage; and public explorer data. The later coverage
+repackages the potential Wave 4 figures (often as a rounded 1,816 BTC total) or
+the already-recorded nearly 30 BTC / approximately 17 BTC victim report; it does
+not publish a new primary victim-address or transaction corpus. This review
+retains Thorn's nearly 30 BTC Coldcard-victim report, but it contains no public
+address or transaction ID.
 The other new coverage restates Thorn's corrected
 709-address / 448.73 BTC potential Wave 4 rather than adding a direct victim or
 primary transaction corpus. Reddit's public search endpoint was

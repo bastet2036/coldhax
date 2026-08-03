@@ -1,0 +1,83 @@
+{
+  "generated_at_utc": "2026-08-01T15:49:03.433343+00:00",
+  "scope": "local authoritative inputs only",
+  "source_urls": [
+    "https://coldcard.com/downloads/mk3",
+    "https://github.com/Coldcard/firmware/tree/v4-legacy",
+    "https://blog.coinkite.com/coldcard-mk3-seed-generation-warning/",
+    "https://github.com/Coldcard/firmware/blob/621e808712464688584fdffad9eba132cc7c27cd/shared/seed.py#L276-L332"
+  ],
+  "firmware_repository": {
+    "head": "43770339b0b97753b883c58764ce17f081350b30",
+    "branch": "v4-legacy",
+    "affected_tag": "2023-06-26T1241-v4.1.9",
+    "affected_tag_object": "79a5eb06c18322d6173e75d07c409af81bad984f",
+    "affected_commit": "bc511ee34c8e7abaa0a4837571af9b6b8a4f9ef2",
+    "fixed_revision": "43770339b0b97753b883c58764ce17f081350b30",
+    "fix_commit": "4543629941a83a3e2788ac06a12b208338cb8314",
+    "libngu_gitlink": "356b9137cf7ddf5de66ec4cdc0a4d757b2e42790",
+    "micropython_gitlink": "f3b2a8c2e988fc9cdf16812bb48a9964911329a9"
+  },
+  "inputs": {
+    "2023-06-26T1241-v4.1.9-coldcard.dfu": {
+      "size": 760637,
+      "sha256": "f6fb19d95bd1e38535f137bed60cafbfcd52379a686e3d12f372f881d78e640e"
+    },
+    "2026-07-31T1248-v4.2.0-coldcard.dfu": {
+      "size": 760637,
+      "sha256": "a84666a5ca33293c7f633721c2e1d43a00ed6bcb10968acaa63821e725601b7f"
+    },
+    "mk3-downloads.html": {
+      "size": 32932,
+      "sha256": "40e486f71dfe05443d05701f628cd01fa5b30e7f70f446d90b53c7bd437c61a7"
+    },
+    "seed-generation-warning.html": {
+      "size": 30098,
+      "sha256": "8424847030f170524b9bf425b7d7236d2b8116c3739ab077f589d939ef374432"
+    }
+  },
+  "dfu": {
+    "2023-06-26T1241-v4.1.9-coldcard.dfu": [
+      {
+        "target_index": 0,
+        "alternate": 0,
+        "named": true,
+        "name": "ST...",
+        "declared_size": 760336,
+        "elements": [
+          {
+            "address": "0x08008000",
+            "size": 729600,
+            "sha256": "d6f42790b235b348f999dfb55a5a023bbcb960519f0b95492d86a041cebbc134"
+          },
+          {
+            "address": "0x08000000",
+            "size": 30720,
+            "sha256": "d6b1d781333e996d18ff8d8388263135b6c29e1265d5c97812de350f82b7f127"
+          }
+        ]
+      }
+    ],
+    "2026-07-31T1248-v4.2.0-coldcard.dfu": [
+      {
+        "target_index": 0,
+        "alternate": 0,
+        "named": true,
+        "name": "ST...",
+        "declared_size": 760336,
+        "elements": [
+          {
+            "address": "0x08008000",
+            "size": 729600,
+            "sha256": "a978c845b57221973b52d7eed9befd8f70c475881e2c234b69417790dea4e088"
+          },
+          {
+            "address": "0x08000000",
+            "size": 30720,
+            "sha256": "d6b1d781333e996d18ff8d8388263135b6c29e1265d5c97812de350f82b7f127"
+          }
+        ]
+      }
+    ]
+  }
+}

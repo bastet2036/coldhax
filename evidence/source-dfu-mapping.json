@@ -1,0 +1,40 @@
+{
+  "scope": "source-to-published-DFU mapping; no equivalence claim",
+  "affected_4_1_9": {
+    "source_tag": "2023-06-26T1241-v4.1.9",
+    "tag_object": "79a5eb06c18322d6173e75d07c409af81bad984f",
+    "peeled_commit": "bc511ee34c8e7abaa0a4837571af9b6b8a4f9ef2",
+    "dfu_filename": "2023-06-26T1241-v4.1.9-coldcard.dfu",
+    "dfu_sha256": "f6fb19d95bd1e38535f137bed60cafbfcd52379a686e3d12f372f881d78e640e",
+    "mapping_evidence": [
+      "The annotated source tag name exactly matches the published DFU filename stem.",
+      "releases/signatures.txt in the upstream repository records this filename and SHA-256.",
+      "The local DFU hash matches that signed-release manifest entry."
+    ],
+    "exact_rebuild_status": "not attempted in-place because an affected checkout would require a disposable worktree and the required Docker daemon is inaccessible; source/tag-to-release mapping is strong but binary reproducibility remains unproven"
+  },
+  "fixed_4_2_0": {
+    "source_revision": "43770339b0b97753b883c58764ce17f081350b30",
+    "version_first_set_commit": "8a71a5a66727dca943d860163450faa9f7bc7488",
+    "rng_fix_commit": "4543629941a83a3e2788ac06a12b208338cb8314",
+    "dfu_filename": "2026-07-31T1248-v4.2.0-coldcard.dfu",
+    "dfu_sha256": "a84666a5ca33293c7f633721c2e1d43a00ed6bcb10968acaa63821e725601b7f",
+    "mapping_evidence": [
+      "The local v4-legacy source says VERSION_STRING=4.2.0 and contains the RNG fix.",
+      "The local DFU embeds the 4.2.0 version and 2026-07-31 build strings.",
+      "Binary disassembly removes the affected fallback and is consistent with the fixed symbol provider."
+    ],
+    "mapping_gap": "No local 4.2.0 source tag or releases/signatures.txt entry binds this DFU to an exact commit.",
+    "exact_rebuild_status": "blocked: Docker client cannot access /var/run/docker.sock; host lacks arm-none-eabi-gcc; even a successful HEAD build could not establish exact source identity without a release tag or signed commit mapping"
+  },
+  "historical_build_recipe": {
+    "container_base": "alpine:3.16.0",
+    "arm_toolchain_source": "Alpine edge/testing gcc-arm-none-eabi and newlib-arm-none-eabi",
+    "source_date_epoch_behavior": "repro-build.sh derives SOURCE_DATE_EPOCH from the published DFU filename when one is mapped",
+    "current_environment_observations": [
+      "docker daemon socket permission denied",
+      "arm-none-eabi-gcc not found",
+      "gcc 13.3.0 and OpenSSL 3.0.13 are available for the native narrow harness"
+    ]
+  }
+}

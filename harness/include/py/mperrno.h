@@ -1,0 +1,5 @@
+#ifndef COLDHAX_MICROPY_STUB_MPERRNO_H
+#define COLDHAX_MICROPY_STUB_MPERRNO_H
+#define MP_EFAULT (14)
+#define MP_EEXIST (17)
+#endif

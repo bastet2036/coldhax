@@ -1,0 +1,14 @@
+test_fixed_model_matches_compiled_upstream_path (test_coldhax_model.EvidenceTests.test_fixed_model_matches_compiled_upstream_path) ... ok
+test_generation_time_is_preserved_on_rerun (test_coldhax_model.EvidenceTests.test_generation_time_is_preserved_on_rerun) ... ok
+test_distinct_synthetic_inputs_do_not_repeat_in_bounded_gate (test_coldhax_model.FixedPathTests.test_distinct_synthetic_inputs_do_not_repeat_in_bounded_gate) ... ok
+test_fixed_path_rejects_short_input (test_coldhax_model.FixedPathTests.test_fixed_path_rejects_short_input) ... ok
+test_fixed_path_uses_all_eight_hardware_words (test_coldhax_model.FixedPathTests.test_fixed_path_uses_all_eight_hardware_words) ... ok
+test_affected_model_matches_compiled_upstream_path (test_coldhax_model.YasmarangTests.test_affected_model_matches_compiled_upstream_path) ... ok
+test_cold_boot_repeats_affected_output (test_coldhax_model.YasmarangTests.test_cold_boot_repeats_affected_output) ... ok
+test_each_initializer_register_can_change_output (test_coldhax_model.YasmarangTests.test_each_initializer_register_can_change_output) ... ok
+test_transition_vector_is_stable (test_coldhax_model.YasmarangTests.test_transition_vector_is_stable) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.005s
+
+OK

@@ -1,0 +1,79 @@
+{
+  "label": "TEST-ONLY synthetic entropy bytes; never wallet material",
+  "evidence_tier": "b: exact pinned upstream C entropy components executed with narrow synthetic register shims",
+  "boundaries": [
+    "No device, wallet, mnemonic, key derivation, or physical RNG is used.",
+    "MicroPython object plumbing is stubbed; executed entropy generation is upstream libngu random.c and the selected upstream rng.c provider.",
+    "OpenSSL SHA-256 stands in for the unchanged Python ngu.hash.sha256s call after the 32 upstream bytes are produced.",
+    "Each run is a fresh process so upstream static PRNG initialization matches a cold start."
+  ],
+  "revisions": {
+    "firmware_affected_commit": "bc511ee34c8e7abaa0a4837571af9b6b8a4f9ef2",
+    "firmware_fixed_revision": "43770339b0b97753b883c58764ce17f081350b30",
+    "libngu": "356b9137cf7ddf5de66ec4cdc0a4d757b2e42790",
+    "micropython": "f3b2a8c2e988fc9cdf16812bb48a9964911329a9"
+  },
+  "compiled_source_sha256": {
+    "libngu_random": "812585e47b2f9251693280c95b5e58558cbd564d62e4398b17388f9cb5198abb",
+    "micropython_affected_provider": "66ecfdf8111b80aa09456d49751100466f9e596a20839af32b5e6529b4e26742",
+    "v4_legacy_fixed_provider": "50629f09b7f87a2381c86c358de525a2188d6b57e1e6903b5b7fdb13dc5de839"
+  },
+  "binary_sha256": {
+    "affected": "b4dab7b654ad4cd8de97dcb6420709df21c657064af93ca33d0ba99213fb1903",
+    "fixed": "757af9fbb424ed6ff99e0fed12b5e5c2f09dc1db38a89352f14b0881299d6f41"
+  },
+  "affected_4_1_9": {
+    "provider_input_kind": "SysTick/UID/RTC synthetic register tuple",
+    "identical_input_control": {
+      "runs_in_fresh_processes": 256,
+      "unique_raw_outputs": 1,
+      "unique_sha256_outputs": 1,
+      "passed": true
+    },
+    "varied_input_control": {
+      "runs_in_fresh_processes": 256,
+      "unique_raw_outputs": 256,
+      "unique_sha256_outputs": 256,
+      "passed": true
+    },
+    "each_provider_input_high_bit_flip_changes_sha256": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "sample": {
+      "raw_entropy": "78d18035b7b482a4d3a84dfb0d0859d68afc73ba9bf6b2b49ba49fe31b0843b2",
+      "sha256_seed_entropy": "fbeaf23ca0327df5a93cbcc11a9acf8542f1f0b5211d5ae8246cc755f7f2a86b"
+    }
+  },
+  "fixed_v4_legacy_4_2_0": {
+    "provider_input_kind": "synthetic hardware RNG word stream",
+    "identical_input_control": {
+      "runs_in_fresh_processes": 256,
+      "unique_raw_outputs": 1,
+      "unique_sha256_outputs": 1,
+      "passed": true
+    },
+    "varied_input_control": {
+      "runs_in_fresh_processes": 256,
+      "unique_raw_outputs": 256,
+      "unique_sha256_outputs": 256,
+      "passed": true
+    },
+    "each_provider_input_high_bit_flip_changes_sha256": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "sample": {
+      "raw_entropy": "44ccbc468a124d4a3a1f3cdbd71744c076a374ee2b54f5025eb65a4ef416af6c",
+      "sha256_seed_entropy": "6ce406f9c3edaa3560446d23bb36d8314f288afdac03c8da5d124e867c74a69d"
+    }
+  }
+}

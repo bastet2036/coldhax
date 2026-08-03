@@ -1,0 +1,16 @@
+# Keep public history free of raw/vendor artifacts, nested repositories, logs, and local state.
+/sources/
+/state/
+/logs/
+/harness/build/
+/__pycache__/
+*.py[cod]
+*.dfu
+*.bin
+*.elf
+*.o
+
+# Local editor and OS files.
+.DS_Store
+*.swp
+*~

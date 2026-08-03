@@ -1,0 +1,55 @@
+{
+  "classification": "TEST-ONLY tier-b upstream C component execution with narrow register shims; not hardware emulation",
+  "affected": {
+    "version": "4.1.9",
+    "tag": "2023-06-26T1241-v4.1.9",
+    "commit": "bc511ee34c8e7abaa0a4837571af9b6b8a4f9ef2",
+    "seed_path": [
+      "shared/seed.py:370 random.bytes(32)",
+      "shared/random.py:11 ngu.random.bytes",
+      "shared/seed.py:375 ngu.hash.sha256s(seed)"
+    ],
+    "dfu_fallback_code": {
+      "main_element_base": "0x08008000",
+      "function_range": "0x0803df94-0x0803e000",
+      "transition_range": "0x0803dfc4-0x0803e000",
+      "initializer_inputs": {
+        "systick_current": "0xe000e018",
+        "uid_word": "0x1fff7590",
+        "rtc_time": "0x40002800",
+        "rtc_subsecond": "0x40002828"
+      }
+    }
+  },
+  "fixed": {
+    "version": "4.2.0",
+    "source_revision": "43770339b0b97753b883c58764ce17f081350b30",
+    "release_tag_present_locally": false,
+    "fix_commit": "4543629941a83a3e2788ac06a12b208338cb8314",
+    "changes": [
+      "board rng.c exports global rng_get",
+      "MicroPython fallback rng.o is replaced by empty object",
+      "build checks symbol provider"
+    ],
+    "fallback_provider": "removed and replaced by board global rng_get"
+  },
+  "unchanged_dependencies": {
+    "libngu": "356b9137cf7ddf5de66ec4cdc0a4d757b2e42790",
+    "micropython": "f3b2a8c2e988fc9cdf16812bb48a9964911329a9"
+  },
+  "executable_evidence": {
+    "tier": "b",
+    "result_file": "evidence/upstream-execution.json",
+    "affected_provider": "exact pinned MicroPython ports/stm32/rng.c",
+    "fixed_provider": "exact v4-legacy stm32/COLDCARD/rng.c",
+    "consumer": "exact pinned libngu ngu/random.c",
+    "sha256_boundary": "local OpenSSL equivalent of unchanged ngu.hash.sha256s call"
+  },
+  "limitations": [
+    "no complete simulator, firmware, or hardware execution",
+    "no physical RNG quality measurement",
+    "no reproducible source-to-DFU build",
+    "4.2.0 DFU has no local exact source tag or signed commit mapping",
+    "no wallet keys, mnemonic generation, or search functionality"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "label": "TEST-ONLY source/model-level proof; not hardware emulation",
+  "sample_count": 256,
+  "positive_control": {
+    "identical_register_tuple_resets": 256,
+    "cold_boot_model_unique_outputs": 1,
+    "pass_condition": "exactly one unique output",
+    "passed": true
+  },
+  "negative_control": {
+    "distinct_injected_hardware_inputs": 256,
+    "unique_outputs": 256,
+    "each_of_eight_words_high_bit_flip_changes_result": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "pass_condition": "256 unique outputs and every input word contributes",
+    "passed": true
+  },
+  "interpretation_limit": "A bounded deterministic collision/contribution check only; it is not a randomness test and makes no estimate of physical RNG entropy."
+}

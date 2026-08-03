@@ -1,0 +1,48 @@
+# Commands executed from /home/user/clawd/coldhax unless noted.
+# This is a reproducibility transcript, not a shell script.
+
+git status --short --branch
+git -C sources/firmware status --short --branch
+git -C sources/firmware log -8 --oneline --decorate
+sha256sum sources/*.dfu sources/*.html
+stat -c '%n|size=%s|mtime=%y' sources/*.dfu sources/*.html
+file sources/*.dfu
+strings -a sources/2023-06-26T1241-v4.1.9-coldcard.dfu
+strings -a sources/2026-07-31T1248-v4.2.0-coldcard.dfu
+git -C sources/firmware tag --list '*4.1.9*' '*4.2.0*' --format='%(refname:short) %(objectname) %(creatordate:iso-strict)'
+git -C sources/firmware log --all --decorate --oneline -- shared/seed.py stm32/COLDCARD
+git -C sources/firmware show --format=fuller --no-ext-diff 4543629
+git -C sources/firmware show 2023-06-26T1241-v4.1.9:shared/seed.py
+git -C sources/firmware show HEAD:shared/seed.py
+git -C sources/firmware show 621e808712464688584fdffad9eba132cc7c27cd:shared/seed.py
+git -C sources/firmware diff 2023-06-26T1241-v4.1.9..HEAD -- shared/seed.py stm32/COLDCARD/rng.c stm32/COLDCARD/rng.h stm32/COLDCARD/mpconfigboard.mk stm32/Makefile
+git -C sources/firmware ls-tree 2023-06-26T1241-v4.1.9 external/libngu external/micropython
+git -C sources/firmware ls-tree HEAD external/libngu external/micropython
+git -C sources/firmware grep -n -E 'New Wallet|make_new_wallet|new_wallet|random_bytes|ngu.random|rng_bytes' 2023-06-26T1241-v4.1.9 -- '*.py' '*.c'
+cmp -l sources/2023-06-26T1241-v4.1.9-coldcard.dfu sources/2026-07-31T1248-v4.2.0-coldcard.dfu
+objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08008000 state/affected-firmware.bin > state/affected-disassembly.txt
+objdump -D -b binary -m arm -M force-thumb --adjust-vma=0x08008000 state/fixed-firmware.bin > state/fixed-disassembly.txt
+grep -n -E '^ *803[d-f][0-9a-f]+:.*(lsls.*#31|muls|ror)' state/affected-disassembly.txt
+objdump -D -b binary -m arm -M force-thumb --start-address=0x0803e1f0 --stop-address=0x0803e250 --adjust-vma=0x08008000 state/affected-firmware.bin
+python3 -m unittest -v
+python3 generate_evidence.py
+python3 -m unittest -v 2>&1 | tee evidence/test-results.txt
+python3 -m py_compile coldhax_model.py generate_evidence.py test_coldhax_model.py
+python3 -m json.tool evidence/analysis.json >/dev/null
+python3 -m json.tool evidence/proof-gates.json >/dev/null
+python3 -m json.tool evidence/provenance.json >/dev/null
+sha256sum README.md REPORT.md coldhax_model.py generate_evidence.py test_coldhax_model.py evidence/analysis.json evidence/commands.txt evidence/proof-gates.json evidence/provenance.json evidence/test-results.txt > evidence/artifact-hashes.txt
+
+# Phase 2 upstream component execution
+git -C sources/firmware submodule update --init -- external/libngu external/micropython
+git -C sources/firmware submodule status -- external/libngu external/micropython
+harness/build.sh
+python3 run_upstream_evidence.py > logs/upstream-execution-console.txt
+python3 -m json.tool evidence/upstream-execution.json >/dev/null
+git -C sources/firmware grep -n -E '4\.1\.9|4\.2\.0' -- releases stm32
+docker version --format '{{.Server.Version}}'
+python3 generate_evidence.py
+python3 -m unittest -v
+python3 -m py_compile coldhax_model.py generate_evidence.py run_upstream_evidence.py test_coldhax_model.py
+python3 -m json.tool evidence/source-dfu-mapping.json >/dev/null
+sha256sum -c evidence/artifact-hashes.txt

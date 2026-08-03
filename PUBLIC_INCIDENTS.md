@@ -1,6 +1,6 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-03 14:45:59 UTC**. On-chain balances below were
+Research cutoff: **2026-08-03 17:55:25 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
 same time. The machine-readable observations and exact classifications are in
 [`evidence/public-incidents.json`](evidence/public-incidents.json).
@@ -25,6 +25,13 @@ source reconstructed a victim seed and matched it to a drained address, and no
 source named or established the identity of an attacker. Therefore this report
 classifies the aggregate waves and individual cases as **suspected attribution
 to this defect**, not conclusively attributed exploitation.
+
+Galaxy's Alex Thorn also reported a separate **nearly 30 BTC Coldcard victim**,
+with approximately **17 BTC** peeled through THORChain into ETH and then sent to
+Duel.com. The reviewed post supplies no victim/attacker address or BTC/ETH
+transaction ID. This report preserves it as an approximate analyst-reported case
+but excludes it from all totals because the route and distinctness cannot be
+independently verified.
 
 An August 3 fourth-wave alert has now been revised from its initial in-progress
 figures to a **709-address / 448.73 BTC surviving core after excluding 89
@@ -111,6 +118,24 @@ the owner report but does not supply the missing on-chain identifiers.
   verified and must not be added to Galaxy's cumulative total because overlap
   with the aggregate waves is unresolved.
 
+### Nearly 30 BTC Coldcard victim — analyst report without identifiers
+
+[Galaxy's Alex Thorn reported](https://x.com/intangiblecoins/status/2083792644048597326)
+a **nearly 30 BTC Coldcard victim**, saying approximately **17 BTC** was peeled,
+swapped through THORChain to ETH, and deposited at Duel.com. Thorn said the
+victim and a researcher contacted Duel.com with the known addresses, but the
+reviewed public post does not itself publish those addresses or any BTC/ETH
+transaction IDs.
+
+- Affected/exposed: **analyst report says Coldcard**; model and generation
+  firmware are unstated.
+- Unauthorized spend: **analyst report describes a victim and attempted freeze**.
+- Attributed exploitation: **suspected, not conclusively proved**.
+- Amount: “nearly 30 BTC” and “17 BTC” are approximate analyst-reported figures,
+  not independently verified on-chain values.
+- Double counting: neither figure is added to Galaxy's cumulative total because
+  overlap and distinctness cannot be established without public identifiers.
+
 ### Mk3 testing wallet — owner report with transaction ID
 
 [Erik reported](https://x.com/eriklocalhost/status/2083875886458171626)
@@ -164,7 +189,7 @@ consolidation total nor a guessed 0.1 BTC is recorded as his exact loss.
 
 | Cluster | Destination | Current balance at cutoff |
 | --- | --- | ---: |
-| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02026773 BTC |
+| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02043828 BTC |
 | Galaxy Wave 1 | [`bc1qx76…fhe3`](https://mempool.space/address/bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3) | 398.47576357 BTC |
 | Galaxy Wave 1 | [`bc1q8jy…tp3q`](https://mempool.space/address/bc1q8jy96fe5lf8vfugydnte3cguk92gpev7kwtp3q) | 89.62328890 BTC |
 | Galaxy Wave 1 | [`bc1qnk4…fecp0`](https://mempool.space/address/bc1qnk4zh9qcnap2mycp56qjrgza3cc8ylrh8fecp0) | 32.45058754 BTC |
@@ -188,7 +213,7 @@ proof of defect attribution. Their balances are observations, not additional
 losses.
 
 The tracker was reviewed again at pinned revision
-[`662b775`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/662b7756f25755c00e841b4df5502ee51363e013).
+[`15ca1f6`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/15ca1f6a0051a0b53e33da745ed7168fa2c829f1).
 It now records that the 5.61303754 BTC initially received by `1N8kn…fDo` was
 fully spent in two transactions. Direct mempool.space checks confirm that
 transaction [`6f19b1…dd235`](https://mempool.space/tx/6f19b1b9e3d602335c62861ce3d90631b34945fd2998d9bcd7e6a14a68fdd235)
@@ -199,9 +224,13 @@ that input with 33 others, so neither its 146.77351359 BTC main output nor the
 tracker's secondary service attribution is assigned to this source. These are
 later-hop movement observations, **not additional theft amounts**.
 
-The four published Wave 1 destinations total 1,082.56990774 BTC at the cutoff;
+The Wave 1 main destination gained 17,055 sats since the prior observation.
+That unsolicited inbound activity at a published address is reflected in the
+current balance but is not treated as stolen value or a new victim payment.
+
+The four published Wave 1 destinations total 1,082.57007829 BTC at the cutoff;
 the two listed Wave 2 destinations total 76.08730323 BTC. Their six-address sum
-is 1,158.65721097 BTC. These sums are not replacements for Galaxy's stolen-BTC
+is 1,158.65738152 BTC. These sums are not replacements for Galaxy's stolen-BTC
 figures: transaction fees and any destination omitted from this public list
 explain why held balance and reported source value differ.
 
@@ -253,8 +282,9 @@ owner, and analyst posts (including live RSS mirrors and X's public syndication
 endpoint); public GitHub issue/repository search; the community tracker and a
 new 221-destination ledger pull request; Bloomberg's new owner interview;
 new CoinDesk, Decrypt, Bitcoin Magazine, and Protos coverage; Hacker News;
-Google/Bing-indexed reporting; and public explorer data. This review added Tim
-Lamb's direct Mk3 owner report, but it contains no address or transaction ID.
+Google/Bing-indexed reporting; Bitcoin Magazine and new Fortune/The Block news
+index entries; and public explorer data. This review added Thorn's nearly 30 BTC
+Coldcard-victim report, but it contains no public address or transaction ID.
 The other new coverage restates Thorn's corrected
 709-address / 448.73 BTC potential Wave 4 rather than adding a direct victim or
 primary transaction corpus. Reddit's public search endpoint was
@@ -270,7 +300,9 @@ inaccessible (HTTP 403). No reviewed primary source provided:
 - source addresses or transaction IDs to independently verify Goodman's exact
   owner-reported amount; or
 - source addresses or transaction IDs to independently verify Lamb's 2 BTC
-  owner-reported Mk3 loss.
+  owner-reported Mk3 loss; or
+- victim/attacker addresses or BTC/ETH transaction IDs to independently verify
+  Thorn's nearly 30 BTC victim report or approximately 17 BTC reported peel.
 
 This negative result does not mean no further cases exist. It states what could
 and could not be verified by the cutoff without collecting or deriving any

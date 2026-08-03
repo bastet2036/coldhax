@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "research_cutoff_utc": "2026-08-03T14:45:59Z",
-  "onchain_observed_at_utc": "2026-08-03T14:45:59Z",
+  "research_cutoff_utc": "2026-08-03T17:55:25Z",
+  "onchain_observed_at_utc": "2026-08-03T17:55:25Z",
   "network": "bitcoin-mainnet",
   "explorer_api": "https://mempool.space/api",
   "classification": {
@@ -82,6 +82,23 @@
       "public_source_addresses": [],
       "double_counting_note": "Do not add this owner-reported amount to Galaxy's cumulative total because overlap with the analyst-classified waves is unresolved.",
       "source": "https://x.com/theretailbull/status/2083930775217488305"
+    },
+    {
+      "id": "thorn-nearly-thirty-bitcoin-coldcard-victim",
+      "reported_at_utc": "2026-08-02T05:50:55Z",
+      "affected_or_exposed": "analyst_report_confirmed_coldcard_model_and_generation_firmware_unstated",
+      "unauthorized_spend": "analyst_report_of_victim_theft",
+      "attributed_exploitation": "suspected_not_computationally_confirmed",
+      "analyst_reported_victim_stack_btc_approx": 30,
+      "analyst_reported_peeled_btc_approx": 17,
+      "reported_route": "Approximately 17 BTC was reportedly peeled, swapped through THORChain to ETH, and deposited at Duel.com.",
+      "amount_verification": "The analyst described the victim stack as nearly 30 BTC and the peeled amount as 17 BTC, but published no victim/attacker address or BTC/ETH transaction ID in the reviewed post. Neither amount is independently on-chain verified here.",
+      "model": null,
+      "generation_firmware": null,
+      "transaction_ids": [],
+      "public_source_addresses": [],
+      "double_counting_note": "Do not add either approximate amount to Galaxy's cumulative total because overlap is unresolved and no public transaction identifiers bind the report to a distinct incident.",
+      "source": "https://x.com/intangiblecoins/status/2083792644048597326"
     },
     {
       "id": "erik-mk3-testing-wallet",
@@ -226,7 +243,8 @@
     {
       "address": "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r",
       "cluster": "galaxy-wave-1",
-      "current_balance_sats": 56202026773
+      "current_balance_sats": 56202043828,
+      "note": "The 17,055-sat increase since the prior observation is unsolicited inbound activity at a public destination and is not added to stolen-funds totals."
     },
     {
       "address": "bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3",
@@ -335,8 +353,8 @@
     "victim_confirmation": "The analyst explicitly stated that no direct victim report had yet confirmed Wave 4.",
     "secondary_reconstruction": {
       "source": "https://github.com/SamSamskies/coldcard-hack-tracker/commit/b6c7529e5b994cd47b0719d0996c9d1ff35887ef",
-      "latest_reviewed_revision": "662b7756f25755c00e841b4df5502ee51363e013",
-      "latest_reviewed_at_utc": "2026-08-03T14:45:59Z",
+      "latest_reviewed_revision": "15ca1f6a0051a0b53e33da745ed7168fa2c829f1",
+      "latest_reviewed_at_utc": "2026-08-03T17:55:25Z",
       "additional_prior_history_destinations_excluded": 6,
       "additional_prior_history_btc_excluded": 5.39,
       "derived_addresses": 703,
@@ -355,6 +373,7 @@
     "The full set of 4,585 source addresses and all theft transaction IDs was not published in machine-readable primary-source form located during this review.",
     "Jonathan Goodman's exact 18.25245043 BTC owner-reported loss has no published source address or transaction ID and cannot be independently verified or added to the cumulative waves.",
     "Tim Lamb's owner-reported 2 BTC Mk3 loss has no published source address, transaction ID, or generation-firmware version and cannot be independently verified or added to the cumulative waves.",
+    "Alex Thorn's report of a nearly 30 BTC Coldcard victim and an approximately 17 BTC peel through THORChain to Duel.com supplies no public victim/attacker address or BTC/ETH transaction ID; it is retained as an unverified analyst report and excluded from totals.",
     "Current balances are destination observations, not stolen amounts, and later hops are not added to incident totals.",
     "The potential Wave 4 primary correction has internally non-reconciling arithmetic and no direct victim confirmation; its 448.73 BTC core is excluded from the Waves 1–3 cumulative headline."
   ],
@@ -371,12 +390,14 @@
     "https://x.com/eriklocalhost/status/2083875886458171626",
     "https://x.com/itscoachgoodman/status/2083527082223563157",
     "https://x.com/theretailbull/status/2083930775217488305",
+    "https://x.com/intangiblecoins/status/2083792644048597326",
     "https://www.bloomberg.com/news/articles/2026-08-03/hackers-target-bitcoin-s-safest-hiding-place-in-ongoing-attack",
     "https://x.com/intangiblecoins/status/2084079706320646300",
     "https://x.com/intangiblecoins/status/2084117621864046698",
     "https://github.com/SamSamskies/coldcard-hack-tracker",
     "https://www.coindesk.com/tech/2026/08/03/coldcard-wallet-losses-may-near-usd114-million-as-possible-fourth-sweep-emerges",
     "https://decrypt.co/374820/coldcard-losses-near-114m-as-small-bitcoin-transfers-spike",
-    "https://www.protos.com/a-timeline-of-coldcards-85m-bitcoin-theft/"
+    "https://www.protos.com/a-timeline-of-coldcards-85m-bitcoin-theft/",
+    "https://bitcoinmagazine.com/news/coldcard-bitcoin-theft-continues"
   ]
 }

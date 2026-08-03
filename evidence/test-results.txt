@@ -16,8 +16,9 @@ test_latest_total_is_cumulative_not_additive (test_public_incidents.PublicIncide
 test_owner_case_does_not_double_count_consolidation (test_public_incidents.PublicIncidentTests.test_owner_case_does_not_double_count_consolidation) ... ok
 test_public_artifacts_contain_no_obvious_secret_material (test_public_incidents.PublicIncidentTests.test_public_artifacts_contain_no_obvious_secret_material) ... ok
 test_representative_transactions_are_unique_and_labeled (test_public_incidents.PublicIncidentTests.test_representative_transactions_are_unique_and_labeled) ... ok
+test_thorn_approximate_case_fails_closed_without_identifiers (test_public_incidents.PublicIncidentTests.test_thorn_approximate_case_fails_closed_without_identifiers) ... ok
 
 ----------------------------------------------------------------------
-Ran 18 tests in 0.007s
+Ran 19 tests in 0.007s
 
 OK

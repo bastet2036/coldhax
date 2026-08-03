@@ -81,6 +81,18 @@ class PublicIncidentTests(unittest.TestCase):
         self.assertIsNone(lamb["generation_firmware"])
         self.assertIn("Do not add", lamb["double_counting_note"])
 
+    def test_thorn_approximate_case_fails_closed_without_identifiers(self) -> None:
+        thorn = next(
+            row
+            for row in self.data["public_owner_or_witness_reports"]
+            if row["id"] == "thorn-nearly-thirty-bitcoin-coldcard-victim"
+        )
+        self.assertEqual(thorn["analyst_reported_victim_stack_btc_approx"], 30)
+        self.assertEqual(thorn["analyst_reported_peeled_btc_approx"], 17)
+        self.assertEqual(thorn["transaction_ids"], [])
+        self.assertEqual(thorn["public_source_addresses"], [])
+        self.assertIn("Do not add", thorn["double_counting_note"])
+
     def test_representative_transactions_are_unique_and_labeled(self) -> None:
         transactions = self.data["representative_onchain_transactions"]
         self.assertEqual(len(transactions), 5)

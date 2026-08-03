@@ -1,6 +1,6 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-03 08:25:54 UTC**. On-chain balances below were
+Research cutoff: **2026-08-03 11:34:11 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
 same time. The machine-readable observations and exact classifications are in
 [`evidence/public-incidents.json`](evidence/public-incidents.json).
@@ -166,6 +166,18 @@ potential attacker destinations**, not victim addresses and not independent
 proof of defect attribution. Their balances are observations, not additional
 losses.
 
+The tracker was reviewed again at pinned revision
+[`54f4add`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/54f4add44be95679196429abba34831916c1ba09).
+It now records that the 5.61303754 BTC initially received by `1N8kn…fDo` was
+fully spent in two transactions. Direct mempool.space checks confirm that
+transaction [`6f19b1…dd235`](https://mempool.space/tx/6f19b1b9e3d602335c62861ce3d90631b34945fd2998d9bcd7e6a14a68fdd235)
+spent its only input of 2.79332251 BTC in block 960793, and transaction
+[`23a84f…c709c`](https://mempool.space/tx/23a84f33fe49943e34f58bcecc945f719208f10c2a65f1ea12944ec103bc709c)
+spent the remaining 2.81971503 BTC input in block 960818. The latter combines
+that input with 33 others, so neither its 146.77351359 BTC main output nor the
+tracker's secondary service attribution is assigned to this source. These are
+later-hop movement observations, **not additional theft amounts**.
+
 The four published Wave 1 destinations total 1,082.56990774 BTC at the cutoff;
 the two listed Wave 2 destinations total 76.08730323 BTC. Their six-address sum
 is 1,158.65721097 BTC. These sums are not replacements for Galaxy's stolen-BTC
@@ -184,6 +196,8 @@ of all victim spends:
 | Galaxy Wave 1 | [`4b50d6…440d2`](https://mempool.space/tx/4b50d61a3d6e54c62ee0be13d7e9a8b69bffe7fc2b2cab4e14da56e4e20440d2) | 960190 / 2026-07-30 01:43:00 | 89.62327890 BTC |
 | Galaxy Wave 2 | [`ba1199…d3082`](https://mempool.space/tx/ba119968ec4b82c28f557dfc6cbb2c1834d55145e5a352872c533296d19d3082) | 960377 / 2026-07-31 09:22:57 | 45.90251994 BTC |
 | Community Aug 2 | [`d72e2d…c89a4`](https://mempool.space/tx/d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4) | 960668 / 2026-08-02 04:03:56 | 64.90373764 BTC |
+| Potential Wave 4 later hop | [`6f19b1…dd235`](https://mempool.space/tx/6f19b1b9e3d602335c62861ce3d90631b34945fd2998d9bcd7e6a14a68fdd235) | 960793 / 2026-08-03 00:44:15 | 2.79332251 BTC source input; not a new loss |
+| Potential Wave 4 later hop | [`23a84f…c709c`](https://mempool.space/tx/23a84f33fe49943e34f58bcecc945f719208f10c2a65f1ea12944ec103bc709c) | 960818 / 2026-08-03 03:55:07 | 2.81971503 BTC source input among 34 inputs; not a new loss |
 
 ## Potential Wave 4 — not included in the verified cumulative total
 
@@ -217,8 +231,10 @@ This review searched current Coinkite and Block publications; Galaxy Research,
 owner, and analyst posts (including live RSS mirrors and X's public syndication
 endpoint); public GitHub issue/repository search; the community tracker and a
 new 221-destination ledger pull request; Bloomberg's new owner interview;
-Hacker News; Google/Bing-indexed reporting; and public explorer data. Reddit's
-public search endpoint was
+new CoinDesk and Decrypt Wave 4 coverage; Hacker News; Google/Bing-indexed
+reporting; and public explorer data. The new coverage restates Thorn's corrected
+709-address / 448.73 BTC potential Wave 4 rather than adding a direct victim or
+primary transaction corpus. Reddit's public search endpoint was
 inaccessible (HTTP 403). No reviewed primary source provided:
 
 - an official Coinkite loss total or complete victim list;

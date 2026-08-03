@@ -80,6 +80,16 @@ class PublicIncidentTests(unittest.TestCase):
             self.assertGreater(row["received_sats"], 0)
             self.assertIn("role", row)
 
+    def test_later_hops_are_not_counted_as_new_losses(self) -> None:
+        rows = self.data["later_hop_observations"]
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(sum(row["source_input_sats"] for row in rows), 561303754)
+        self.assertEqual(len({row["transaction_id"] for row in rows}), 2)
+        for row in rows:
+            self.assertEqual(row["classification"], "later_hop_not_additional_loss")
+            self.assertEqual(len(row["transaction_id"]), 64)
+            self.assertGreater(row["source_input_sats"], 0)
+
     def test_emerging_wave_fails_closed(self) -> None:
         emerging = self.data["emerging_unincluded_report"]
         self.assertEqual(

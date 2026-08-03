@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "research_cutoff_utc": "2026-08-03T08:25:54Z",
-  "onchain_observed_at_utc": "2026-08-03T08:25:54Z",
+  "research_cutoff_utc": "2026-08-03T11:34:11Z",
+  "onchain_observed_at_utc": "2026-08-03T11:34:11Z",
   "network": "bitcoin-mainnet",
   "explorer_api": "https://mempool.space/api",
   "classification": {
@@ -177,6 +177,34 @@
       "explorer": "https://mempool.space/tx/d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4"
     }
   ],
+  "later_hop_observations": [
+    {
+      "source_cluster": "potential-wave-4-community-reconstruction",
+      "source_address": "1N8knQCfjqUeJQwjkZZavbboXXL6WVqfDo",
+      "transaction_id": "6f19b1b9e3d602335c62861ce3d90631b34945fd2998d9bcd7e6a14a68fdd235",
+      "block_height": 960793,
+      "block_time_utc": "2026-08-03T00:44:15Z",
+      "transaction_input_count": 1,
+      "source_input_sats": 279332251,
+      "classification": "later_hop_not_additional_loss",
+      "note": "This spends one of the two outputs previously held at the potential Wave 4 destination. Outputs and fees are downstream movement, not new victim losses.",
+      "tracker_revision": "54f4add44be95679196429abba34831916c1ba09",
+      "explorer": "https://mempool.space/tx/6f19b1b9e3d602335c62861ce3d90631b34945fd2998d9bcd7e6a14a68fdd235"
+    },
+    {
+      "source_cluster": "potential-wave-4-community-reconstruction",
+      "source_address": "1N8knQCfjqUeJQwjkZZavbboXXL6WVqfDo",
+      "transaction_id": "23a84f33fe49943e34f58bcecc945f719208f10c2a65f1ea12944ec103bc709c",
+      "block_height": 960818,
+      "block_time_utc": "2026-08-03T03:55:07Z",
+      "transaction_input_count": 34,
+      "source_input_sats": 281971503,
+      "classification": "later_hop_not_additional_loss",
+      "note": "This spends the destination's remaining output together with 33 unrelated or separately classified inputs. The aggregate outputs must not be assigned to this source.",
+      "tracker_revision": "54f4add44be95679196429abba34831916c1ba09",
+      "explorer": "https://mempool.space/tx/23a84f33fe49943e34f58bcecc945f719208f10c2a65f1ea12944ec103bc709c"
+    }
+  ],
   "destination_balance_observations": [
     {
       "address": "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r",
@@ -290,6 +318,8 @@
     "victim_confirmation": "The analyst explicitly stated that no direct victim report had yet confirmed Wave 4.",
     "secondary_reconstruction": {
       "source": "https://github.com/SamSamskies/coldcard-hack-tracker/commit/b6c7529e5b994cd47b0719d0996c9d1ff35887ef",
+      "latest_reviewed_revision": "54f4add44be95679196429abba34831916c1ba09",
+      "latest_reviewed_at_utc": "2026-08-03T11:34:11Z",
       "additional_prior_history_destinations_excluded": 6,
       "additional_prior_history_btc_excluded": 5.39,
       "derived_addresses": 703,
@@ -325,6 +355,8 @@
     "https://www.bloomberg.com/news/articles/2026-08-03/hackers-target-bitcoin-s-safest-hiding-place-in-ongoing-attack",
     "https://x.com/intangiblecoins/status/2084079706320646300",
     "https://x.com/intangiblecoins/status/2084117621864046698",
-    "https://github.com/SamSamskies/coldcard-hack-tracker"
+    "https://github.com/SamSamskies/coldcard-hack-tracker",
+    "https://www.coindesk.com/tech/2026/08/03/coldcard-wallet-losses-may-near-usd114-million-as-possible-fourth-sweep-emerges",
+    "https://decrypt.co/374820/coldcard-losses-near-114m-as-small-bitcoin-transfers-spike"
   ]
 }

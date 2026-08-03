@@ -231,7 +231,7 @@ time-stamped measurements. A lack of publicly verified cases must be reported as
 such rather than interpreted as proof that no theft occurred.
 
 `PUBLIC_INCIDENTS.md` records the public evidence found through 2026-08-03
-08:25:54 UTC. Galaxy Research's latest reviewed cumulative estimate is 1,367.05
+11:34:11 UTC. Galaxy Research's latest reviewed cumulative estimate is 1,367.05
 BTC across 4,585 source addresses in three suspected Coldcard-linked waves.
 Owner/witness reports identify Coldcard-origin wallets in the sweeps, including
 one Mk3 testing-wallet report with a public transaction ID and a newly reviewed
@@ -247,7 +247,11 @@ cumulative waves, fees, or later hops. A potential fourth wave was revised to a
 stated 709-address / 448.73 BTC core after multisig exclusions, but remains
 outside the cumulative headline because its source reports no direct victim
 confirmation and its published before/exclusion/after arithmetic does not fully
-reconcile.
+reconcile. A pinned community-tracker revision and direct explorer checks also
+record that one 5.61303754 BTC potential Wave 4 destination was later emptied in
+two transactions. Those downstream spends are explicitly excluded from loss
+totals; one mixes the source with 33 other inputs, so its aggregate output is not
+assigned to that source.
 
 ## Remediation
 

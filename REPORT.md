@@ -231,10 +231,14 @@ time-stamped measurements. A lack of publicly verified cases must be reported as
 such rather than interpreted as proof that no theft occurred.
 
 `PUBLIC_INCIDENTS.md` records the public evidence found through 2026-08-03
-05:16:42 UTC. Galaxy Research's latest reviewed cumulative estimate is 1,367.05
+08:25:54 UTC. Galaxy Research's latest reviewed cumulative estimate is 1,367.05
 BTC across 4,585 source addresses in three suspected Coldcard-linked waves.
-Owner/witness reports identify Mk3-origin wallets in later sweeps, including one
-Mk3 testing-wallet report with a public transaction ID. These facts establish
+Owner/witness reports identify Coldcard-origin wallets in the sweeps, including
+one Mk3 testing-wallet report with a public transaction ID and a newly reviewed
+owner report of 18.25245043 BTC drained from three Coldcard wallets. The latter
+does not publish source addresses, transaction IDs, model, or generation
+firmware, so its exact amount cannot be independently verified or added to the
+cumulative wave total. These facts establish
 public unauthorized-spend reports and strong circumstantial clustering, but no
 reviewed source publicly reconstructed a victim seed and matched it to a drained
 address. The report therefore labels defect attribution as suspected rather

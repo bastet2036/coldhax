@@ -56,6 +56,18 @@ class PublicIncidentTests(unittest.TestCase):
             "suspected_not_computationally_confirmed",
         )
 
+    def test_goodman_exact_owner_amount_fails_closed_without_txids(self) -> None:
+        goodman = next(
+            row
+            for row in self.data["public_owner_or_witness_reports"]
+            if row["id"] == "goodman-three-coldcard-wallets"
+        )
+        self.assertEqual(goodman["owner_reported_amount_btc"], 18.25245043)
+        self.assertEqual(goodman["transaction_ids"], [])
+        self.assertEqual(goodman["public_source_addresses"], [])
+        self.assertIsNone(goodman["spend_window_timezone"])
+        self.assertIn("Do not add", goodman["double_counting_note"])
+
     def test_representative_transactions_are_unique_and_labeled(self) -> None:
         transactions = self.data["representative_onchain_transactions"]
         self.assertEqual(len(transactions), 5)

@@ -181,6 +181,11 @@ Vendor claims (from the preserved advisory):
 
 - Mk3 firmware 4.0.1 through 4.1.9 inclusive is affected; 4.2.0 fixes new seed
   generation.
+- The advisory, updated August 1, expands scope beyond this Mk3 investigation:
+  seeds generated on Mk4/Mk5 before standard 5.6.0 or Edge 6.6.0X, and on Q
+  before standard 1.5.0Q or Edge 6.6.0QX, are also affected. It describes their
+  impact as about 72 bits of entropy rather than the expected 128 bits. This
+  project has not independently validated those models or release tracks.
 - Existing affected seeds are not repaired by an update.
 - At least 50 fair, private, independent dice rolls provide at least 128 bits of
   dice entropy; 99 provide approximately 256 bits.
@@ -231,14 +236,14 @@ time-stamped measurements. A lack of publicly verified cases must be reported as
 such rather than interpreted as proof that no theft occurred.
 
 `PUBLIC_INCIDENTS.md` records the public evidence found through 2026-08-03
-11:34:11 UTC. Galaxy Research's latest reviewed cumulative estimate is 1,367.05
+14:45:59 UTC. Galaxy Research's latest reviewed cumulative estimate is 1,367.05
 BTC across 4,585 source addresses in three suspected Coldcard-linked waves.
 Owner/witness reports identify Coldcard-origin wallets in the sweeps, including
-one Mk3 testing-wallet report with a public transaction ID and a newly reviewed
-owner report of 18.25245043 BTC drained from three Coldcard wallets. The latter
-does not publish source addresses, transaction IDs, model, or generation
-firmware, so its exact amount cannot be independently verified or added to the
-cumulative wave total. These facts establish
+one Mk3 testing-wallet report with a public transaction ID, an owner report of
+18.25245043 BTC drained from three Coldcard wallets, and a newly reviewed direct
+owner report of 2 BTC drained from a Mk3 wallet. The two exact owner reports do
+not publish source addresses or transaction IDs, so their amounts cannot be
+independently verified or added to the cumulative wave total. These facts establish
 public unauthorized-spend reports and strong circumstantial clustering, but no
 reviewed source publicly reconstructed a victim seed and matched it to a drained
 address. The report therefore labels defect attribution as suspected rather
@@ -255,9 +260,11 @@ assigned to that source.
 
 ## Remediation
 
-Follow the vendor advisory, not this research harness: install Mk3 firmware 4.2.0
-or later before generating a replacement; an update does not repair an existing
-seed. Treat migration as a careful operational procedure, verify backups and
+Follow the vendor advisory, not this research harness: install Mk2/Mk3 firmware
+4.2.0 or later, Mk4/Mk5 standard 5.6.0 or Edge 6.6.0X or later, or Q standard
+1.5.0Q or Edge 6.6.0QX or later before generating a replacement. Standard and
+Edge are separate tracks. An update does not repair an existing seed. Treat
+migration as a careful operational procedure, verify backups and
 addresses on trusted hardware, test with a small transfer, and retain the old
 backup until confirmation. Never enter seed words or dice sequences into this
 project or a networked service.

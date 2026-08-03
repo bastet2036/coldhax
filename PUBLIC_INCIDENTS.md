@@ -1,6 +1,6 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-03 11:34:11 UTC**. On-chain balances below were
+Research cutoff: **2026-08-03 14:45:59 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
 same time. The machine-readable observations and exact classifications are in
 [`evidence/public-incidents.json`](evidence/public-incidents.json).
@@ -18,7 +18,9 @@ Public owner/witness reports provide stronger evidence that at least some
 Coldcard-origin wallets were swept without owner authorization. One owner now
 publicly reports an exact **18.25245043 BTC** loss across three Coldcard wallets,
 but did not publish the source addresses or transaction IDs needed to verify or
-place that amount within the aggregate waves. No reviewed public
+place that amount within the aggregate waves. A second owner reports that **2
+BTC** held under a Mk3-generated wallet was drained while he was away, also
+without public source addresses or a transaction ID. No reviewed public
 source reconstructed a victim seed and matched it to a drained address, and no
 source named or established the identity of an attacker. Therefore this report
 classifies the aggregate waves and individual cases as **suspected attribution
@@ -65,6 +67,25 @@ says theft and active exploitation were under way, while also stating that its
 team had not completed full empirical exploitability testing.
 
 ## Public owner and witness reports
+
+### Mk3 wallet — 2 BTC owner report
+
+[Tim Lamb reported](https://x.com/theretailbull/status/2083930775217488305)
+that all **2 BTC** in his Mk3 wallet was drained on Saturday afternoon, August
+1, while he was away. He said the seed backup remained hidden on a metal plate
+and that the wallet showed zero when a neighbor restored it under his remote
+direction the following morning. The post does not state the time zone,
+generation-firmware version, source address, or transaction ID.
+
+- Affected/exposed: **owner report confirms Mk3**, but not the generation
+  firmware.
+- Unauthorized spend: **owner report confirms**.
+- Attributed exploitation: **suspected, not conclusively proved**; the timing
+  and Mk3 origin are consistent with the incident, but no public computational
+  match or alternative-cause analysis was supplied.
+- Amount: **2 BTC owner-reported**. It is not independently on-chain verified
+  and must not be added to Galaxy's cumulative total because overlap is
+  unresolved.
 
 ### Three Coldcard wallets — 18.25245043 BTC owner report
 
@@ -167,7 +188,7 @@ proof of defect attribution. Their balances are observations, not additional
 losses.
 
 The tracker was reviewed again at pinned revision
-[`54f4add`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/54f4add44be95679196429abba34831916c1ba09).
+[`662b775`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/662b7756f25755c00e841b4df5502ee51363e013).
 It now records that the 5.61303754 BTC initially received by `1N8kn…fDo` was
 fully spent in two transactions. Direct mempool.space checks confirm that
 transaction [`6f19b1…dd235`](https://mempool.space/tx/6f19b1b9e3d602335c62861ce3d90631b34945fd2998d9bcd7e6a14a68fdd235)
@@ -231,8 +252,10 @@ This review searched current Coinkite and Block publications; Galaxy Research,
 owner, and analyst posts (including live RSS mirrors and X's public syndication
 endpoint); public GitHub issue/repository search; the community tracker and a
 new 221-destination ledger pull request; Bloomberg's new owner interview;
-new CoinDesk and Decrypt Wave 4 coverage; Hacker News; Google/Bing-indexed
-reporting; and public explorer data. The new coverage restates Thorn's corrected
+new CoinDesk, Decrypt, Bitcoin Magazine, and Protos coverage; Hacker News;
+Google/Bing-indexed reporting; and public explorer data. This review added Tim
+Lamb's direct Mk3 owner report, but it contains no address or transaction ID.
+The other new coverage restates Thorn's corrected
 709-address / 448.73 BTC potential Wave 4 rather than adding a direct victim or
 primary transaction corpus. Reddit's public search endpoint was
 inaccessible (HTTP 403). No reviewed primary source provided:
@@ -245,7 +268,9 @@ inaccessible (HTTP 403). No reviewed primary source provided:
 - enough detail to assign exact victim amounts in the Tomer, Evan, or Marius
   reports; or
 - source addresses or transaction IDs to independently verify Goodman's exact
-  owner-reported amount.
+  owner-reported amount; or
+- source addresses or transaction IDs to independently verify Lamb's 2 BTC
+  owner-reported Mk3 loss.
 
 This negative result does not mean no further cases exist. It states what could
 and could not be verified by the cutoff without collecting or deriving any

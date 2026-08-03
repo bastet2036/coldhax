@@ -68,6 +68,19 @@ class PublicIncidentTests(unittest.TestCase):
         self.assertIsNone(goodman["spend_window_timezone"])
         self.assertIn("Do not add", goodman["double_counting_note"])
 
+    def test_lamb_mk3_owner_amount_fails_closed_without_txids(self) -> None:
+        lamb = next(
+            row
+            for row in self.data["public_owner_or_witness_reports"]
+            if row["id"] == "lamb-mk3-two-bitcoin"
+        )
+        self.assertEqual(lamb["model"], "Mk3")
+        self.assertEqual(lamb["owner_reported_amount_btc"], 2.0)
+        self.assertEqual(lamb["transaction_ids"], [])
+        self.assertEqual(lamb["public_source_addresses"], [])
+        self.assertIsNone(lamb["generation_firmware"])
+        self.assertIn("Do not add", lamb["double_counting_note"])
+
     def test_representative_transactions_are_unique_and_labeled(self) -> None:
         transactions = self.data["representative_onchain_transactions"]
         self.assertEqual(len(transactions), 5)

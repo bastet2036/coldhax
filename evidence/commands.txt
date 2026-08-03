@@ -1,4 +1,4 @@
-# Commands executed from /home/user/clawd/coldhax unless noted.
+# Commands executed from <repo-root> unless noted.
 # This is a reproducibility transcript, not a shell script.
 
 git status --short --branch

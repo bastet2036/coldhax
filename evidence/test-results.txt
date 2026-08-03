@@ -15,6 +15,6 @@ test_public_artifacts_contain_no_obvious_secret_material (test_public_incidents.
 test_representative_transactions_are_unique_and_labeled (test_public_incidents.PublicIncidentTests.test_representative_transactions_are_unique_and_labeled) ... ok
 
 ----------------------------------------------------------------------
-Ran 15 tests in 0.007s
+Ran 15 tests in 0.006s
 
 OK

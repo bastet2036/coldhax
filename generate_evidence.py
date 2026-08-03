@@ -24,12 +24,15 @@ FIRMWARE = SOURCES / "firmware"
 
 ARTIFACT_PATHS = (
     ".gitignore",
+    ".github/workflows/ci.yml",
     "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
     "README.md",
     "REPORT.md",
     "METHODOLOGY.md",
     "PUBLIC_INCIDENTS.md",
     "setup_sources.sh",
+    "scripts/verify_publication.py",
     "coldhax_model.py",
     "generate_evidence.py",
     "run_upstream_evidence.py",
@@ -151,7 +154,8 @@ def main() -> None:
         ],
         "firmware_repository": {
             "head": git("rev-parse", "HEAD"),
-            "branch": git("branch", "--show-current"),
+            "source_branch_context": "v4-legacy",
+            "checkout_mode": "immutable revision; detached checkout permitted",
             "affected_tag": "2023-06-26T1241-v4.1.9",
             "affected_tag_object": git("rev-parse", "2023-06-26T1241-v4.1.9^{tag}"),
             "affected_commit": git("rev-parse", "2023-06-26T1241-v4.1.9^{}"),

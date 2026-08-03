@@ -18,6 +18,15 @@
     "micropython_affected_provider": "66ecfdf8111b80aa09456d49751100466f9e596a20839af32b5e6529b4e26742",
     "v4_legacy_fixed_provider": "50629f09b7f87a2381c86c358de525a2188d6b57e1e6903b5b7fdb13dc5de839"
   },
+  "execution_environment": {
+    "platform": "Linux-6.11.0-1016-nvidia-aarch64-with-glibc2.39",
+    "machine": "aarch64",
+    "python": "3.11.15 (main, May  4 2026, 21:10:50) [Clang 22.1.3 ]",
+    "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+    "linker": "GNU ld (GNU Binutils for Ubuntu) 2.42",
+    "openssl": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)"
+  },
+  "binary_hash_semantics": "Run identifiers for this local build, not portable reproducible-build expectations across architectures, toolchains, paths, or OpenSSL builds.",
   "binary_sha256": {
     "affected": "b4dab7b654ad4cd8de97dcb6420709df21c657064af93ca33d0ba99213fb1903",
     "fixed": "757af9fbb424ed6ff99e0fed12b5e5c2f09dc1db38a89352f14b0881299d6f41"

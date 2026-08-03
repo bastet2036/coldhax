@@ -1,0 +1,43 @@
+name: defensive-reproduction
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install native build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes build-essential libssl-dev
+
+      - name: Verify committed public artifacts
+        run: |
+          python3 scripts/verify_publication.py
+          sha256sum -c evidence/artifact-hashes.txt
+          for file in evidence/*.json; do python3 -m json.tool "$file" >/dev/null; done
+
+      - name: Fetch pinned public upstream source
+        run: ./setup_sources.sh
+
+      - name: Execute TEST-ONLY native differential controls
+        run: python3 run_upstream_evidence.py > logs/upstream-execution-console.txt
+
+      - name: Run tests and syntax checks
+        run: |
+          python3 -m unittest -v
+          python3 -m py_compile \
+            coldhax_model.py generate_evidence.py run_upstream_evidence.py \
+            test_coldhax_model.py test_public_incidents.py scripts/verify_publication.py
+          for file in evidence/*.json; do python3 -m json.tool "$file" >/dev/null; done
+
+      - name: Confirm no forbidden tracked paths appeared
+        run: python3 scripts/verify_publication.py

@@ -42,8 +42,8 @@ class PublicIncidentTests(unittest.TestCase):
         )
         observations = self.data["destination_balance_observations"]
         self.assertIn("mempool", self.data["balance_definition"])
-        self.assertEqual(len(observations), 23)
-        self.assertEqual(len({row["address"] for row in observations}), 23)
+        self.assertEqual(len(observations), 27)
+        self.assertEqual(len({row["address"] for row in observations}), 27)
         for row in observations:
             self.assertIsInstance(row["current_balance_sats"], int)
             self.assertGreaterEqual(row["current_balance_sats"], 0)
@@ -70,6 +70,54 @@ class PublicIncidentTests(unittest.TestCase):
         self.assertEqual(p2tr_source["current_balance_sats"], 872)
         self.assertEqual(p2tr_downstream["current_balance_sats"], 443713316)
         self.assertIn("not a new loss", p2tr_downstream["note"])
+
+        august_2 = next(
+            row
+            for row in observations
+            if row["address"]
+            == "bc1q0rvn88w08j75k4h48lf9fvhan7unjp7vjf5q6m"
+        )
+        wave2_collector = next(
+            row
+            for row in observations
+            if row["address"]
+            == "bc1qsjrf5ze5tmulz7y2x4pc7qaex2a35sanp3rqlx"
+        )
+        self.assertEqual(august_2["current_balance_sats"], 0)
+        self.assertIn("324-input", august_2["note"])
+        self.assertEqual(wave2_collector["current_balance_sats"], 1758)
+
+    def test_four_additional_chainabuse_cases_match_exact_source_values(self) -> None:
+        reports = {
+            row["id"]: row for row in self.data["public_owner_or_witness_reports"]
+        }
+        expected = {
+            "chainabuse-mk3-4.53915589-bitcoin": 453915589,
+            "chainabuse-mk3-0.32531190-bitcoin": 32531190,
+            "chainabuse-mk3-0.10435085-bitcoin": 10435085,
+            "chainabuse-mk3-0.1001-bitcoin": 10010000,
+        }
+        for case_id, source_sats in expected.items():
+            with self.subTest(case_id=case_id):
+                case = reports[case_id]
+                self.assertEqual(case["model"], "Mk3")
+                self.assertEqual(case["owner_source_input_sats"], source_sats)
+                self.assertEqual(
+                    case["attributed_exploitation"],
+                    "suspected_not_computationally_confirmed",
+                )
+                self.assertIn("Do not add", case["double_counting_note"])
+
+        three_tx = reports["chainabuse-mk3-0.32531190-bitcoin"]
+        self.assertEqual(len(three_tx["transaction_ids"]), 3)
+        self.assertEqual(
+            three_tx["owner_destination_receipts_sats"]
+            + three_tx["owner_transaction_fees_sats"],
+            three_tx["owner_source_input_sats"],
+        )
+        wave3 = reports["chainabuse-mk3-4.53915589-bitcoin"]
+        self.assertEqual(len(wave3["public_source_addresses"]), 2)
+        self.assertIn("Galaxy Wave 3", wave3["double_counting_note"])
 
     def test_owner_case_does_not_double_count_consolidation(self) -> None:
         erik = next(
@@ -200,7 +248,7 @@ class PublicIncidentTests(unittest.TestCase):
 
     def test_representative_transactions_are_unique_and_labeled(self) -> None:
         transactions = self.data["representative_onchain_transactions"]
-        self.assertEqual(len(transactions), 9)
+        self.assertEqual(len(transactions), 15)
         self.assertEqual(
             len({row["transaction_id"] for row in transactions}),
             len(transactions),
@@ -212,14 +260,14 @@ class PublicIncidentTests(unittest.TestCase):
 
     def test_later_hops_are_not_counted_as_new_losses(self) -> None:
         rows = self.data["later_hop_observations"]
-        self.assertEqual(len(rows), 9)
+        self.assertEqual(len(rows), 11)
         wave4_rows = [
             row
             for row in rows
             if row["source_cluster"] == "potential-wave-4-community-reconstruction"
         ]
         self.assertEqual(sum(row["source_input_sats"] for row in wave4_rows), 561303754)
-        self.assertEqual(len({row["transaction_id"] for row in rows}), 9)
+        self.assertEqual(len({row["transaction_id"] for row in rows}), 11)
         for row in rows:
             self.assertEqual(row["classification"], "later_hop_not_additional_loss")
             self.assertEqual(len(row["transaction_id"]), 64)
@@ -254,8 +302,13 @@ class PublicIncidentTests(unittest.TestCase):
 
     def test_post_mix_downstream_movement_is_not_source_attributed(self) -> None:
         rows = self.data["unassigned_downstream_observations"]
-        self.assertEqual(len(rows), 1)
-        row = rows[0]
+        self.assertEqual(len(rows), 4)
+        row = next(
+            row
+            for row in rows
+            if row["transaction_id"]
+            == "822230d251cf44503cabebf05f2c5033e67940081916269bd045e70c41e3083a"
+        )
         self.assertEqual(
             row["classification"],
             "not_source_attributable_after_mixed_transaction",
@@ -263,6 +316,26 @@ class PublicIncidentTests(unittest.TestCase):
         self.assertEqual(row["immediate_source_input_sats"], 47797906)
         self.assertEqual(row["upstream_mixed_transaction_input_count"], 34)
         self.assertIn("not added", row["note"])
+
+        august_2_mix = next(
+            row
+            for row in rows
+            if row["transaction_id"]
+            == "f3ee6e61129b90b4746275a2ea17b08ac53769556d61994c94f03db9bcc37b24"
+        )
+        self.assertEqual(august_2_mix["transaction_input_count"], 324)
+        self.assertEqual(august_2_mix["immediate_source_input_sats"], 6490373154)
+        self.assertIn("cannot be assigned", august_2_mix["note"])
+
+        wave4_mix = next(
+            row
+            for row in rows
+            if row["transaction_id"]
+            == "f02164a928da943385b1f1a93ec404d2bba6c381e96dc99e0298c188650db281"
+        )
+        self.assertEqual(len(wave4_mix["tracked_source_inputs"]), 4)
+        self.assertEqual(wave4_mix["transaction_input_count"], 14)
+        self.assertIn("not assigned", wave4_mix["note"])
 
     def test_emerging_wave_fails_closed(self) -> None:
         emerging = self.data["emerging_unincluded_report"]

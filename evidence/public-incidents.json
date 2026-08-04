@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "research_cutoff_utc": "2026-08-04T19:24:21Z",
-  "onchain_observed_at_utc": "2026-08-04T19:24:21Z",
+  "research_cutoff_utc": "2026-08-04T22:35:51Z",
+  "onchain_observed_at_utc": "2026-08-04T22:35:51Z",
   "network": "bitcoin-mainnet",
   "explorer_api": "https://mempool.space/api",
   "balance_definition": "Confirmed chain plus mempool funded outputs minus spent outputs at the observation cutoff.",
@@ -87,6 +87,126 @@
     }
   ],
   "public_owner_or_witness_reports": [
+    {
+      "id": "chainabuse-mk3-4.53915589-bitcoin",
+      "reported_at_utc": "2026-08-03T15:43:15Z",
+      "affected_or_exposed": "owner_report_confirmed_mk3_generation_firmware_unstated",
+      "unauthorized_spend": "owner_report_confirmed_with_two_source_addresses_and_two_transaction_ids",
+      "attributed_exploitation": "suspected_not_computationally_confirmed",
+      "model": "Mk3",
+      "generation_firmware": null,
+      "owner_reported_amount_btc": 4.53915589,
+      "owner_source_input_sats": 453915589,
+      "public_source_addresses": [
+        "bc1q832l0ednpnc79d7cuqf4ah23393ajy6kxhnzq9",
+        "bc1qnsu3d9p9t0l0qnp5gew039q0rry0ytj2vv70us"
+      ],
+      "transaction_ids": [
+        "c8e6d6936aa66078a2f811b3db698389560f73a4672c4409a09bf014046a4d0f",
+        "f3db8c9eafee9862aa87993d18f5f3d474d05bede8ae3faa8e52ef5404ae15d9"
+      ],
+      "initial_transaction_block_height": 960469,
+      "initial_transaction_block_time_utc": "2026-07-31T21:47:11Z",
+      "initial_transaction_input_count": 2,
+      "initial_transaction_fee_sats": 35600,
+      "intermediary_address": "bc1qz09phmghykhcglwhc58uf95mmjqq8vz4wmhz4v",
+      "intermediary_received_sats": 453879989,
+      "later_hop_transaction_block_height": 960520,
+      "later_hop_transaction_block_time_utc": "2026-08-01T07:47:01Z",
+      "later_hop_fee_sats": 1220,
+      "current_destination_address": "bc1qtsp50w4uru6t2mhmctvapfdy23g75r08werm7qmgzuedm4jsaztspf73yt",
+      "current_destination_received_sats": 453878769,
+      "amount_verification": "The two owner-published source addresses are the only inputs to the first cited transaction and total exactly 453,915,589 sats, matching the Chainabuse BTC loss field. The one output receives 453,879,989 sats after a 35,600-sat fee, then moves once to the published Galaxy Wave 3 vault after a further 1,220-sat fee.",
+      "double_counting_note": "The current destination is a Galaxy Wave 3 vault and the second transaction is a later hop of the same owner loss. Do not add this case to Galaxy's cumulative total or count either destination receipt as a second loss.",
+      "source": "https://chainabuse.com/report/2727f906-bf8f-4540-92e4-ad4fd5b59cbf",
+      "explorer": "https://mempool.space/tx/c8e6d6936aa66078a2f811b3db698389560f73a4672c4409a09bf014046a4d0f"
+    },
+    {
+      "id": "chainabuse-mk3-0.32531190-bitcoin",
+      "reported_at_utc": "2026-08-03T02:15:47Z",
+      "affected_or_exposed": "owner_report_says_seed_generated_on_mk3_around_december_2021_and_affected_firmware_range",
+      "unauthorized_spend": "owner_report_confirmed_with_three_transaction_ids",
+      "attributed_exploitation": "suspected_not_computationally_confirmed",
+      "model": "Mk3",
+      "generation_firmware": null,
+      "owner_reported_amount_btc": 0.3253119,
+      "owner_source_input_sats": 32531190,
+      "owner_destination_receipts_sats": 32514690,
+      "owner_transaction_fees_sats": 16500,
+      "transaction_ids": [
+        "178de72f976f38516555798753a13d6c9e9460e01ec53cd19c7e97642f7bd621",
+        "ab445048d582b1a0d6cd4a8986b1460780ff16782450c6d1a1063f2fce98d016",
+        "45d830bfaa5985bed6a742a80586bcd9bc6596c807254ec3e418b4877472e641"
+      ],
+      "public_source_addresses": [
+        "bc1qyvhg95thcx8xu6772krt9kh4aqcs0djrm8cqly",
+        "bc1qa7dr33shz0pjug3m39n06m3tjpknxz3vsur8t3",
+        "bc1qz8c3c7ha5hfkeahk6l98a743pll54vc3s5ve9j"
+      ],
+      "transaction_block_height": 960363,
+      "transaction_block_time_utc": "2026-07-31T07:34:10Z",
+      "destination_address": "bc1qsjrf5ze5tmulz7y2x4pc7qaex2a35sanp3rqlx",
+      "destination_current_balance_sats": 1758,
+      "amount_verification": "Each cited transaction has one owner-published source input and one output to the common destination. The three source inputs total exactly 32,531,190 sats, matching the Chainabuse BTC loss field; outputs total 32,514,690 sats and fees total 16,500 sats.",
+      "double_counting_note": "The common destination is one of 1,212 inputs later consolidated into a published Galaxy Wave 2 vault. Do not add this owner case to Galaxy's cumulative total or treat the later consolidation as a new loss.",
+      "source": "https://chainabuse.com/report/e568bed8-62f8-46b8-aae6-4d271c8d63e0",
+      "explorer": "https://mempool.space/address/bc1qsjrf5ze5tmulz7y2x4pc7qaex2a35sanp3rqlx"
+    },
+    {
+      "id": "chainabuse-mk3-0.10435085-bitcoin",
+      "reported_at_utc": "2026-08-01T21:19:17Z",
+      "affected_or_exposed": "owner_report_says_wallet_generated_on_affected_mk3_without_bip39_passphrase",
+      "unauthorized_spend": "owner_report_confirmed_with_transaction_id",
+      "attributed_exploitation": "suspected_not_computationally_confirmed",
+      "model": "Mk3",
+      "generation_firmware": null,
+      "owner_reported_amount_btc": 0.10435085,
+      "owner_source_input_sats": 10435085,
+      "destination_received_sats": 10426475,
+      "transaction_fee_sats": 8610,
+      "transaction_id": "05e8c06e3f6cafcd18c8ab4423a9b3c2c85e949944727829021d807e6ad87df5",
+      "transaction_block_height": 960356,
+      "transaction_block_time_utc": "2026-07-31T05:58:07Z",
+      "transaction_input_count": 12,
+      "public_source_addresses": [
+        "bc1q8sfvvtj8e6j77a4v8yqp6ad0elxwuey03u7anv",
+        "bc1qz2npku6czttsxxcpwxlaxyazggfxzeeld4symm",
+        "bc1q0cq9cl88gkkrl9kvlrv43e6vucycp6txjd5naa",
+        "bc1qf8jqz0tc0hqdkdulj7wkymstkn00rf56r506vp"
+      ],
+      "destination_address": "bc1qmd5m5ktv7m5ffujxv4248fxv36myvdx79n8jp6",
+      "amount_verification": "The cited transaction's 12 inputs total exactly 10,435,085 sats, matching the Chainabuse BTC loss field, and its only output pays 10,426,475 sats to a published Galaxy Wave 2 holding address after an 8,610-sat fee.",
+      "double_counting_note": "The destination is already represented in Galaxy Wave 2. Do not add this owner case to Galaxy's cumulative total or assign the destination's complete balance to this owner.",
+      "source": "https://chainabuse.com/report/d4c95fab-ed8e-4749-ae81-9d42bfdab1cb",
+      "explorer": "https://mempool.space/tx/05e8c06e3f6cafcd18c8ab4423a9b3c2c85e949944727829021d807e6ad87df5"
+    },
+    {
+      "id": "chainabuse-mk3-0.1001-bitcoin",
+      "reported_at_utc": "2026-08-01T13:44:32Z",
+      "affected_or_exposed": "owner_report_says_mk3_weak_entropy_generated_wallet",
+      "unauthorized_spend": "owner_report_confirmed_with_transaction_ids",
+      "attributed_exploitation": "suspected_not_computationally_confirmed",
+      "model": "Mk3",
+      "generation_firmware": null,
+      "owner_reported_amount_btc": 0.1001,
+      "owner_source_input_sats": 10010000,
+      "destination_received_sats": 10009622,
+      "transaction_fee_sats": 378,
+      "transaction_ids": [
+        "d952eff5d3d8581cc2327d337332f4dd83c7cfa56746b17c6d215cc6249b2d84",
+        "a67d861358f6738de298b49b3c8cb17bce871c04dccc6ee3a25d9003243c7b6e"
+      ],
+      "public_source_addresses": ["1EQp4ErTHnmxPbb4v4xqUCFjauHWH5Lo5w"],
+      "initial_transaction_block_height": 960457,
+      "initial_transaction_block_time_utc": "2026-07-31T20:07:17Z",
+      "intermediary_address": "bc1q0mh6rs0mjvv5ncdyqwhqma7hgup3aycucsc279",
+      "reported_final_address": "bc1q7rmsw0ra7zrphe66wwa9960ffm69cp8dlrrcgf",
+      "reported_final_address_current_balance_sats": 0,
+      "amount_verification": "The first cited transaction's only input is 10,010,000 sats, exactly matching the Chainabuse BTC loss field, and pays 10,009,622 sats after a 378-sat fee into the already-published July 31 consolidation address. The second transaction combines that receipt with six other outputs from the intermediary, so its aggregate output is not assigned to this owner.",
+      "double_counting_note": "The owner receipt overlaps the existing July 31 consolidation. Do not add it to that address's total, assign the second transaction's aggregate output to this owner, or add it to Galaxy's cumulative total.",
+      "source": "https://chainabuse.com/report/6e9fa34a-6128-4b9b-9ef9-8cc4159b1935",
+      "explorer": "https://mempool.space/tx/d952eff5d3d8581cc2327d337332f4dd83c7cfa56746b17c6d215cc6249b2d84"
+    },
     {
       "id": "chainabuse-mk3-5.39099821-bitcoin",
       "reported_at_utc": "2026-08-03T16:46:55Z",
@@ -357,6 +477,66 @@
     {
       "cluster": "chainabuse-mk3-owner-report",
       "role": "owner_identified_unauthorized_consolidation",
+      "transaction_id": "c8e6d6936aa66078a2f811b3db698389560f73a4672c4409a09bf014046a4d0f",
+      "block_height": 960469,
+      "block_time_utc": "2026-07-31T21:47:11Z",
+      "destination_address": "bc1qz09phmghykhcglwhc58uf95mmjqq8vz4wmhz4v",
+      "received_sats": 453879989,
+      "explorer": "https://mempool.space/tx/c8e6d6936aa66078a2f811b3db698389560f73a4672c4409a09bf014046a4d0f"
+    },
+    {
+      "cluster": "chainabuse-mk3-owner-report",
+      "role": "owner_identified_unauthorized_spend",
+      "transaction_id": "178de72f976f38516555798753a13d6c9e9460e01ec53cd19c7e97642f7bd621",
+      "block_height": 960363,
+      "block_time_utc": "2026-07-31T07:34:10Z",
+      "destination_address": "bc1qsjrf5ze5tmulz7y2x4pc7qaex2a35sanp3rqlx",
+      "received_sats": 10842068,
+      "explorer": "https://mempool.space/tx/178de72f976f38516555798753a13d6c9e9460e01ec53cd19c7e97642f7bd621"
+    },
+    {
+      "cluster": "chainabuse-mk3-owner-report",
+      "role": "owner_identified_unauthorized_spend",
+      "transaction_id": "ab445048d582b1a0d6cd4a8986b1460780ff16782450c6d1a1063f2fce98d016",
+      "block_height": 960363,
+      "block_time_utc": "2026-07-31T07:34:10Z",
+      "destination_address": "bc1qsjrf5ze5tmulz7y2x4pc7qaex2a35sanp3rqlx",
+      "received_sats": 10836736,
+      "explorer": "https://mempool.space/tx/ab445048d582b1a0d6cd4a8986b1460780ff16782450c6d1a1063f2fce98d016"
+    },
+    {
+      "cluster": "chainabuse-mk3-owner-report",
+      "role": "owner_identified_unauthorized_spend",
+      "transaction_id": "45d830bfaa5985bed6a742a80586bcd9bc6596c807254ec3e418b4877472e641",
+      "block_height": 960363,
+      "block_time_utc": "2026-07-31T07:34:10Z",
+      "destination_address": "bc1qsjrf5ze5tmulz7y2x4pc7qaex2a35sanp3rqlx",
+      "received_sats": 10835886,
+      "explorer": "https://mempool.space/tx/45d830bfaa5985bed6a742a80586bcd9bc6596c807254ec3e418b4877472e641"
+    },
+    {
+      "cluster": "chainabuse-mk3-owner-report",
+      "role": "owner_identified_unauthorized_spend",
+      "transaction_id": "05e8c06e3f6cafcd18c8ab4423a9b3c2c85e949944727829021d807e6ad87df5",
+      "block_height": 960356,
+      "block_time_utc": "2026-07-31T05:58:07Z",
+      "destination_address": "bc1qmd5m5ktv7m5ffujxv4248fxv36myvdx79n8jp6",
+      "received_sats": 10426475,
+      "explorer": "https://mempool.space/tx/05e8c06e3f6cafcd18c8ab4423a9b3c2c85e949944727829021d807e6ad87df5"
+    },
+    {
+      "cluster": "chainabuse-mk3-owner-report",
+      "role": "owner_identified_unauthorized_spend",
+      "transaction_id": "d952eff5d3d8581cc2327d337332f4dd83c7cfa56746b17c6d215cc6249b2d84",
+      "block_height": 960457,
+      "block_time_utc": "2026-07-31T20:07:17Z",
+      "destination_address": "bc1q0mh6rs0mjvv5ncdyqwhqma7hgup3aycucsc279",
+      "received_sats": 10009622,
+      "explorer": "https://mempool.space/tx/d952eff5d3d8581cc2327d337332f4dd83c7cfa56746b17c6d215cc6249b2d84"
+    },
+    {
+      "cluster": "chainabuse-mk3-owner-report",
+      "role": "owner_identified_unauthorized_consolidation",
       "transaction_id": "a7a132a207e0edf3de321507905a314b48a05932bfe2a97848f9bf4f073191a3",
       "block_height": 960439,
       "block_time_utc": "2026-07-31T18:48:11Z",
@@ -446,6 +626,37 @@
     }
   ],
   "later_hop_observations": [
+    {
+      "source_cluster": "chainabuse-mk3-owner-report",
+      "source_address": "bc1qz09phmghykhcglwhc58uf95mmjqq8vz4wmhz4v",
+      "transaction_id": "f3db8c9eafee9862aa87993d18f5f3d474d05bede8ae3faa8e52ef5404ae15d9",
+      "block_height": 960520,
+      "block_time_utc": "2026-08-01T07:47:01Z",
+      "transaction_input_count": 1,
+      "source_input_sats": 453879989,
+      "destination_address": "bc1qtsp50w4uru6t2mhmctvapfdy23g75r08werm7qmgzuedm4jsaztspf73yt",
+      "destination_received_sats": 453878769,
+      "fee_sats": 1220,
+      "classification": "later_hop_not_additional_loss",
+      "note": "This moves the owner-identified output into a published Galaxy Wave 3 vault. It is the same 4.53915589 BTC owner loss after fees, not an additional loss.",
+      "explorer": "https://mempool.space/tx/f3db8c9eafee9862aa87993d18f5f3d474d05bede8ae3faa8e52ef5404ae15d9"
+    },
+    {
+      "source_cluster": "community-august-2-with-owner-reports",
+      "source_address": "bc1q0rvn88w08j75k4h48lf9fvhan7unjp7vjf5q6m",
+      "transaction_id": "e3274a1b87096938d014e1edaa01b06c3dd16e72a48f66ead95c79f83f2b3ddf",
+      "block_height": 961065,
+      "block_time_utc": "2026-08-04T19:56:40Z",
+      "transaction_input_count": 1,
+      "source_input_sats": 6490373764,
+      "destination_address": "bc1pynd6vswmxkghw6k5463xwcj7el7u4tpl2t2pnh0s8llmc2wgzfqsdu7h92",
+      "destination_received_sats": 6490373154,
+      "fee_sats": 610,
+      "classification": "later_hop_not_additional_loss",
+      "note": "This directly empties the August 2 consolidation that includes two owner reports. It moves already-observed pooled funds and is not a new loss; the output was subsequently spent in a 324-input transaction, creating an attribution boundary.",
+      "tracker_revision": "2ecc132692055d85b45cbe94f5b5f03d3c5bd1d7",
+      "explorer": "https://mempool.space/tx/e3274a1b87096938d014e1edaa01b06c3dd16e72a48f66ead95c79f83f2b3ddf"
+    },
     {
       "source_cluster": "kelbie-p2tr-community-sample",
       "source_address": "bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h",
@@ -581,6 +792,54 @@
   ],
   "unassigned_downstream_observations": [
     {
+      "tracker_revision": "2ecc132692055d85b45cbe94f5b5f03d3c5bd1d7",
+      "transaction_id": "f3ee6e61129b90b4746275a2ea17b08ac53769556d61994c94f03db9bcc37b24",
+      "block_height": 961069,
+      "block_time_utc": "2026-08-04T20:42:48Z",
+      "transaction_input_count": 324,
+      "immediate_source_address": "bc1pynd6vswmxkghw6k5463xwcj7el7u4tpl2t2pnh0s8llmc2wgzfqsdu7h92",
+      "immediate_source_input_sats": 6490373154,
+      "transaction_total_input_sats": 9334360001,
+      "transaction_total_output_sats": 9334289098,
+      "transaction_fee_sats": 70903,
+      "classification": "not_source_attributable_after_mixed_transaction",
+      "note": "The complete August 2 consolidation enters a 324-input, 382-output transaction. Even though its immediate input is exact, outputs from this mixing boundary cannot be assigned specifically to the tracked source or its underlying owners, so no output is reported as their current balance or an additional loss.",
+      "explorer": "https://mempool.space/tx/f3ee6e61129b90b4746275a2ea17b08ac53769556d61994c94f03db9bcc37b24"
+    },
+    {
+      "transaction_id": "a67d861358f6738de298b49b3c8cb17bce871c04dccc6ee3a25d9003243c7b6e",
+      "block_height": 960457,
+      "block_time_utc": "2026-07-31T20:07:17Z",
+      "transaction_input_count": 7,
+      "immediate_source_address": "bc1q0mh6rs0mjvv5ncdyqwhqma7hgup3aycucsc279",
+      "owner_identified_input_sats": 10009622,
+      "transaction_total_input_sats": 50982703,
+      "transaction_total_output_sats": 50980268,
+      "transaction_fee_sats": 2435,
+      "classification": "not_owner_attributable_after_aggregate_transaction",
+      "note": "One of seven spent intermediary outputs is the 10,009,622-sat receipt identified by the 0.1001 BTC owner report. The transaction's single aggregate output includes six other receipts and therefore is not assigned as that owner's current balance or an additional loss.",
+      "explorer": "https://mempool.space/tx/a67d861358f6738de298b49b3c8cb17bce871c04dccc6ee3a25d9003243c7b6e"
+    },
+    {
+      "tracker_revision": "2ecc132692055d85b45cbe94f5b5f03d3c5bd1d7",
+      "transaction_id": "f02164a928da943385b1f1a93ec404d2bba6c381e96dc99e0298c188650db281",
+      "block_height": 961064,
+      "block_time_utc": "2026-08-04T19:53:20Z",
+      "transaction_input_count": 14,
+      "tracked_source_inputs": [
+        {"address": "35dHFzKHn4WCnr3XJj1YErXJ44xPX4wNxH", "value_sats": 217767618},
+        {"address": "342L6n3b61n1CGoh8wCzuzyXUvyZTSjZtz", "value_sats": 202374869},
+        {"address": "36XfMDAYuCn76DDJt5HV6kJxCukb1F1x3G", "value_sats": 109429601},
+        {"address": "34nHYNnc9DLxo3iCzvSHiyD2YsC3jP4qDQ", "value_sats": 96227191}
+      ],
+      "transaction_total_input_sats": 13640749150,
+      "transaction_total_output_sats": 13640743770,
+      "transaction_fee_sats": 5380,
+      "classification": "not_source_attributable_after_mixed_transaction",
+      "note": "Four community-reconstructed potential Wave 4 parks are among 14 inputs to one 136.40743770 BTC output. The other ten inputs include sources funded outside the Wave 4 window; the aggregate output is therefore not assigned to any tracked park or treated as a new loss.",
+      "explorer": "https://mempool.space/tx/f02164a928da943385b1f1a93ec404d2bba6c381e96dc99e0298c188650db281"
+    },
+    {
       "tracker_revision": "ef4b91217cdc4dae31d323fd7f41c8e2c86b8650",
       "transaction_id": "822230d251cf44503cabebf05f2c5033e67940081916269bd045e70c41e3083a",
       "block_height": 960832,
@@ -635,7 +894,8 @@
     {
       "address": "bc1q0rvn88w08j75k4h48lf9fvhan7unjp7vjf5q6m",
       "cluster": "community-august-2",
-      "current_balance_sats": 6490373764
+      "current_balance_sats": 0,
+      "note": "This 902-input consolidation included two owner reports and was emptied in transaction e3274a1b…2b3ddf. Its complete output then entered a 324-input transaction; no mixed output is assigned back to this source."
     },
     {
       "address": "bc1q0mh6rs0mjvv5ncdyqwhqma7hgup3aycucsc279",
@@ -661,7 +921,8 @@
     {
       "address": "342L6n3b61n1CGoh8wCzuzyXUvyZTSjZtz",
       "cluster": "potential-wave-4-community-reconstruction",
-      "current_balance_sats": 202374869
+      "current_balance_sats": 0,
+      "note": "This potential Wave 4 park was spent with three other tracked parks and ten additional inputs in transaction f02164a9…50db281. The aggregate output is not source-attributable."
     },
     {
       "address": "bc1q65e6cd2k5ee2326fwwxsng370vf9pz85yce9u8",
@@ -671,7 +932,8 @@
     {
       "address": "36XfMDAYuCn76DDJt5HV6kJxCukb1F1x3G",
       "cluster": "potential-wave-4-community-reconstruction",
-      "current_balance_sats": 109429601
+      "current_balance_sats": 0,
+      "note": "This potential Wave 4 park was spent in the 14-input transaction f02164a9…50db281; the aggregate output is not assigned to this source."
     },
     {
       "address": "bc1qcmnjt058q8hs4fvjr9wlu2kt974fyqnprfjvtl",
@@ -686,13 +948,38 @@
     {
       "address": "34nHYNnc9DLxo3iCzvSHiyD2YsC3jP4qDQ",
       "cluster": "potential-wave-4-community-reconstruction",
-      "current_balance_sats": 96227191
+      "current_balance_sats": 0,
+      "note": "This potential Wave 4 park was spent in the 14-input transaction f02164a9…50db281; the aggregate output is not assigned to this source."
+    },
+    {
+      "address": "35dHFzKHn4WCnr3XJj1YErXJ44xPX4wNxH",
+      "cluster": "potential-wave-4-community-reconstruction",
+      "current_balance_sats": 0,
+      "note": "The tracker reports an initial 217,767,618-sat receipt. It was spent with three other tracked parks and ten additional inputs in transaction f02164a9…50db281; the aggregate output is not assigned to this source."
     },
     {
       "address": "bc1qysjc4jrltc4je2f9uek477xdczkrmkd0mwv2wgn47r0wt3qv4a7spkkx7h",
       "cluster": "galaxy-wave-3-chainabuse-owner-report",
       "current_balance_sats": 539098601,
       "note": "This is the current destination after the owner-reported 5.39099821 BTC loss moved once and paid a 1,220-sat fee. It is not an additional loss."
+    },
+    {
+      "address": "bc1qtsp50w4uru6t2mhmctvapfdy23g75r08werm7qmgzuedm4jsaztspf73yt",
+      "cluster": "galaxy-wave-3-chainabuse-owner-report",
+      "current_balance_sats": 453878769,
+      "note": "This is a published Galaxy Wave 3 vault after the owner-reported 4.53915589 BTC source value moved through one intermediary and paid 36,820 sats of total fees. It is not an additional loss."
+    },
+    {
+      "address": "bc1q7rmsw0ra7zrphe66wwa9960ffm69cp8dlrrcgf",
+      "cluster": "chainabuse-owner-reported-downstream-aggregate",
+      "current_balance_sats": 0,
+      "note": "A Chainabuse owner named this as the final address for a 0.1001 BTC loss, but the address received a 7-input aggregate containing six other intermediary outputs. Its historical 50,980,268-sat receipt is not assigned to that owner and has since been spent."
+    },
+    {
+      "address": "bc1qsjrf5ze5tmulz7y2x4pc7qaex2a35sanp3rqlx",
+      "cluster": "galaxy-wave-2-source-collector-with-owner-report",
+      "current_balance_sats": 1758,
+      "note": "Three owner-identified receipts totaling 32,514,690 sats entered this 1,216-receipt collector. Most funds were later spent in the 1,212-input Galaxy Wave 2 consolidation; the residual 1,758 sats is current balance, not additional theft."
     },
     {
       "address": "bc1pum5zf6efxgt7a8xcyjg79u25jdhz6ex9ff2m390d544v05pg698s8ftmy8",
@@ -739,8 +1026,8 @@
     "victim_confirmation": "The analyst explicitly stated that no direct victim report had yet confirmed Wave 4.",
     "secondary_reconstruction": {
       "source": "https://github.com/SamSamskies/coldcard-hack-tracker/commit/b6c7529e5b994cd47b0719d0996c9d1ff35887ef",
-      "latest_reviewed_revision": "b8ac5ea5dea61bc0c9de794c04cc46c2c1639e98",
-      "latest_reviewed_at_utc": "2026-08-04T19:24:21Z",
+      "latest_reviewed_revision": "2ecc132692055d85b45cbe94f5b5f03d3c5bd1d7",
+      "latest_reviewed_at_utc": "2026-08-04T22:35:51Z",
       "additional_prior_history_destinations_excluded": 6,
       "additional_prior_history_btc_excluded": 5.39,
       "derived_addresses": 703,
@@ -769,7 +1056,8 @@
     "Current balances are destination observations, not stolen amounts, and later hops are not added to incident totals.",
     "Six direct spends from one fingerprint-only P2TR sample destination produced 1,044,801,094 sats of external outputs and 9,535 sats of fees, leaving two dust UTXOs totaling 872 sats. These are downstream movements of previously observed funds, not new victim losses, and no recipient identity is assigned.",
     "The potential Wave 4 primary correction has internally non-reconciling arithmetic and no direct victim confirmation. Galaxy's later thread calls it medium-high confidence and reports a 2,055 BTC total if included, but still withholds it from the 1,596 BTC high-confidence headline because no specific victim has confirmed inclusion.",
-    "Three Chainabuse owner reports provide transaction identifiers. One exact 5.39099821 BTC Mk3 loss lands after one hop in a Galaxy Wave 3 vault. Another Mk3 owner identifies 23 inputs totaling 5.13591373 BTC inside the already-recorded 64.90947964 BTC August 2 consolidation. The third identifies only 0.17998515 BTC of a 0.50992489 BTC P2TR destination. None is added again to an overlapping cluster or cumulative headline.",
+    "Seven Chainabuse owner reports provide transaction identifiers. The newly reviewed exact 4.53915589 BTC Mk3 loss lands after one hop in a Galaxy Wave 3 vault; 0.32531190 BTC and 0.10435085 BTC reports overlap Galaxy Wave 2; and a 0.1001 BTC report overlaps the July 31 community consolidation. Earlier reports bind 5.39099821 BTC to Wave 3, 5.13591373 BTC to the August 2 consolidation, and 0.17998515 BTC to the P2TR sample. None is added again to an overlapping cluster or cumulative headline.",
+    "The August 2 consolidation moved in full and then entered a 324-input transaction. Four potential Wave 4 parks also entered a separate 14-input aggregate. These are downstream movements; mixed outputs are not assigned back to a tracked source or owner.",
     "Galaxy's August 4 update raises the reported smaller-footprint count from 14 to 15 and describes Footprint O as 12 BTC from 126 addresses, discovered from one victim report of less than 1 BTC. It publishes no revised cumulative headline or address/transaction corpus, so no arithmetic addition is made."
   ],
   "sources": [
@@ -801,6 +1089,10 @@
     "https://chainabuse.com/report/0f8d1d1c-556b-40e6-a819-c91c153497aa",
     "https://chainabuse.com/report/6e9ac9f1-61e5-49c5-947c-062afc70b73b",
     "https://chainabuse.com/report/61e7b80a-4ec6-42b4-a8b4-4cab1a29c9ac",
+    "https://chainabuse.com/report/2727f906-bf8f-4540-92e4-ad4fd5b59cbf",
+    "https://chainabuse.com/report/e568bed8-62f8-46b8-aae6-4d271c8d63e0",
+    "https://chainabuse.com/report/d4c95fab-ed8e-4749-ae81-9d42bfdab1cb",
+    "https://chainabuse.com/report/6e9fa34a-6128-4b9b-9ef9-8cc4159b1935",
     "https://github.com/SamSamskies/coldcard-hack-tracker",
     "https://www.coindesk.com/tech/2026/08/03/coldcard-wallet-losses-may-near-usd114-million-as-possible-fourth-sweep-emerges",
     "https://decrypt.co/374820/coldcard-losses-near-114m-as-small-bitcoin-transfers-spike",

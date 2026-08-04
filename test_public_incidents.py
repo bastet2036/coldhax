@@ -42,8 +42,8 @@ class PublicIncidentTests(unittest.TestCase):
         )
         observations = self.data["destination_balance_observations"]
         self.assertIn("mempool", self.data["balance_definition"])
-        self.assertEqual(len(observations), 22)
-        self.assertEqual(len({row["address"] for row in observations}), 22)
+        self.assertEqual(len(observations), 23)
+        self.assertEqual(len({row["address"] for row in observations}), 23)
         for row in observations:
             self.assertIsInstance(row["current_balance_sats"], int)
             self.assertGreaterEqual(row["current_balance_sats"], 0)
@@ -54,6 +54,22 @@ class PublicIncidentTests(unittest.TestCase):
             if row["address"] == "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r"
         )
         self.assertIn("546-sat unconfirmed", wave1_main["note"])
+
+        p2tr_source = next(
+            row
+            for row in observations
+            if row["address"]
+            == "bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h"
+        )
+        p2tr_downstream = next(
+            row
+            for row in observations
+            if row["address"]
+            == "bc1prjnvz77lhd3t6kdxt34x4yzgwu4qfdgyges8h6qhwldj60z5mcqs7pprpr"
+        )
+        self.assertEqual(p2tr_source["current_balance_sats"], 872)
+        self.assertEqual(p2tr_downstream["current_balance_sats"], 443713316)
+        self.assertIn("not a new loss", p2tr_downstream["note"])
 
     def test_owner_case_does_not_double_count_consolidation(self) -> None:
         erik = next(
@@ -196,14 +212,14 @@ class PublicIncidentTests(unittest.TestCase):
 
     def test_later_hops_are_not_counted_as_new_losses(self) -> None:
         rows = self.data["later_hop_observations"]
-        self.assertEqual(len(rows), 8)
+        self.assertEqual(len(rows), 9)
         wave4_rows = [
             row
             for row in rows
             if row["source_cluster"] == "potential-wave-4-community-reconstruction"
         ]
         self.assertEqual(sum(row["source_input_sats"] for row in wave4_rows), 561303754)
-        self.assertEqual(len({row["transaction_id"] for row in rows}), 8)
+        self.assertEqual(len({row["transaction_id"] for row in rows}), 9)
         for row in rows:
             self.assertEqual(row["classification"], "later_hop_not_additional_loss")
             self.assertEqual(len(row["transaction_id"]), 64)
@@ -214,13 +230,27 @@ class PublicIncidentTests(unittest.TestCase):
             for row in rows
             if row["source_cluster"] == "kelbie-p2tr-community-sample"
         ]
-        self.assertEqual(len(p2tr_rows), 5)
+        self.assertEqual(len(p2tr_rows), 6)
         self.assertEqual(
             sum(row["destination_received_sats"] for row in p2tr_rows),
-            601087778,
+            1044801094,
         )
-        self.assertEqual(sum(row["fee_sats"] for row in p2tr_rows), 1585)
-        self.assertTrue(all(row["source_change_sats"] > 0 for row in p2tr_rows))
+        self.assertEqual(sum(row["fee_sats"] for row in p2tr_rows), 9535)
+        self.assertEqual(
+            sum(
+                row["destination_received_sats"] + row["fee_sats"]
+                for row in p2tr_rows
+            ),
+            1044810629,
+        )
+        self.assertEqual(1044811501 - 1044810629, 872)
+        self.assertTrue(
+            all(row["source_change_sats"] > 0 for row in p2tr_rows[:5])
+        )
+        final = p2tr_rows[-1]
+        self.assertEqual(final["transaction_input_count"], 124)
+        self.assertEqual(final["source_input_sats"], 443721266)
+        self.assertEqual(final["destination_received_sats"], 443713316)
 
     def test_post_mix_downstream_movement_is_not_source_attributed(self) -> None:
         rows = self.data["unassigned_downstream_observations"]

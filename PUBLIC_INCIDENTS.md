@@ -1,6 +1,6 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-04 16:13:31 UTC**. On-chain balances below were
+Research cutoff: **2026-08-04 19:24:21 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
 same time and include confirmed plus mempool funded outputs minus spent outputs.
 The machine-readable observations and exact classifications are in
@@ -294,7 +294,7 @@ consolidation total nor a guessed 0.1 BTC is recorded as his exact loss.
 
 | Cluster | Destination | Current balance at cutoff |
 | --- | --- | ---: |
-| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02076981 BTC |
+| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02077981 BTC |
 | Galaxy Wave 1 | [`bc1qx76…fhe3`](https://mempool.space/address/bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3) | 398.47576957 BTC |
 | Galaxy Wave 1 | [`bc1q8jy…tp3q`](https://mempool.space/address/bc1q8jy96fe5lf8vfugydnte3cguk92gpev7kwtp3q) | 89.62328890 BTC |
 | Galaxy Wave 1 | [`bc1qnk4…fecp0`](https://mempool.space/address/bc1qnk4zh9qcnap2mycp56qjrgza3cc8ylrh8fecp0) | 32.45058754 BTC |
@@ -306,7 +306,8 @@ consolidation total nor a guessed 0.1 BTC is recorded as his exact loss.
 | Galaxy Wave 3 / Chainabuse owner | [`bc1qysj…kkx7h`](https://mempool.space/address/bc1qysjc4jrltc4je2f9uek477xdczkrmkd0mwv2wgn47r0wt3qv4a7spkkx7h) | 5.39098601 BTC |
 | P2TR sample / owner-corroborated sink | [`bc1pum5…ftmy8`](https://mempool.space/address/bc1pum5zf6efxgt7a8xcyjg79u25jdhz6ex9ff2m390d544v05pg698s8ftmy8) | 0.50992489 BTC |
 | P2TR sample / fingerprint only | [`bc1pdl3…uu9ce`](https://mempool.space/address/bc1pdl33jtqnausmx2d4r4c6wpnk5are8jz046y3yjkw8fryjel02p7sluu9ce) | 36.01585057 BTC |
-| P2TR sample / fingerprint only | [`bc1p0l0…6qlk0h`](https://mempool.space/address/bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h) | 4.43722138 BTC |
+| P2TR sample / fingerprint only | [`bc1p0l0…6qlk0h`](https://mempool.space/address/bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h) | 0.00000872 BTC |
+| P2TR sample / downstream park | [`bc1prjn…7pprpr`](https://mempool.space/address/bc1prjnvz77lhd3t6kdxt34x4yzgwu4qfdgyges8h6qhwldj60z5mcqs7pprpr) | 4.43713316 BTC |
 
 Nine higher-value destinations from the community
 [Coldcard Hack Tracker](https://github.com/SamSamskies/coldcard-hack-tracker)
@@ -322,7 +323,7 @@ proof of defect attribution. Their balances are observations, not additional
 losses.
 
 The tracker was reviewed again at pinned revision
-[`e62b886`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/e62b8866f95247216eae1fa4163ab6872b61ce09).
+[`b8ac5ea`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/b8ac5ea5dea61bc0c9de794c04cc46c2c1639e98).
 Since the earlier `f8b1a4a` review, its substantive `3048c0e` revision adds
 Galaxy's Footprint O update and links the 5.13591373 BTC Chainabuse owner report
 to the already-recorded August 2 consolidation. It publishes no Footprint O
@@ -359,25 +360,28 @@ the community's approximately 5 sat/vB one-output fingerprint, not direct victim
 reports. The 46.97389047 BTC sample is therefore not treated as a complete wave
 or added to any loss headline.
 
-The fingerprint-only P2TR destination `bc1p0l0…6qlk0h` subsequently made five
-direct spends between 13:34:53 and 15:59:13 UTC on August 4. Direct
+The fingerprint-only P2TR destination `bc1p0l0…6qlk0h` subsequently made six
+direct spends between 13:34:53 and 17:36:35 UTC on August 4. Direct
 [mempool.space](https://mempool.space) transaction data shows that every input
-in those transactions came from the tracked address and that each transaction
-returned change to the same address. The five external outputs total
-**6.01087778 BTC** and fees total **1,585 sats**, reducing the address balance
-from 10.44811501 BTC to **4.43722138 BTC**. These are later hops of a
-community-attributed sample, not newly stolen funds; no recipient identity or
-service label is assigned. Exact transaction mechanics are preserved in the
-machine-readable evidence.
+in those transactions came from the tracked address. The first five spends
+returned change to the same address; the sixth consumed 124 source UTXOs and
+paid **4.43713316 BTC** to a new Taproot address in
+[`d969fd…e16ef`](https://mempool.space/tx/d969fd1c2a1558c000c8e5e15b069dbd383f4e63a0427fa0ba7f58d41e7e16ef).
+Across all six spends, external outputs total **10.44801094 BTC** and fees
+total **9,535 sats**, leaving two dust UTXOs totaling **872 sats** at the
+original destination. The new Taproot address still held its 4.43713316 BTC
+receipt at the cutoff. These are later hops of a community-attributed sample,
+not newly stolen funds; no recipient identity or service label is assigned.
+Exact transaction mechanics are preserved in the machine-readable evidence.
 
-The Wave 1 main destination now holds 114,680 sats more than its representative
+The Wave 1 main destination now holds 115,680 sats more than its representative
 consolidation receipt, including a 546-sat unconfirmed output at the cutoff.
 That unsolicited inbound activity at a published address is reflected in
 current balance but is not treated as stolen value or a new victim payment.
 
-The four published Wave 1 destinations total 1,082.57041582 BTC at the cutoff;
+The four published Wave 1 destinations total 1,082.57042582 BTC at the cutoff;
 the two listed Wave 2 destinations total 76.08730323 BTC. Their six-address sum
-is 1,158.65771905 BTC. These sums are not replacements for Galaxy's stolen-BTC
+is 1,158.65772905 BTC. These sums are not replacements for Galaxy's stolen-BTC
 figures: transaction fees and any destination omitted from this public list
 explain why held balance and reported source value differ.
 
@@ -442,23 +446,26 @@ This review searched current Coinkite and Block publications; Galaxy Research,
 owner, and analyst posts (including direct public status mirrors); public
 Chainabuse reports linked from the tracker; public GitHub issue/repository
 search; the community tracker through pinned revision
-`1d51b219aaab6c0b428d2f5e28504f4b7525e863`; Bloomberg's owner interview; new
-CoinDesk, Decrypt, Bitcoin Magazine, Protos, Coinpaper, Fortune, and other
-current coverage; Google/Bing News; and public explorer data.
+`b8ac5ea5dea61bc0c9de794c04cc46c2c1639e98`; Bloomberg's owner interview; new
+TechCrunch, CBC, CoinDesk, Decrypt, Bitcoin Magazine, Protos, Coinpaper,
+Fortune, and other current coverage; Google/Bing News; and public explorer data.
 
-This pass found one additional transaction-backed primary owner case: 23
+This review has found one additional transaction-backed primary owner case: 23
 published Mk3 source addresses totaling 5.13591373 BTC inside the already-known
-August 2 consolidation. It also found Galaxy's newer Footprint O report: 12 BTC
-from 126 addresses, discovered from one anonymous victim report of less than 1
-BTC, but without public identifiers or a revised cumulative headline. Current
-coverage otherwise repeats Galaxy's 1,596 BTC high-confidence headline and
-2,055 BTC including potential Wave 4. A new Protos article links several tiny
-OP_RETURN/message transactions sent to a published Wave 1 destination; those
-unsolicited deposits are communications of unknown provenance, not verified
-victim payments or additional theft. At this cutoff, one Wave 1 destination had
-received 11,538 additional sats of unsolicited inbound activity and one
-fingerprint-only P2TR sample destination had spent 6.01089363 BTC including
-fees. The other 20 tracked confirmed-plus-mempool balances were unchanged.
+August 2 consolidation. It also records Galaxy's newer Footprint O report: 12
+BTC from 126 addresses, discovered from one anonymous victim report of less
+than 1 BTC, but without public identifiers or a revised cumulative headline.
+This monitoring pass found no additional transaction-backed victim case or
+revised cumulative headline. New TechCrunch, CBC, and Protos coverage repeats
+Galaxy's 1,596 BTC high-confidence headline and 2,055 BTC including potential
+Wave 4. A new Protos article links several tiny OP_RETURN/message transactions
+sent to a published Wave 1 destination; those unsolicited deposits are
+communications of unknown provenance, not verified victim payments or
+additional theft. At this cutoff, one Wave 1 destination had received another
+1,000 sats of unsolicited inbound activity and one fingerprint-only P2TR
+sample destination had spent 10.44810629 BTC including fees, leaving 872 sats
+while its final 4.43713316 BTC output remained at a new Taproot address. The
+other 20 previously tracked confirmed-plus-mempool balances were unchanged.
 
 The complete approximately 7,300-address corpus remains unpublished. Earlier
 general-interest coverage repackaged the potential Wave 4 figures (often as a

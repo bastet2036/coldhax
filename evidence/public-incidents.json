@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "research_cutoff_utc": "2026-08-04T16:13:31Z",
-  "onchain_observed_at_utc": "2026-08-04T16:13:31Z",
+  "research_cutoff_utc": "2026-08-04T19:24:21Z",
+  "onchain_observed_at_utc": "2026-08-04T19:24:21Z",
   "network": "bitcoin-mainnet",
   "explorer_api": "https://mempool.space/api",
   "balance_definition": "Confirmed chain plus mempool funded outputs minus spent outputs at the observation cutoff.",
@@ -522,6 +522,22 @@
       "explorer": "https://mempool.space/tx/927183853a12d34241fb61bbfb3e8f64e29d75768e2bf058497d5399e1cac6b9"
     },
     {
+      "source_cluster": "kelbie-p2tr-community-sample",
+      "source_address": "bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h",
+      "transaction_id": "d969fd1c2a1558c000c8e5e15b069dbd383f4e63a0427fa0ba7f58d41e7e16ef",
+      "block_height": 961048,
+      "block_time_utc": "2026-08-04T17:36:35Z",
+      "transaction_input_count": 124,
+      "source_input_sats": 443721266,
+      "destination_address": "bc1prjnvz77lhd3t6kdxt34x4yzgwu4qfdgyges8h6qhwldj60z5mcqs7pprpr",
+      "destination_received_sats": 443713316,
+      "fee_sats": 7950,
+      "classification": "later_hop_not_additional_loss",
+      "note": "All 124 inputs came from the tracked P2TR destination and the transaction paid one Taproot output. The source retained two dust UTXOs totaling 872 sats. The output is downstream movement of previously observed funds, not an additional loss; no recipient identity is assigned.",
+      "tracker_revision": "c8561e446868d67c19cc7d9c32e9b12f8e4d40dd",
+      "explorer": "https://mempool.space/tx/d969fd1c2a1558c000c8e5e15b069dbd383f4e63a0427fa0ba7f58d41e7e16ef"
+    },
+    {
       "source_cluster": "chainabuse-mk3-owner-report",
       "source_address": "bc1q4626d9knltp3eeuwmfhuqh4ez3py4rdq9nsck8",
       "transaction_id": "d4c4f8fb721eb71d659cc34ed0fd998641bfb1ad28f23dde483281edec87fd34",
@@ -583,8 +599,8 @@
     {
       "address": "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r",
       "cluster": "galaxy-wave-1",
-      "current_balance_sats": 56202076981,
-      "note": "The 114,680-sat increase above the representative consolidation receipt includes a 546-sat unconfirmed output at the cutoff. It is unsolicited inbound activity at a public destination and is not added to stolen-funds totals."
+      "current_balance_sats": 56202077981,
+      "note": "The 115,680-sat increase above the representative consolidation receipt includes a 546-sat unconfirmed output at the cutoff. It is unsolicited inbound activity at a public destination and is not added to stolen-funds totals."
     },
     {
       "address": "bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3",
@@ -693,8 +709,14 @@
     {
       "address": "bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h",
       "cluster": "kelbie-p2tr-community-sample",
-      "current_balance_sats": 443722138,
-      "note": "Fingerprint-based community attribution; no reviewed direct victim report identifies these receipts. Five direct spends reduced the balance by 601,089,363 sats, comprising 601,087,778 sats of external outputs plus 1,585 sats of fees. Those outputs are later hops, not additional losses."
+      "current_balance_sats": 872,
+      "note": "Fingerprint-based community attribution; no reviewed direct victim report identifies these receipts. Six direct spends reduced the balance by 1,044,810,629 sats, comprising 1,044,801,094 sats of external outputs plus 9,535 sats of fees. Two dust UTXOs totaling 872 sats remain. Those outputs are later hops, not additional losses."
+    },
+    {
+      "address": "bc1prjnvz77lhd3t6kdxt34x4yzgwu4qfdgyges8h6qhwldj60z5mcqs7pprpr",
+      "cluster": "kelbie-p2tr-community-sample-downstream",
+      "current_balance_sats": 443713316,
+      "note": "This Taproot address received the final 443,713,316-sat direct output from the fingerprint-attributed P2TR sample destination. It is a downstream balance observation, not a new loss or stronger attribution; no recipient identity is assigned."
     }
   ],
   "emerging_unincluded_report": {
@@ -717,8 +739,8 @@
     "victim_confirmation": "The analyst explicitly stated that no direct victim report had yet confirmed Wave 4.",
     "secondary_reconstruction": {
       "source": "https://github.com/SamSamskies/coldcard-hack-tracker/commit/b6c7529e5b994cd47b0719d0996c9d1ff35887ef",
-      "latest_reviewed_revision": "e62b8866f95247216eae1fa4163ab6872b61ce09",
-      "latest_reviewed_at_utc": "2026-08-04T16:13:31Z",
+      "latest_reviewed_revision": "b8ac5ea5dea61bc0c9de794c04cc46c2c1639e98",
+      "latest_reviewed_at_utc": "2026-08-04T19:24:21Z",
       "additional_prior_history_destinations_excluded": 6,
       "additional_prior_history_btc_excluded": 5.39,
       "derived_addresses": 703,
@@ -745,7 +767,7 @@
     "Tim Lamb's owner-reported 2 BTC Mk3 loss has no published source address, transaction ID, or generation-firmware version and cannot be independently verified or added to the cumulative waves.",
     "Alex Thorn's report of a nearly 30 BTC Coldcard victim and an approximately 17 BTC peel through THORChain to Duel.com supplies no public victim/attacker address or BTC/ETH transaction ID; it is retained as an unverified analyst report and excluded from totals.",
     "Current balances are destination observations, not stolen amounts, and later hops are not added to incident totals.",
-    "Five direct spends from one fingerprint-only P2TR sample destination produced 601,087,778 sats of external outputs and 1,585 sats of fees. These are downstream movements of previously observed funds, not new victim losses, and no recipient identity is assigned.",
+    "Six direct spends from one fingerprint-only P2TR sample destination produced 1,044,801,094 sats of external outputs and 9,535 sats of fees, leaving two dust UTXOs totaling 872 sats. These are downstream movements of previously observed funds, not new victim losses, and no recipient identity is assigned.",
     "The potential Wave 4 primary correction has internally non-reconciling arithmetic and no direct victim confirmation. Galaxy's later thread calls it medium-high confidence and reports a 2,055 BTC total if included, but still withholds it from the 1,596 BTC high-confidence headline because no specific victim has confirmed inclusion.",
     "Three Chainabuse owner reports provide transaction identifiers. One exact 5.39099821 BTC Mk3 loss lands after one hop in a Galaxy Wave 3 vault. Another Mk3 owner identifies 23 inputs totaling 5.13591373 BTC inside the already-recorded 64.90947964 BTC August 2 consolidation. The third identifies only 0.17998515 BTC of a 0.50992489 BTC P2TR destination. None is added again to an overlapping cluster or cumulative headline.",
     "Galaxy's August 4 update raises the reported smaller-footprint count from 14 to 15 and describes Footprint O as 12 BTC from 126 addresses, discovered from one victim report of less than 1 BTC. It publishes no revised cumulative headline or address/transaction corpus, so no arithmetic addition is made."
@@ -784,6 +806,9 @@
     "https://decrypt.co/374820/coldcard-losses-near-114m-as-small-bitcoin-transfers-spike",
     "https://www.protos.com/a-timeline-of-coldcards-85m-bitcoin-theft/",
     "https://protos.com/coldcard-hackers-btc-wallet-flooded-with-on-chain-messages/",
+    "https://protos.com/15-attackers-now-draining-vulnerable-coldcard-wallets-report/",
+    "https://techcrunch.com/2026/08/04/hackers-steal-over-130-million-by-exploiting-bug-in-offline-hardware-wallets/",
+    "https://www.cbc.ca/news/world/bitcoin-coinkite-security-hack-9.7295582",
     "https://bitcoinmagazine.com/news/coldcard-bitcoin-theft-continues"
   ]
 }

@@ -236,7 +236,7 @@ time-stamped measurements. A lack of publicly verified cases must be reported as
 such rather than interpreted as proof that no theft occurred.
 
 `PUBLIC_INCIDENTS.md` records the public evidence found through 2026-08-04
-16:13:31 UTC. Galaxy Research's August 3 high-confidence cumulative estimate is
+19:24:21 UTC. Galaxy Research's August 3 high-confidence cumulative estimate is
 1,596 BTC across approximately 7,300 source addresses in three victim-confirmed
 major waves plus 14 smaller incidents. Galaxy says 73 individual victims
 contacted its analyst, but publishes no complete address/transaction corpus; the
@@ -276,11 +276,12 @@ because no specific victim has confirmed inclusion. The earlier correction
 arithmetic, newer total, and unpublished corpus do not fully reconcile, so no
 Wave 4-only amount is derived here.
 
-The latest on-chain refresh also records five direct downstream spends from one
-fingerprint-only P2TR sample destination. External outputs total 6.01087778 BTC
-and fees total 1,585 sats, leaving 4.43722138 BTC at the observation cutoff.
-This is movement of already-observed funds, not a new loss or stronger defect
-attribution.
+The latest on-chain refresh records six direct downstream spends from one
+fingerprint-only P2TR sample destination. External outputs total 10.44801094
+BTC and fees total 9,535 sats, leaving two dust UTXOs totaling 872 sats. The
+final 4.43713316 BTC output remained at a new Taproot address at the observation
+cutoff. This is movement of already-observed funds, not a new loss or stronger
+defect attribution.
 
 ## Remediation
 

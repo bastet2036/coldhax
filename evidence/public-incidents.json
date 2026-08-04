@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "research_cutoff_utc": "2026-08-04T13:02:05Z",
-  "onchain_observed_at_utc": "2026-08-04T13:02:05Z",
+  "research_cutoff_utc": "2026-08-04T16:13:31Z",
+  "onchain_observed_at_utc": "2026-08-04T16:13:31Z",
   "network": "bitcoin-mainnet",
   "explorer_api": "https://mempool.space/api",
   "balance_definition": "Confirmed chain plus mempool funded outputs minus spent outputs at the observation cutoff.",
@@ -447,6 +447,81 @@
   ],
   "later_hop_observations": [
     {
+      "source_cluster": "kelbie-p2tr-community-sample",
+      "source_address": "bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h",
+      "transaction_id": "780ea04371adee7490a2409484693cdf49f6ac4efc36ded59f53788c2fcf0326",
+      "block_height": 961019,
+      "block_time_utc": "2026-08-04T13:34:53Z",
+      "transaction_input_count": 1,
+      "source_input_sats": 330199055,
+      "source_change_sats": 329181151,
+      "destination_received_sats": 1017549,
+      "fee_sats": 355,
+      "classification": "later_hop_not_additional_loss",
+      "note": "The fingerprint-attributed P2TR destination spent one input and returned change to itself. Only the 1,017,549-sat external output and 355-sat fee reduced its balance; this is downstream movement, not an additional loss.",
+      "explorer": "https://mempool.space/tx/780ea04371adee7490a2409484693cdf49f6ac4efc36ded59f53788c2fcf0326"
+    },
+    {
+      "source_cluster": "kelbie-p2tr-community-sample",
+      "source_address": "bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h",
+      "transaction_id": "064eb61de80cff3e74408a99de840a6e469bca5c79faa4f54dc718e75d7ddd4f",
+      "block_height": 961021,
+      "block_time_utc": "2026-08-04T14:03:19Z",
+      "transaction_input_count": 1,
+      "source_input_sats": 329181151,
+      "source_change_sats": 229163328,
+      "destination_received_sats": 100017553,
+      "fee_sats": 270,
+      "classification": "later_hop_not_additional_loss",
+      "note": "The same P2TR destination spent its prior change and returned new change to itself. The external output is downstream movement and is not added to any incident amount.",
+      "explorer": "https://mempool.space/tx/064eb61de80cff3e74408a99de840a6e469bca5c79faa4f54dc718e75d7ddd4f"
+    },
+    {
+      "source_cluster": "kelbie-p2tr-community-sample",
+      "source_address": "bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h",
+      "transaction_id": "1a454301c7f9cb41193b63e82d05c88903fd4e356467b231b9b2e095aac772c2",
+      "block_height": 961026,
+      "block_time_utc": "2026-08-04T14:39:15Z",
+      "transaction_input_count": 1,
+      "source_input_sats": 229163328,
+      "source_change_sats": 29145614,
+      "destination_received_sats": 200017557,
+      "fee_sats": 157,
+      "classification": "later_hop_not_additional_loss",
+      "note": "The same P2TR destination spent its prior change and returned new change to itself. The external output is downstream movement and is not added to any incident amount.",
+      "explorer": "https://mempool.space/tx/1a454301c7f9cb41193b63e82d05c88903fd4e356467b231b9b2e095aac772c2"
+    },
+    {
+      "source_cluster": "kelbie-p2tr-community-sample",
+      "source_address": "bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h",
+      "transaction_id": "2c7075a3388b88c29d976d862919f11a239c72e31b19ac459469586b815012cc",
+      "block_height": 961032,
+      "block_time_utc": "2026-08-04T15:22:16Z",
+      "transaction_input_count": 2,
+      "source_input_sats": 180417084,
+      "source_change_sats": 80399185,
+      "destination_received_sats": 100017559,
+      "fee_sats": 340,
+      "classification": "later_hop_not_additional_loss",
+      "note": "Both inputs came from the tracked P2TR destination and one output returned change to it. The external output is downstream movement and is not added to any incident amount.",
+      "explorer": "https://mempool.space/tx/2c7075a3388b88c29d976d862919f11a239c72e31b19ac459469586b815012cc"
+    },
+    {
+      "source_cluster": "kelbie-p2tr-community-sample",
+      "source_address": "bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h",
+      "transaction_id": "927183853a12d34241fb61bbfb3e8f64e29d75768e2bf058497d5399e1cac6b9",
+      "block_height": 961037,
+      "block_time_utc": "2026-08-04T15:59:13Z",
+      "transaction_input_count": 3,
+      "source_input_sats": 254403896,
+      "source_change_sats": 54385873,
+      "destination_received_sats": 200017560,
+      "fee_sats": 463,
+      "classification": "later_hop_not_additional_loss",
+      "note": "All three inputs came from the tracked P2TR destination and one output returned change to it. The external output is downstream movement and is not added to any incident amount.",
+      "explorer": "https://mempool.space/tx/927183853a12d34241fb61bbfb3e8f64e29d75768e2bf058497d5399e1cac6b9"
+    },
+    {
       "source_cluster": "chainabuse-mk3-owner-report",
       "source_address": "bc1q4626d9knltp3eeuwmfhuqh4ez3py4rdq9nsck8",
       "transaction_id": "d4c4f8fb721eb71d659cc34ed0fd998641bfb1ad28f23dde483281edec87fd34",
@@ -508,8 +583,8 @@
     {
       "address": "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r",
       "cluster": "galaxy-wave-1",
-      "current_balance_sats": 56202065443,
-      "note": "The 103,142-sat increase above the representative consolidation receipt includes a 546-sat unconfirmed output at the cutoff. It is unsolicited inbound activity at a public destination and is not added to stolen-funds totals."
+      "current_balance_sats": 56202076981,
+      "note": "The 114,680-sat increase above the representative consolidation receipt includes a 546-sat unconfirmed output at the cutoff. It is unsolicited inbound activity at a public destination and is not added to stolen-funds totals."
     },
     {
       "address": "bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3",
@@ -618,8 +693,8 @@
     {
       "address": "bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h",
       "cluster": "kelbie-p2tr-community-sample",
-      "current_balance_sats": 1044811501,
-      "note": "Fingerprint-based community attribution; no reviewed direct victim report identifies these receipts."
+      "current_balance_sats": 443722138,
+      "note": "Fingerprint-based community attribution; no reviewed direct victim report identifies these receipts. Five direct spends reduced the balance by 601,089,363 sats, comprising 601,087,778 sats of external outputs plus 1,585 sats of fees. Those outputs are later hops, not additional losses."
     }
   ],
   "emerging_unincluded_report": {
@@ -642,8 +717,8 @@
     "victim_confirmation": "The analyst explicitly stated that no direct victim report had yet confirmed Wave 4.",
     "secondary_reconstruction": {
       "source": "https://github.com/SamSamskies/coldcard-hack-tracker/commit/b6c7529e5b994cd47b0719d0996c9d1ff35887ef",
-      "latest_reviewed_revision": "1d51b219aaab6c0b428d2f5e28504f4b7525e863",
-      "latest_reviewed_at_utc": "2026-08-04T13:02:05Z",
+      "latest_reviewed_revision": "e62b8866f95247216eae1fa4163ab6872b61ce09",
+      "latest_reviewed_at_utc": "2026-08-04T16:13:31Z",
       "additional_prior_history_destinations_excluded": 6,
       "additional_prior_history_btc_excluded": 5.39,
       "derived_addresses": 703,
@@ -670,6 +745,7 @@
     "Tim Lamb's owner-reported 2 BTC Mk3 loss has no published source address, transaction ID, or generation-firmware version and cannot be independently verified or added to the cumulative waves.",
     "Alex Thorn's report of a nearly 30 BTC Coldcard victim and an approximately 17 BTC peel through THORChain to Duel.com supplies no public victim/attacker address or BTC/ETH transaction ID; it is retained as an unverified analyst report and excluded from totals.",
     "Current balances are destination observations, not stolen amounts, and later hops are not added to incident totals.",
+    "Five direct spends from one fingerprint-only P2TR sample destination produced 601,087,778 sats of external outputs and 1,585 sats of fees. These are downstream movements of previously observed funds, not new victim losses, and no recipient identity is assigned.",
     "The potential Wave 4 primary correction has internally non-reconciling arithmetic and no direct victim confirmation. Galaxy's later thread calls it medium-high confidence and reports a 2,055 BTC total if included, but still withholds it from the 1,596 BTC high-confidence headline because no specific victim has confirmed inclusion.",
     "Three Chainabuse owner reports provide transaction identifiers. One exact 5.39099821 BTC Mk3 loss lands after one hop in a Galaxy Wave 3 vault. Another Mk3 owner identifies 23 inputs totaling 5.13591373 BTC inside the already-recorded 64.90947964 BTC August 2 consolidation. The third identifies only 0.17998515 BTC of a 0.50992489 BTC P2TR destination. None is added again to an overlapping cluster or cumulative headline.",
     "Galaxy's August 4 update raises the reported smaller-footprint count from 14 to 15 and describes Footprint O as 12 BTC from 126 addresses, discovered from one victim report of less than 1 BTC. It publishes no revised cumulative headline or address/transaction corpus, so no arithmetic addition is made."

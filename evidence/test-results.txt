@@ -25,6 +25,6 @@ test_representative_transactions_are_unique_and_labeled (test_public_incidents.P
 test_thorn_approximate_case_fails_closed_without_identifiers (test_public_incidents.PublicIncidentTests.test_thorn_approximate_case_fails_closed_without_identifiers) ... ok
 
 ----------------------------------------------------------------------
-Ran 25 tests in 0.008s
+Ran 25 tests in 0.007s
 
 OK

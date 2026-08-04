@@ -1,6 +1,6 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-04 13:02:05 UTC**. On-chain balances below were
+Research cutoff: **2026-08-04 16:13:31 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
 same time and include confirmed plus mempool funded outputs minus spent outputs.
 The machine-readable observations and exact classifications are in
@@ -294,7 +294,7 @@ consolidation total nor a guessed 0.1 BTC is recorded as his exact loss.
 
 | Cluster | Destination | Current balance at cutoff |
 | --- | --- | ---: |
-| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02065443 BTC |
+| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02076981 BTC |
 | Galaxy Wave 1 | [`bc1qx76…fhe3`](https://mempool.space/address/bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3) | 398.47576957 BTC |
 | Galaxy Wave 1 | [`bc1q8jy…tp3q`](https://mempool.space/address/bc1q8jy96fe5lf8vfugydnte3cguk92gpev7kwtp3q) | 89.62328890 BTC |
 | Galaxy Wave 1 | [`bc1qnk4…fecp0`](https://mempool.space/address/bc1qnk4zh9qcnap2mycp56qjrgza3cc8ylrh8fecp0) | 32.45058754 BTC |
@@ -306,7 +306,7 @@ consolidation total nor a guessed 0.1 BTC is recorded as his exact loss.
 | Galaxy Wave 3 / Chainabuse owner | [`bc1qysj…kkx7h`](https://mempool.space/address/bc1qysjc4jrltc4je2f9uek477xdczkrmkd0mwv2wgn47r0wt3qv4a7spkkx7h) | 5.39098601 BTC |
 | P2TR sample / owner-corroborated sink | [`bc1pum5…ftmy8`](https://mempool.space/address/bc1pum5zf6efxgt7a8xcyjg79u25jdhz6ex9ff2m390d544v05pg698s8ftmy8) | 0.50992489 BTC |
 | P2TR sample / fingerprint only | [`bc1pdl3…uu9ce`](https://mempool.space/address/bc1pdl33jtqnausmx2d4r4c6wpnk5are8jz046y3yjkw8fryjel02p7sluu9ce) | 36.01585057 BTC |
-| P2TR sample / fingerprint only | [`bc1p0l0…6qlk0h`](https://mempool.space/address/bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h) | 10.44811501 BTC |
+| P2TR sample / fingerprint only | [`bc1p0l0…6qlk0h`](https://mempool.space/address/bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h) | 4.43722138 BTC |
 
 Nine higher-value destinations from the community
 [Coldcard Hack Tracker](https://github.com/SamSamskies/coldcard-hack-tracker)
@@ -322,13 +322,14 @@ proof of defect attribution. Their balances are observations, not additional
 losses.
 
 The tracker was reviewed again at pinned revision
-[`1d51b21`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/1d51b219aaab6c0b428d2f5e28504f4b7525e863).
-Since the previous `f8b1a4a` review, its substantive `3048c0e` revision adds
+[`e62b886`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/e62b8866f95247216eae1fa4163ab6872b61ce09).
+Since the earlier `f8b1a4a` review, its substantive `3048c0e` revision adds
 Galaxy's Footprint O update and links the 5.13591373 BTC Chainabuse owner report
 to the already-recorded August 2 consolidation. It publishes no Footprint O
 address list and adds no separate source loss beyond that overlapping owner
-subset. Balance-only revisions refreshed fiat pricing but did not change the 22
-balances tracked here.
+subset. The newest automated snapshots also exposed fresh downstream movement
+from one P2TR sample destination, described below; they did not publish a new
+victim report or incident-loss headline.
 The substantive `4a35019` revision records that the 5.61303754 BTC initially
 received by `1N8kn…fDo` was
 fully spent in two transactions. Direct mempool.space checks confirm that
@@ -358,14 +359,25 @@ the community's approximately 5 sat/vB one-output fingerprint, not direct victim
 reports. The 46.97389047 BTC sample is therefore not treated as a complete wave
 or added to any loss headline.
 
-The Wave 1 main destination now holds 103,142 sats more than its representative
+The fingerprint-only P2TR destination `bc1p0l0…6qlk0h` subsequently made five
+direct spends between 13:34:53 and 15:59:13 UTC on August 4. Direct
+[mempool.space](https://mempool.space) transaction data shows that every input
+in those transactions came from the tracked address and that each transaction
+returned change to the same address. The five external outputs total
+**6.01087778 BTC** and fees total **1,585 sats**, reducing the address balance
+from 10.44811501 BTC to **4.43722138 BTC**. These are later hops of a
+community-attributed sample, not newly stolen funds; no recipient identity or
+service label is assigned. Exact transaction mechanics are preserved in the
+machine-readable evidence.
+
+The Wave 1 main destination now holds 114,680 sats more than its representative
 consolidation receipt, including a 546-sat unconfirmed output at the cutoff.
 That unsolicited inbound activity at a published address is reflected in
 current balance but is not treated as stolen value or a new victim payment.
 
-The four published Wave 1 destinations total 1,082.57030044 BTC at the cutoff;
+The four published Wave 1 destinations total 1,082.57041582 BTC at the cutoff;
 the two listed Wave 2 destinations total 76.08730323 BTC. Their six-address sum
-is 1,158.65760367 BTC. These sums are not replacements for Galaxy's stolen-BTC
+is 1,158.65771905 BTC. These sums are not replacements for Galaxy's stolen-BTC
 figures: transaction fees and any destination omitted from this public list
 explain why held balance and reported source value differ.
 
@@ -443,8 +455,10 @@ coverage otherwise repeats Galaxy's 1,596 BTC high-confidence headline and
 2,055 BTC including potential Wave 4. A new Protos article links several tiny
 OP_RETURN/message transactions sent to a published Wave 1 destination; those
 unsolicited deposits are communications of unknown provenance, not verified
-victim payments or additional theft. All 22 tracked confirmed-plus-mempool
-balances were unchanged at the cutoff.
+victim payments or additional theft. At this cutoff, one Wave 1 destination had
+received 11,538 additional sats of unsolicited inbound activity and one
+fingerprint-only P2TR sample destination had spent 6.01089363 BTC including
+fees. The other 20 tracked confirmed-plus-mempool balances were unchanged.
 
 The complete approximately 7,300-address corpus remains unpublished. Earlier
 general-interest coverage repackaged the potential Wave 4 figures (often as a
@@ -456,7 +470,7 @@ inaccessible (HTTP 403). No reviewed primary source provided:
 
 - an official Coinkite loss total or complete victim list;
 - a machine-readable primary-source list of the approximately 7,300 source
-  addresses, all 14 smaller incidents, and every theft transaction;
+  addresses, all 15 smaller footprints, and every theft transaction;
 - a public seed reconstruction tied to a drained address;
 - a named-attacker or law-enforcement attribution; or
 - enough detail to assign exact victim amounts in the Tomer, Evan, or Marius

@@ -196,18 +196,31 @@ class PublicIncidentTests(unittest.TestCase):
 
     def test_later_hops_are_not_counted_as_new_losses(self) -> None:
         rows = self.data["later_hop_observations"]
-        self.assertEqual(len(rows), 3)
+        self.assertEqual(len(rows), 8)
         wave4_rows = [
             row
             for row in rows
             if row["source_cluster"] == "potential-wave-4-community-reconstruction"
         ]
         self.assertEqual(sum(row["source_input_sats"] for row in wave4_rows), 561303754)
-        self.assertEqual(len({row["transaction_id"] for row in rows}), 3)
+        self.assertEqual(len({row["transaction_id"] for row in rows}), 8)
         for row in rows:
             self.assertEqual(row["classification"], "later_hop_not_additional_loss")
             self.assertEqual(len(row["transaction_id"]), 64)
             self.assertGreater(row["source_input_sats"], 0)
+
+        p2tr_rows = [
+            row
+            for row in rows
+            if row["source_cluster"] == "kelbie-p2tr-community-sample"
+        ]
+        self.assertEqual(len(p2tr_rows), 5)
+        self.assertEqual(
+            sum(row["destination_received_sats"] for row in p2tr_rows),
+            601087778,
+        )
+        self.assertEqual(sum(row["fee_sats"] for row in p2tr_rows), 1585)
+        self.assertTrue(all(row["source_change_sats"] > 0 for row in p2tr_rows))
 
     def test_post_mix_downstream_movement_is_not_source_attributed(self) -> None:
         rows = self.data["unassigned_downstream_observations"]

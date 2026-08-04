@@ -115,6 +115,18 @@ class PublicIncidentTests(unittest.TestCase):
             self.assertEqual(len(row["transaction_id"]), 64)
             self.assertGreater(row["source_input_sats"], 0)
 
+    def test_post_mix_downstream_movement_is_not_source_attributed(self) -> None:
+        rows = self.data["unassigned_downstream_observations"]
+        self.assertEqual(len(rows), 1)
+        row = rows[0]
+        self.assertEqual(
+            row["classification"],
+            "not_source_attributable_after_mixed_transaction",
+        )
+        self.assertEqual(row["immediate_source_input_sats"], 47797906)
+        self.assertEqual(row["upstream_mixed_transaction_input_count"], 34)
+        self.assertIn("not added", row["note"])
+
     def test_emerging_wave_fails_closed(self) -> None:
         emerging = self.data["emerging_unincluded_report"]
         self.assertEqual(

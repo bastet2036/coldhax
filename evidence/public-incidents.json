@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "research_cutoff_utc": "2026-08-03T21:05:00Z",
-  "onchain_observed_at_utc": "2026-08-03T21:05:00Z",
+  "research_cutoff_utc": "2026-08-04T00:13:16Z",
+  "onchain_observed_at_utc": "2026-08-04T00:13:16Z",
   "network": "bitcoin-mainnet",
   "explorer_api": "https://mempool.space/api",
   "classification": {
@@ -239,6 +239,22 @@
       "explorer": "https://mempool.space/tx/23a84f33fe49943e34f58bcecc945f719208f10c2a65f1ea12944ec103bc709c"
     }
   ],
+  "unassigned_downstream_observations": [
+    {
+      "tracker_revision": "ef4b91217cdc4dae31d323fd7f41c8e2c86b8650",
+      "transaction_id": "822230d251cf44503cabebf05f2c5033e67940081916269bd045e70c41e3083a",
+      "block_height": 960832,
+      "block_time_utc": "2026-08-03T06:30:46Z",
+      "transaction_input_count": 1,
+      "immediate_source_address": "bc1qq0j587l5z5fyjdwut0fqaw5vcr52u5sn44vfz9",
+      "immediate_source_input_sats": 47797906,
+      "upstream_mixed_transaction_id": "23a84f33fe49943e34f58bcecc945f719208f10c2a65f1ea12944ec103bc709c",
+      "upstream_mixed_transaction_input_count": 34,
+      "classification": "not_source_attributable_after_mixed_transaction",
+      "note": "The immediate input descends from an output of a 34-input transaction. That mixing boundary prevents assigning this later output specifically to the tracked Wave 4 source, so it is not added as a source movement or loss.",
+      "explorer": "https://mempool.space/tx/822230d251cf44503cabebf05f2c5033e67940081916269bd045e70c41e3083a"
+    }
+  ],
   "destination_balance_observations": [
     {
       "address": "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r",
@@ -353,8 +369,8 @@
     "victim_confirmation": "The analyst explicitly stated that no direct victim report had yet confirmed Wave 4.",
     "secondary_reconstruction": {
       "source": "https://github.com/SamSamskies/coldcard-hack-tracker/commit/b6c7529e5b994cd47b0719d0996c9d1ff35887ef",
-      "latest_reviewed_revision": "ec16c39d1b31febcb267252eabb670aff236f97c",
-      "latest_reviewed_at_utc": "2026-08-03T21:05:00Z",
+      "latest_reviewed_revision": "ef4b91217cdc4dae31d323fd7f41c8e2c86b8650",
+      "latest_reviewed_at_utc": "2026-08-04T00:13:16Z",
       "additional_prior_history_destinations_excluded": 6,
       "additional_prior_history_btc_excluded": 5.39,
       "derived_addresses": 703,

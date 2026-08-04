@@ -1,6 +1,6 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-03 21:05:00 UTC**. On-chain balances below were
+Research cutoff: **2026-08-04 00:13:16 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
 same time. The machine-readable observations and exact classifications are in
 [`evidence/public-incidents.json`](evidence/public-incidents.json).
@@ -213,7 +213,7 @@ proof of defect attribution. Their balances are observations, not additional
 losses.
 
 The tracker was reviewed again at pinned revision
-[`ec16c39`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/ec16c39d1b31febcb267252eabb670aff236f97c).
+[`ef4b912`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/ef4b91217cdc4dae31d323fd7f41c8e2c86b8650).
 It now records that the 5.61303754 BTC initially received by `1N8kn…fDo` was
 fully spent in two transactions. Direct mempool.space checks confirm that
 transaction [`6f19b1…dd235`](https://mempool.space/tx/6f19b1b9e3d602335c62861ce3d90631b34945fd2998d9bcd7e6a14a68fdd235)
@@ -223,6 +223,14 @@ spent the remaining 2.81971503 BTC input in block 960818. The latter combines
 that input with 33 others, so neither its 146.77351359 BTC main output nor the
 tracker's secondary service attribution is assigned to this source. These are
 later-hop movement observations, **not additional theft amounts**.
+
+The latest tracker revision adds transaction
+[`822230…e3083`](https://mempool.space/tx/822230d251cf44503cabebf05f2c5033e67940081916269bd045e70c41e3083a),
+which spends a 0.47797906 BTC output two hops after the mixed 34-input
+transaction. The transaction itself is confirmed and has one input, but the
+upstream mixed transaction prevents assigning that later output specifically to
+the tracked Wave 4 source. It is therefore not added as a source movement or a
+loss.
 
 The Wave 1 main destination gained another 19,615 sats since the prior observation.
 That unsolicited inbound activity at a published address is reflected in the
@@ -283,13 +291,16 @@ endpoint); public GitHub issue/repository search; the community tracker and a
 new 221-destination ledger pull request; Bloomberg's new owner interview;
 new CoinDesk, Decrypt, Bitcoin Magazine, and Protos coverage; Hacker News;
 Google/Bing-indexed reporting; Bitcoin Magazine and newer Fortune, Cybernews,
-Fox, and Bitcoin News coverage; and public explorer data. The later coverage
+Fox, Forbes, and Bitcoin News coverage (including the Duel.com dispute); and
+public explorer data. The later coverage
 repackages the potential Wave 4 figures (often as a rounded 1,816 BTC total) or
 the already-recorded nearly 30 BTC / approximately 17 BTC victim report; it does
 not publish a new primary victim-address or transaction corpus. This review
 retains Thorn's nearly 30 BTC Coldcard-victim report, but it contains no public
 address or transaction ID.
-The other new coverage restates Thorn's corrected
+The Duel.com coverage still points to Thorn's already-reviewed post and does
+not publish the referenced victim, BTC/ETH addresses, or transaction IDs. The
+other new coverage restates Thorn's corrected
 709-address / 448.73 BTC potential Wave 4 rather than adding a direct victim or
 primary transaction corpus. Reddit's public search endpoint was
 inaccessible (HTTP 403). No reviewed primary source provided:

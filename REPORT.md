@@ -236,30 +236,32 @@ time-stamped measurements. A lack of publicly verified cases must be reported as
 such rather than interpreted as proof that no theft occurred.
 
 `PUBLIC_INCIDENTS.md` records the public evidence found through 2026-08-04
-00:13:16 UTC. Galaxy Research's latest reviewed cumulative estimate is 1,367.05
+03:23:07 UTC. Galaxy Research's latest reviewed cumulative estimate is 1,367.05
 BTC across 4,585 source addresses in three suspected Coldcard-linked waves.
-Owner/witness reports identify Coldcard-origin wallets in the sweeps, including
-one Mk3 testing-wallet report with a public transaction ID, an owner report of
-18.25245043 BTC drained from three Coldcard wallets, and a direct owner report
-of 2 BTC drained from a Mk3 wallet. A separate analyst report says a nearly 30
-BTC Coldcard victim had approximately 17 BTC peeled through THORChain to
-Duel.com, but publishes no public on-chain identifiers. The exact owner reports
-and approximate analyst report do
-not publish source addresses or transaction IDs, so their amounts cannot be
-independently verified or added to the cumulative wave total. These facts establish
-public unauthorized-spend reports and strong circumstantial clustering, but no
-reviewed source publicly reconstructed a victim seed and matched it to a drained
-address. The report therefore labels defect attribution as suspected rather
-than conclusive, keeps current destination balances separate, and does not add
-cumulative waves, fees, or later hops. A potential fourth wave was revised to a
-stated 709-address / 448.73 BTC core after multisig exclusions, but remains
-outside the cumulative headline because its source reports no direct victim
-confirmation and its published before/exclusion/after arithmetic does not fully
-reconcile. A pinned community-tracker revision and direct explorer checks also
-record that one 5.61303754 BTC potential Wave 4 destination was later emptied in
-two transactions. Those downstream spends are explicitly excluded from loss
-totals; one mixes the source with 33 other inputs, so its aggregate output is not
-assigned to that source.
+Two new public Chainabuse owner reports materially improve transaction-level
+evidence. One owner reports an exact 5.39099821 BTC Mk3 loss; its cited
+transaction pays exactly that amount and then moves once into a published Galaxy
+Wave 3 vault. A second owner identifies three Coldcard-hack transactions paying
+0.17998515 BTC into a P2TR sink. The latter sink is part of a 46.97389047 BTC
+three-destination community sample, but only the owner's three identified
+receipts are owner-corroborated; the remainder is fingerprint attribution.
+Neither amount is added to Galaxy's total because the Mk3 case overlaps Wave 3
+and the P2TR sample is separately classified.
+
+Other owner/witness reports identify Coldcard-origin wallets in the sweeps,
+including one Mk3 testing-wallet report with a public transaction ID, an owner
+report of 18.25245043 BTC drained from three Coldcard wallets, and a direct owner
+report of 2 BTC drained from a Mk3 wallet. A separate analyst report says a
+nearly 30 BTC Coldcard victim had approximately 17 BTC peeled through THORChain
+to Duel.com, but publishes no public on-chain identifiers. Those exact owner
+reports and the approximate analyst report cannot be independently verified or
+added to cumulative totals. No reviewed source publicly reconstructed a victim
+seed and matched it to a drained address, so defect attribution remains
+suspected rather than conclusive. Current destination balances remain separate,
+and cumulative waves, fees, and later hops are not added. A potential fourth
+wave was revised to a stated 709-address / 448.73 BTC core after multisig
+exclusions, but remains outside the cumulative headline because it lacks direct
+victim confirmation and its published arithmetic does not fully reconcile.
 
 ## Remediation
 

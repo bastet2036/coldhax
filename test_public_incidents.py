@@ -37,8 +37,8 @@ class PublicIncidentTests(unittest.TestCase):
             r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$",
         )
         observations = self.data["destination_balance_observations"]
-        self.assertEqual(len(observations), 18)
-        self.assertEqual(len({row["address"] for row in observations}), 18)
+        self.assertEqual(len(observations), 22)
+        self.assertEqual(len({row["address"] for row in observations}), 22)
         for row in observations:
             self.assertIsInstance(row["current_balance_sats"], int)
             self.assertGreaterEqual(row["current_balance_sats"], 0)
@@ -93,9 +93,45 @@ class PublicIncidentTests(unittest.TestCase):
         self.assertEqual(thorn["public_source_addresses"], [])
         self.assertIn("Do not add", thorn["double_counting_note"])
 
+    def test_chainabuse_mk3_owner_loss_binds_to_wave3_without_double_counting(self) -> None:
+        case = next(
+            row
+            for row in self.data["public_owner_or_witness_reports"]
+            if row["id"] == "chainabuse-mk3-5.39099821-bitcoin"
+        )
+        self.assertEqual(case["owner_reported_amount_btc"], 5.39099821)
+        self.assertEqual(case["initial_destination_received_sats"], 539099821)
+        self.assertEqual(case["later_hop_fee_sats"], 1220)
+        self.assertEqual(case["current_destination_received_sats"], 539098601)
+        self.assertIn("not an additional loss", case["double_counting_note"])
+        self.assertIn("Do not add", case["double_counting_note"])
+
+    def test_chainabuse_p2tr_owner_amount_is_limited_to_identified_transactions(self) -> None:
+        case = next(
+            row
+            for row in self.data["public_owner_or_witness_reports"]
+            if row["id"] == "chainabuse-p2tr-three-transactions"
+        )
+        self.assertEqual(len(case["transaction_ids"]), 3)
+        self.assertEqual(len(case["public_source_addresses"]), 3)
+        self.assertEqual(case["owner_identified_destination_receipts_sats"], 17998515)
+        self.assertEqual(case["owner_identified_source_inputs_sats"], 18000330)
+        self.assertEqual(case["owner_identified_transaction_fees_sats"], 1815)
+        self.assertEqual(case["destination_total_received_sats"], 50992489)
+        self.assertIn("Only the three owner-identified", case["double_counting_note"])
+
+    def test_p2tr_community_sample_is_not_promoted_to_a_full_wave(self) -> None:
+        sample = self.data["community_reconstructed_clusters"][0]
+        self.assertEqual(sample["id"], "kelbie-p2tr-sample")
+        self.assertEqual(sample["reported_destinations"], 3)
+        self.assertEqual(sum(sample["destination_receipts_sats"]), 4697389047)
+        self.assertEqual(sample["sample_total_received_sats"], 4697389047)
+        self.assertIn("not a complete wave census", sample["limitation"])
+        self.assertIn("must not be added", sample["limitation"])
+
     def test_representative_transactions_are_unique_and_labeled(self) -> None:
         transactions = self.data["representative_onchain_transactions"]
-        self.assertEqual(len(transactions), 5)
+        self.assertEqual(len(transactions), 9)
         self.assertEqual(
             len({row["transaction_id"] for row in transactions}),
             len(transactions),
@@ -107,9 +143,14 @@ class PublicIncidentTests(unittest.TestCase):
 
     def test_later_hops_are_not_counted_as_new_losses(self) -> None:
         rows = self.data["later_hop_observations"]
-        self.assertEqual(len(rows), 2)
-        self.assertEqual(sum(row["source_input_sats"] for row in rows), 561303754)
-        self.assertEqual(len({row["transaction_id"] for row in rows}), 2)
+        self.assertEqual(len(rows), 3)
+        wave4_rows = [
+            row
+            for row in rows
+            if row["source_cluster"] == "potential-wave-4-community-reconstruction"
+        ]
+        self.assertEqual(sum(row["source_input_sats"] for row in wave4_rows), 561303754)
+        self.assertEqual(len({row["transaction_id"] for row in rows}), 3)
         for row in rows:
             self.assertEqual(row["classification"], "later_hop_not_additional_loss")
             self.assertEqual(len(row["transaction_id"]), 64)

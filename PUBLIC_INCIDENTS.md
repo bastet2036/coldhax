@@ -1,6 +1,6 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-04 00:13:16 UTC**. On-chain balances below were
+Research cutoff: **2026-08-04 03:23:07 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
 same time. The machine-readable observations and exact classifications are in
 [`evidence/public-incidents.json`](evidence/public-incidents.json).
@@ -25,6 +25,16 @@ source reconstructed a victim seed and matched it to a drained address, and no
 source named or established the identity of an attacker. Therefore this report
 classifies the aggregate waves and individual cases as **suspected attribution
 to this defect**, not conclusively attributed exploitation.
+
+Two newly reviewed public Chainabuse owner reports include transaction IDs. One
+owner reports an exact **5.39099821 BTC** Mk3 loss; the cited transaction pays
+exactly that amount to one destination, which moves once into a published Galaxy
+Wave 3 vault. A second owner identifies three Coldcard-hack transactions whose
+outputs total **0.17998515 BTC** into a new P2TR sink. These are the strongest
+public owner-to-transaction bindings in this review, but they still do not
+cryptographically prove seed reconstruction. Neither is added to Galaxy's
+cumulative total: the first overlaps Wave 3, while the second belongs to a
+separate community-attributed P2TR sample.
 
 Galaxy's Alex Thorn also reported a separate **nearly 30 BTC Coldcard victim**,
 with approximately **17 BTC** peeled through THORChain into ETH and then sent to
@@ -74,6 +84,57 @@ says theft and active exploitation were under way, while also stating that its
 team had not completed full empirical exploitability testing.
 
 ## Public owner and witness reports
+
+### Mk3 wallet — 5.39099821 BTC owner report with transaction IDs
+
+A public [Chainabuse owner report](https://chainabuse.com/report/0f8d1d1c-556b-40e6-a819-c91c153497aa)
+says an Mk3 wallet was drained of exactly **5.39099821 BTC** on July 31. The
+owner identifies transaction
+[`a7a132…191a3`](https://mempool.space/tx/a7a132a207e0edf3de321507905a314b48a05932bfe2a97848f9bf4f073191a3),
+which is confirmed in block 960439 at 2026-07-31 18:48:11 UTC. Its 53 inputs
+pay one 5.39099821 BTC output to `bc1q462…sck8`; the 731,800-sat fee is
+separate. The owner also says a separate 0.50060822 BTC remainder was moved to
+safety, but publishes no identifier for that recovery, so it is not treated as
+a loss or independently verified here.
+
+The stolen output later moves in
+[`d4c4f8…7fd34`](https://mempool.space/tx/d4c4f8fb721eb71d659cc34ed0fd998641bfb1ad28f23dde483281edec87fd34)
+to [`bc1qysj…kkx7h`](https://mempool.space/address/bc1qysjc4jrltc4je2f9uek477xdczkrmkd0mwv2wgn47r0wt3qv4a7spkkx7h),
+one of the community tracker's published Galaxy Wave 3 vaults. The vault holds
+5.39098601 BTC after the 1,220-sat hop fee.
+
+- Affected/exposed: **owner report confirms Mk3**, but not generation firmware.
+- Unauthorized spend: **owner report plus exact transaction ID**.
+- Attributed exploitation: **suspected, not conclusively proved**; the owner
+  labels it a Coldcard hack, but no public seed-to-address reconstruction exists.
+- Amount: **5.39099821 BTC owner-reported and on-chain matched**. The current
+  5.39098601 BTC is the same loss after a later-hop fee, not another loss.
+- Double counting: the final vault is part of Galaxy Wave 3, so this case must
+  not be added to Galaxy's 1,367.05 BTC cumulative total.
+
+### P2TR sink — three owner-identified transactions
+
+A second public [Chainabuse report](https://chainabuse.com/report/6e9ac9f1-61e5-49c5-947c-062afc70b73b)
+labels three transactions as the owner's Coldcard-hack losses. Each has one
+source input, one destination output, and confirms in block 960745 at
+2026-08-01 18:11:10 UTC. Their outputs to
+[`bc1pum5…ftmy8`](https://mempool.space/address/bc1pum5zf6efxgt7a8xcyjg79u25jdhz6ex9ff2m390d544v05pg698s8ftmy8)
+are 294,242, 8,350,363, and 9,353,910 sats, totaling **17,998,515 sats
+(0.17998515 BTC)**. Their source inputs total 18,000,330 sats; the 1,815-sat
+difference is transaction fees.
+
+- Affected/exposed: **owner report says Coldcard hack**; model and generation
+  firmware are unstated.
+- Unauthorized spend: **owner report plus three exact transaction IDs**:
+  [`cefd00…2f290`](https://mempool.space/tx/cefd0060f9efdb9a1e6ddfafb8a209e24e7d2807c5039226b274354c2522f290),
+  [`fd8c68…fb04b`](https://mempool.space/tx/fd8c6892ee1cde1a594f1d78571f69431aa31404524cadd161068e88d7dfb04b),
+  and [`a1845b…a3e98`](https://mempool.space/tx/a1845b6dbea9788cccee7381088d73a66d1fa086ac819eda1bbe4801219a3e98).
+- Attributed exploitation: **suspected, not conclusively proved**.
+- Amount: only the three owner-identified destination receipts, **0.17998515
+  BTC**, are assigned to this report. The destination's full 0.50992489 BTC
+  across 62 receipts must not be assigned to this owner.
+- Double counting: this P2TR sample is separate from Galaxy's reviewed Waves
+  1–3 and is not added to their cumulative total.
 
 ### Mk3 wallet — 2 BTC owner report
 
@@ -189,8 +250,8 @@ consolidation total nor a guessed 0.1 BTC is recorded as his exact loss.
 
 | Cluster | Destination | Current balance at cutoff |
 | --- | --- | ---: |
-| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02063443 BTC |
-| Galaxy Wave 1 | [`bc1qx76…fhe3`](https://mempool.space/address/bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3) | 398.47576357 BTC |
+| Galaxy Wave 1 | [`bc1qq85…cu9r`](https://mempool.space/address/bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r) | 562.02065443 BTC |
+| Galaxy Wave 1 | [`bc1qx76…fhe3`](https://mempool.space/address/bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3) | 398.47576957 BTC |
 | Galaxy Wave 1 | [`bc1q8jy…tp3q`](https://mempool.space/address/bc1q8jy96fe5lf8vfugydnte3cguk92gpev7kwtp3q) | 89.62328890 BTC |
 | Galaxy Wave 1 | [`bc1qnk4…fecp0`](https://mempool.space/address/bc1qnk4zh9qcnap2mycp56qjrgza3cc8ylrh8fecp0) | 32.45058754 BTC |
 | Galaxy Wave 2 | [`bc1qtfr…umu75`](https://mempool.space/address/bc1qtfrwa4j6rmj9rsgspv6a0yjumkg39js2numu75) | 45.90252994 BTC |
@@ -198,6 +259,10 @@ consolidation total nor a guessed 0.1 BTC is recorded as his exact loss.
 | Community Aug 1 | [`bc1qzm5…34mf3`](https://mempool.space/address/bc1qzm5pauxyv7t7vqstzpumqcn066wfjsmev34mf3) | 0.33203236 BTC |
 | Community Aug 2 | [`bc1q0rv…f5q6m`](https://mempool.space/address/bc1q0rvn88w08j75k4h48lf9fvhan7unjp7vjf5q6m) | 64.90373764 BTC |
 | Community Jul 31 | [`bc1q0mh…sc279`](https://mempool.space/address/bc1q0mh6rs0mjvv5ncdyqwhqma7hgup3aycucsc279) | 0 BTC |
+| Galaxy Wave 3 / Chainabuse owner | [`bc1qysj…kkx7h`](https://mempool.space/address/bc1qysjc4jrltc4je2f9uek477xdczkrmkd0mwv2wgn47r0wt3qv4a7spkkx7h) | 5.39098601 BTC |
+| P2TR sample / owner-corroborated sink | [`bc1pum5…ftmy8`](https://mempool.space/address/bc1pum5zf6efxgt7a8xcyjg79u25jdhz6ex9ff2m390d544v05pg698s8ftmy8) | 0.50992489 BTC |
+| P2TR sample / fingerprint only | [`bc1pdl3…uu9ce`](https://mempool.space/address/bc1pdl33jtqnausmx2d4r4c6wpnk5are8jz046y3yjkw8fryjel02p7sluu9ce) | 36.01585057 BTC |
+| P2TR sample / fingerprint only | [`bc1p0l0…6qlk0h`](https://mempool.space/address/bc1p0l0xs2a0ffn2d9pek28k3vm9rjr2p0c5hvdlu03gpdwgzdgpscnq6qlk0h) | 10.44811501 BTC |
 
 Nine higher-value destinations from the community
 [Coldcard Hack Tracker](https://github.com/SamSamskies/coldcard-hack-tracker)
@@ -213,7 +278,7 @@ proof of defect attribution. Their balances are observations, not additional
 losses.
 
 The tracker was reviewed again at pinned revision
-[`ef4b912`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/ef4b91217cdc4dae31d323fd7f41c8e2c86b8650).
+[`4a35019`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/4a35019c8b3c644f4b8108ed855b5757b1489e56).
 It now records that the 5.61303754 BTC initially received by `1N8kn…fDo` was
 fully spent in two transactions. Direct mempool.space checks confirm that
 transaction [`6f19b1…dd235`](https://mempool.space/tx/6f19b1b9e3d602335c62861ce3d90631b34945fd2998d9bcd7e6a14a68fdd235)
@@ -232,13 +297,24 @@ upstream mixed transaction prevents assigning that later output specifically to
 the tracked Wave 4 source. It is therefore not added as a source movement or a
 loss.
 
-The Wave 1 main destination gained another 19,615 sats since the prior observation.
-That unsolicited inbound activity at a published address is reflected in the
-current balance but is not treated as stolen value or a new victim payment.
+The tracker also added a three-destination P2TR sample after
+[Kelbie reported](https://x.com/KevinKelbie/status/2084294469126361372)
+an approximately 0.5 BTC sweep into a Taproot sink. The three watched
+destinations hold 46.97389047 BTC in total. The direct Chainabuse owner report
+corroborates only three transactions totaling 0.17998515 BTC into the smallest
+sink. The remaining receipts and two larger sibling destinations are linked by
+the community's approximately 5 sat/vB one-output fingerprint, not direct victim
+reports. The 46.97389047 BTC sample is therefore not treated as a complete wave
+or added to any loss headline.
 
-The four published Wave 1 destinations total 1,082.57027444 BTC at the cutoff;
+The Wave 1 main destination now holds 103,142 sats more than its representative
+consolidation receipt. That unsolicited inbound activity at a published address
+is reflected in current balance but is not treated as stolen value or a new
+victim payment.
+
+The four published Wave 1 destinations total 1,082.57030044 BTC at the cutoff;
 the two listed Wave 2 destinations total 76.08730323 BTC. Their six-address sum
-is 1,158.65757767 BTC. These sums are not replacements for Galaxy's stolen-BTC
+is 1,158.65760367 BTC. These sums are not replacements for Galaxy's stolen-BTC
 figures: transaction fees and any destination omitted from this public list
 explain why held balance and reported source value differ.
 
@@ -249,6 +325,11 @@ of all victim spends:
 
 | Cluster | Transaction | Block/time UTC | Value received by published destination |
 | --- | --- | --- | ---: |
+| Chainabuse Mk3 owner | [`a7a132…191a3`](https://mempool.space/tx/a7a132a207e0edf3de321507905a314b48a05932bfe2a97848f9bf4f073191a3) | 960439 / 2026-07-31 18:48:11 | 5.39099821 BTC owner-identified loss |
+| Chainabuse Mk3 later hop | [`d4c4f8…7fd34`](https://mempool.space/tx/d4c4f8fb721eb71d659cc34ed0fd998641bfb1ad28f23dde483281edec87fd34) | 960520 / 2026-08-01 07:47:01 | 5.39098601 BTC after fee; not a new loss |
+| Chainabuse P2TR owner | [`cefd00…2f290`](https://mempool.space/tx/cefd0060f9efdb9a1e6ddfafb8a209e24e7d2807c5039226b274354c2522f290) | 960745 / 2026-08-01 18:11:10 | 0.00294242 BTC |
+| Chainabuse P2TR owner | [`fd8c68…fb04b`](https://mempool.space/tx/fd8c6892ee1cde1a594f1d78571f69431aa31404524cadd161068e88d7dfb04b) | 960745 / 2026-08-01 18:11:10 | 0.08350363 BTC |
+| Chainabuse P2TR owner | [`a1845b…a3e98`](https://mempool.space/tx/a1845b6dbea9788cccee7381088d73a66d1fa086ac819eda1bbe4801219a3e98) | 960745 / 2026-08-01 18:11:10 | 0.09353910 BTC |
 | Galaxy Wave 1 | [`0c6bf8…d9d01`](https://mempool.space/tx/0c6bf853a645b699a3b2cd6d8e3c44cf1a02a16f538df08212a44753f75d9d01) | 960191 / 2026-07-30 01:51:26 | 562.01962301 BTC |
 | Galaxy Wave 1 | [`14edd9…7fdd2`](https://mempool.space/tx/14edd9ee8445793c320e92e3b50365a0e18b8b25f424044bce337463f007fdd2) | 960190 / 2026-07-30 01:43:00 | 398.47573857 BTC |
 | Galaxy Wave 1 | [`4b50d6…440d2`](https://mempool.space/tx/4b50d61a3d6e54c62ee0be13d7e9a8b69bffe7fc2b2cab4e14da56e4e20440d2) | 960190 / 2026-07-30 01:43:00 | 89.62327890 BTC |
@@ -287,23 +368,23 @@ a secondary reconstruction rather than replacing Thorn's primary stated core.
 
 This review searched current Coinkite and Block publications; Galaxy Research,
 owner, and analyst posts (including live RSS mirrors and X's public syndication
-endpoint); public GitHub issue/repository search; the community tracker and a
-new 221-destination ledger pull request; Bloomberg's new owner interview;
+endpoint); public Chainabuse reports linked from the tracker; public GitHub
+issue/repository search; the community tracker through pinned revision
+`4a35019c8b3c644f4b8108ed855b5757b1489e56`; Bloomberg's owner interview;
 new CoinDesk, Decrypt, Bitcoin Magazine, and Protos coverage; Hacker News;
-Google/Bing-indexed reporting; Bitcoin Magazine and newer Fortune, Cybernews,
-Fox, Forbes, and Bitcoin News coverage (including the Duel.com dispute); and
-public explorer data. The later coverage
-repackages the potential Wave 4 figures (often as a rounded 1,816 BTC total) or
-the already-recorded nearly 30 BTC / approximately 17 BTC victim report; it does
-not publish a new primary victim-address or transaction corpus. This review
-retains Thorn's nearly 30 BTC Coldcard-victim report, but it contains no public
-address or transaction ID.
-The Duel.com coverage still points to Thorn's already-reviewed post and does
-not publish the referenced victim, BTC/ETH addresses, or transaction IDs. The
-other new coverage restates Thorn's corrected
-709-address / 448.73 BTC potential Wave 4 rather than adding a direct victim or
-primary transaction corpus. Reddit's public search endpoint was
-inaccessible (HTTP 403). No reviewed primary source provided:
+Google/Bing-indexed reporting; and public explorer data.
+
+This pass found two primary owner reports with transaction identifiers: the
+5.39099821 BTC Mk3 case that overlaps Galaxy Wave 3 and three transactions
+receiving 0.17998515 BTC in a separate P2TR sink. The newer general-interest
+coverage otherwise repackages the potential Wave 4 figures (often as a rounded
+1,816 BTC total) or the already-recorded nearly 30 BTC / approximately 17 BTC
+victim report. The Duel.com coverage still points to Thorn's already-reviewed
+post and does not publish the referenced victim, BTC/ETH addresses, or
+transaction IDs. Other coverage restates Thorn's corrected 709-address / 448.73
+BTC potential Wave 4 rather than adding a complete primary transaction corpus.
+Reddit's public search endpoint was inaccessible (HTTP 403). No reviewed primary
+source provided:
 
 - an official Coinkite loss total or complete victim list;
 - a machine-readable primary-source list of all 4,585 source addresses and every

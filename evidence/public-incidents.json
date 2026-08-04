@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "research_cutoff_utc": "2026-08-04T03:23:07Z",
-  "onchain_observed_at_utc": "2026-08-04T03:23:07Z",
+  "research_cutoff_utc": "2026-08-04T06:41:36Z",
+  "onchain_observed_at_utc": "2026-08-04T06:41:36Z",
   "network": "bitcoin-mainnet",
   "explorer_api": "https://mempool.space/api",
   "classification": {
@@ -40,8 +40,26 @@
       "report_usd_at_event": 88600000,
       "wave_3_reported_btc": 207.7294,
       "attribution": "suspected_attributed_exploitation",
-      "basis": "Galaxy called Wave 3 suspected hacks of Coldcard-generated addresses. This is the latest verified cumulative Galaxy total in this review and must not be summed with earlier cumulative rows.",
+      "basis": "Galaxy called Wave 3 suspected hacks of Coldcard-generated addresses. This is the latest verified Galaxy cumulative total in this review and must not be summed with earlier cumulative rows.",
       "source": "https://x.com/glxyresearch/status/2083623500183421043"
+    },
+    {
+      "id": "galaxy-confirmed-waves-and-smaller-incidents",
+      "reported_at_utc": "2026-08-03T22:51:39Z",
+      "reported_source_addresses_approx": 7300,
+      "reported_unauthorized_spend_btc": 1596,
+      "confirmed_major_waves": 3,
+      "additional_smaller_incidents": 14,
+      "individual_victims_contacting_analyst": 73,
+      "attribution": "suspected_attributed_exploitation_with_victim_corroboration",
+      "basis": "Galaxy's newer high-confidence headline combines the three victim-confirmed major waves with 14 smaller footprints identified with help from victim reports. It is cumulative and must not be summed with the earlier 1,367.05 BTC row. Galaxy says the three waves are internally consistent but does not establish one attacker across all waves or publish a complete source-address and transaction corpus.",
+      "limitation": "The approximately 7,300-address count, 1,596 BTC amount, and 14 smaller incidents are analyst-reported aggregates. Seventy-three people contacting the analyst is not a count of addresses or incidents, and the thread does not publish enough identifiers to independently reconstruct the complete total. Defect attribution remains suspected rather than a public seed-to-address proof.",
+      "source": "https://x.com/glxyresearch/status/2084411904924045370",
+      "thread_sources": [
+        "https://x.com/glxyresearch/status/2084411907520311662",
+        "https://x.com/glxyresearch/status/2084411910053618032",
+        "https://x.com/glxyresearch/status/2084411912889000340"
+      ]
     }
   ],
   "public_owner_or_witness_reports": [
@@ -526,8 +544,8 @@
     "victim_confirmation": "The analyst explicitly stated that no direct victim report had yet confirmed Wave 4.",
     "secondary_reconstruction": {
       "source": "https://github.com/SamSamskies/coldcard-hack-tracker/commit/b6c7529e5b994cd47b0719d0996c9d1ff35887ef",
-      "latest_reviewed_revision": "4a35019c8b3c644f4b8108ed855b5757b1489e56",
-      "latest_reviewed_at_utc": "2026-08-04T03:23:07Z",
+      "latest_reviewed_revision": "ff2cdce971c566262cd22cb385d51c62acde864e",
+      "latest_reviewed_at_utc": "2026-08-04T06:41:36Z",
       "additional_prior_history_destinations_excluded": 6,
       "additional_prior_history_btc_excluded": 5.39,
       "derived_addresses": 703,
@@ -535,20 +553,26 @@
       "limitation": "The community tracker assumes the six prior-history destinations do not overlap the 89 multisig exclusions; this derived figure does not replace the primary analyst's stated core."
     },
     "reason": "The analyst called it likely, corrected false-positive multisigs, and explicitly reported no direct victim confirmation. This review did not independently reproduce the complete classifier or establish authorization for every spend.",
+    "latest_reported_at_utc": "2026-08-03T22:51:41Z",
+    "latest_including_wave_4_total_btc": 2055,
+    "latest_confidence": "medium_high_but_not_promoted_without_specific_victim_confirmation",
+    "latest_victim_confirmation": "Galaxy's later thread still says no specific victim has confirmed inclusion in Wave 4, while describing the wave as medium-high-confidence and substantially attacker-comprised.",
+    "latest_arithmetic_limitation": "The later thread reports 2,055 BTC when Wave 4 is included but does not publish a complete corpus or an exact Wave 4-only amount. This record does not derive a replacement by subtracting the 1,596 BTC confirmed headline, especially because the earlier primary 448.73 BTC core and the newer total do not reconcile exactly.",
+    "latest_source": "https://x.com/glxyresearch/status/2084411915745595527",
     "source": "https://x.com/intangiblecoins/status/2084079706320646300",
     "revision_source": "https://x.com/intangiblecoins/status/2084117621864046698"
   },
   "negative_results_and_limits": [
     "Coinkite's advisory confirms exposure and active risk but publishes no official stolen-funds total, victim-address list, or transaction list.",
     "Block's root-cause report says active exploitation and theft were under way, but says it had not completed full empirical exploitability testing.",
-    "Galaxy's three-wave total is on-chain attribution, not a public cryptographic reconstruction matching a victim seed to a drained address.",
+    "Galaxy's newer 1,596 BTC high-confidence total combines three victim-confirmed waves and 14 smaller incidents, but remains an analyst aggregate rather than a published complete corpus or cryptographic reconstruction matching a victim seed to a drained address.",
     "No public source reviewed named the attacker, and no public law-enforcement attribution was found.",
-    "The full set of 4,585 source addresses and all theft transaction IDs was not published in machine-readable primary-source form located during this review.",
+    "The full approximately 7,300 source addresses, all three major waves, 14 smaller incidents, and their theft transaction IDs were not published in machine-readable primary-source form located during this review.",
     "Jonathan Goodman's exact 18.25245043 BTC owner-reported loss has no published source address or transaction ID and cannot be independently verified or added to the cumulative waves.",
     "Tim Lamb's owner-reported 2 BTC Mk3 loss has no published source address, transaction ID, or generation-firmware version and cannot be independently verified or added to the cumulative waves.",
     "Alex Thorn's report of a nearly 30 BTC Coldcard victim and an approximately 17 BTC peel through THORChain to Duel.com supplies no public victim/attacker address or BTC/ETH transaction ID; it is retained as an unverified analyst report and excluded from totals.",
     "Current balances are destination observations, not stolen amounts, and later hops are not added to incident totals.",
-    "The potential Wave 4 primary correction has internally non-reconciling arithmetic and no direct victim confirmation; its 448.73 BTC core is excluded from the Waves 1–3 cumulative headline.",
+    "The potential Wave 4 primary correction has internally non-reconciling arithmetic and no direct victim confirmation. Galaxy's later thread calls it medium-high confidence and reports a 2,055 BTC total if included, but still withholds it from the 1,596 BTC high-confidence headline because no specific victim has confirmed inclusion.",
     "Two new Chainabuse owner reports provide transaction identifiers. One exact 5.39099821 BTC Mk3 loss lands after one hop in a Galaxy Wave 3 vault and must not be added to Galaxy's cumulative total. The other identifies only 0.17998515 BTC of a 0.50992489 BTC P2TR destination; the remaining receipts and two larger P2TR siblings remain fingerprint-based community attribution."
   ],
   "sources": [
@@ -558,6 +582,11 @@
     "https://x.com/glxyresearch/status/2083255552633635183",
     "https://x.com/glxyresearch/status/2083560940469981591",
     "https://x.com/glxyresearch/status/2083623500183421043",
+    "https://x.com/glxyresearch/status/2084411904924045370",
+    "https://x.com/glxyresearch/status/2084411907520311662",
+    "https://x.com/glxyresearch/status/2084411910053618032",
+    "https://x.com/glxyresearch/status/2084411912889000340",
+    "https://x.com/glxyresearch/status/2084411915745595527",
     "https://x.com/evands/status/2083505832587587945",
     "https://x.com/TomerStrolight/status/2083578868191957292",
     "https://x.com/mariusoffchain/status/2083814011859030252",

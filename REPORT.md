@@ -236,9 +236,15 @@ time-stamped measurements. A lack of publicly verified cases must be reported as
 such rather than interpreted as proof that no theft occurred.
 
 `PUBLIC_INCIDENTS.md` records the public evidence found through 2026-08-04
-03:23:07 UTC. Galaxy Research's latest reviewed cumulative estimate is 1,367.05
-BTC across 4,585 source addresses in three suspected Coldcard-linked waves.
-Two new public Chainabuse owner reports materially improve transaction-level
+06:41:36 UTC. Galaxy Research's newest high-confidence cumulative estimate is
+1,596 BTC across approximately 7,300 source addresses in three victim-confirmed
+major waves plus 14 smaller incidents. Galaxy says 73 individual victims
+contacted its analyst, but publishes no complete address/transaction corpus; the
+aggregate cannot be independently reconstructed and is not a seed-to-address
+proof. It supersedes rather than adds to the earlier 1,367.05 BTC / 4,585-address
+snapshot.
+
+Two public Chainabuse owner reports materially improve transaction-level
 evidence. One owner reports an exact 5.39099821 BTC Mk3 loss; its cited
 transaction pays exactly that amount and then moves once into a published Galaxy
 Wave 3 vault. A second owner identifies three Coldcard-hack transactions paying
@@ -260,8 +266,11 @@ seed and matched it to a drained address, so defect attribution remains
 suspected rather than conclusive. Current destination balances remain separate,
 and cumulative waves, fees, and later hops are not added. A potential fourth
 wave was revised to a stated 709-address / 448.73 BTC core after multisig
-exclusions, but remains outside the cumulative headline because it lacks direct
-victim confirmation and its published arithmetic does not fully reconcile.
+exclusions. Galaxy's later thread calls it medium-high confidence and reports a
+2,055 BTC total if included, but still excludes it from the 1,596 BTC headline
+because no specific victim has confirmed inclusion. The earlier correction
+arithmetic, newer total, and unpublished corpus do not fully reconcile, so no
+Wave 4-only amount is derived here.
 
 ## Remediation
 

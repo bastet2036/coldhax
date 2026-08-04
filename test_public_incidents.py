@@ -25,10 +25,14 @@ class PublicIncidentTests(unittest.TestCase):
                 "galaxy-wave-1",
                 "galaxy-waves-1-2-cumulative",
                 "galaxy-waves-1-3-cumulative",
+                "galaxy-confirmed-waves-and-smaller-incidents",
             ],
         )
-        self.assertEqual(rows[-1]["reported_unauthorized_spend_btc"], 1367.05)
-        self.assertEqual(rows[-1]["reported_source_addresses"], 4585)
+        self.assertEqual(rows[-1]["reported_unauthorized_spend_btc"], 1596)
+        self.assertEqual(rows[-1]["reported_source_addresses_approx"], 7300)
+        self.assertEqual(rows[-1]["confirmed_major_waves"], 3)
+        self.assertEqual(rows[-1]["additional_smaller_incidents"], 14)
+        self.assertEqual(rows[-1]["individual_victims_contacting_analyst"], 73)
         self.assertIn("must not be summed", rows[-1]["basis"])
 
     def test_balances_are_timestamped_and_separate(self) -> None:
@@ -180,6 +184,12 @@ class PublicIncidentTests(unittest.TestCase):
         self.assertIn("do not reconcile", emerging["arithmetic_limitation"])
         self.assertIn("no direct victim", emerging["victim_confirmation"])
         self.assertEqual(emerging["secondary_reconstruction"]["derived_btc"], 443.34)
+        self.assertEqual(emerging["latest_including_wave_4_total_btc"], 2055)
+        self.assertEqual(
+            emerging["latest_confidence"],
+            "medium_high_but_not_promoted_without_specific_victim_confirmation",
+        )
+        self.assertIn("does not publish", emerging["latest_arithmetic_limitation"])
 
     def test_public_artifacts_contain_no_obvious_secret_material(self) -> None:
         patterns = (

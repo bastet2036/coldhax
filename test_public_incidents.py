@@ -68,6 +68,47 @@ class PublicIncidentTests(unittest.TestCase):
             "suspected_not_computationally_confirmed",
         )
 
+    def test_chainabuse_mk3_owner_inputs_bind_to_august_2_consolidation(self) -> None:
+        case = next(
+            row
+            for row in self.data["public_owner_or_witness_reports"]
+            if row["id"] == "chainabuse-mk3-5.13591373-bitcoin"
+        )
+        self.assertEqual(case["model"], "Mk3")
+        self.assertEqual(case["owner_reported_amount_btc"], 5.13591373)
+        self.assertEqual(case["owner_source_input_sats"], 513591373)
+        self.assertEqual(len(case["public_source_addresses"]), 23)
+        self.assertEqual(len(set(case["public_source_addresses"])), 23)
+        self.assertEqual(len(case["public_source_inputs"]), 23)
+        self.assertEqual(
+            {row["address"] for row in case["public_source_inputs"]},
+            set(case["public_source_addresses"]),
+        )
+        self.assertEqual(
+            sum(row["value_sats"] for row in case["public_source_inputs"]),
+            case["owner_source_input_sats"],
+        )
+        self.assertEqual(case["transaction_input_count"], 902)
+        self.assertEqual(case["owner_source_input_count"], 23)
+        self.assertEqual(
+            case["transaction_id"],
+            "d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4",
+        )
+        self.assertIn("subset", case["double_counting_note"])
+        self.assertIn("Do not add", case["double_counting_note"])
+
+    def test_footprint_o_is_separate_from_august_3_cumulative_headline(self) -> None:
+        update = self.data["subsequent_analyst_updates"][0]
+        self.assertEqual(update["id"], "galaxy-footprint-o")
+        self.assertEqual(update["reported_additional_footprints"], 15)
+        self.assertEqual(update["footprint_o_reported_source_addresses"], 126)
+        self.assertEqual(update["footprint_o_reported_btc"], 12)
+        self.assertEqual(update["triggering_victim_reported_btc_upper_bound"], 1)
+        self.assertFalse(update["triggering_victim_amount_is_exact"])
+        self.assertEqual(update["transaction_ids"], [])
+        self.assertEqual(update["public_source_addresses"], [])
+        self.assertIn("not added", update["double_counting_note"])
+
     def test_goodman_exact_owner_amount_fails_closed_without_txids(self) -> None:
         goodman = next(
             row

@@ -1,6 +1,6 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-04 09:54:06 UTC**. On-chain balances below were
+Research cutoff: **2026-08-04 13:02:05 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
 same time and include confirmed plus mempool funded outputs minus spent outputs.
 The machine-readable observations and exact classifications are in
@@ -22,6 +22,14 @@ count, and Galaxy says the internally consistent waves need not share one
 operator. Defect attribution therefore remains suspected, albeit now with
 material victim corroboration.
 
+In a subsequent [August 4 thread](https://x.com/intangiblecoins/status/2084584185528746434),
+Galaxy's Alex Thorn raised the count to **15 additional smaller footprints
+(A–O)** and at least 15 apparent attackers. He said one new anonymous victim
+report of **less than 1 BTC** led to Footprint O, a reported **12 BTC from 126
+addresses**. No address/transaction list or revised cumulative headline was
+published. This report therefore preserves those rounded figures separately
+and does not add 12 BTC to the August 3 1,596 BTC total.
+
 Public owner/witness reports provide stronger evidence that at least some
 Coldcard-origin wallets were swept without owner authorization. One owner now
 publicly reports an exact **18.25245043 BTC** loss across three Coldcard wallets,
@@ -34,15 +42,17 @@ source named or established the identity of an attacker. Therefore this report
 classifies the aggregate waves and individual cases as **suspected attribution
 to this defect**, not conclusively attributed exploitation.
 
-Two newly reviewed public Chainabuse owner reports include transaction IDs. One
+Three reviewed public Chainabuse owner reports include transaction IDs. One
 owner reports an exact **5.39099821 BTC** Mk3 loss; the cited transaction pays
 exactly that amount to one destination, which moves once into a published Galaxy
 Wave 3 vault. A second owner identifies three Coldcard-hack transactions whose
-outputs total **0.17998515 BTC** into a new P2TR sink. These are the strongest
-public owner-to-transaction bindings in this review, but they still do not
-cryptographically prove seed reconstruction. Neither is added to Galaxy's
-cumulative total: the first overlaps Wave 3, while the second belongs to a
-separate community-attributed P2TR sample.
+outputs total **0.17998515 BTC** into a new P2TR sink. A third Mk3 owner
+identifies **23 source inputs totaling exactly 5.13591373 BTC** inside the
+already-recorded 64.90947964 BTC August 2 consolidation. On-chain data matches
+all 23 published addresses and their sum. These are the strongest public
+owner-to-transaction bindings in this review, but they still do not
+cryptographically prove seed reconstruction. None is added again to an
+overlapping cluster or cumulative headline.
 
 Galaxy's Alex Thorn also reported a separate **nearly 30 BTC Coldcard victim**,
 with approximately **17 BTC** peeled through THORChain into ETH and then sent to
@@ -146,6 +156,29 @@ difference is transaction fees.
   across 62 receipts must not be assigned to this owner.
 - Double counting: this P2TR sample is separate from Galaxy's reviewed Waves
   1–3 and is not added to their cumulative total.
+
+### Mk3 wallet — 5.13591373 BTC across 23 owner-identified inputs
+
+A third public [Chainabuse owner report](https://chainabuse.com/report/61e7b80a-4ec6-42b4-a8b4-4cab1a29c9ac)
+says an Mk3-generated wallet lost exactly **5.13591373 BTC** from 23 addresses
+in the August 2 consolidation transaction
+[`d72e2…c89a4`](https://mempool.space/tx/d72e2d8e3096440c48fdd4ed0cc56a7e784d215970413210e0b2af38528c89a4).
+The owner publishes all 23 source addresses. Direct explorer data confirms that
+each appears once among the transaction's 902 inputs and that their previous
+outputs sum to exactly **513,591,373 sats**. The complete transaction combines
+64.90947964 BTC of inputs, pays one 64.90373764 BTC output, and has a 574,200-sat
+aggregate fee; that pooled fee is not allocated to this owner.
+
+- Affected/exposed: **owner report confirms Mk3**, but not generation firmware.
+- Unauthorized spend: **owner report plus exact transaction ID and 23 source
+  addresses**, all matched on-chain.
+- Attributed exploitation: **suspected, not conclusively proved**; the owner
+  attributes the loss to the Coldcard defect, but no public seed-to-address
+  reconstruction exists.
+- Amount: **5.13591373 BTC owner-reported and on-chain matched as source value**.
+- Double counting: these 23 inputs are a subset of the already-recorded
+  64.90947964 BTC consolidation, so the owner amount is not added to that
+  transaction total or Galaxy's cumulative headline.
 
 ### Mk3 wallet — 2 BTC owner report
 
@@ -289,11 +322,13 @@ proof of defect attribution. Their balances are observations, not additional
 losses.
 
 The tracker was reviewed again at pinned revision
-[`f8b1a4a`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/f8b1a4aeff27c63a149b22fa82c9a460e8ac3650).
-The revision refreshes balances and adds one previously confirmed 0.24 BTC
-second-hop transaction to its snapshot; it adds no new owner report, source
-loss, or public case. The transaction predates this cutoff and is downstream
-movement rather than another theft amount.
+[`1d51b21`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/1d51b219aaab6c0b428d2f5e28504f4b7525e863).
+Since the previous `f8b1a4a` review, its substantive `3048c0e` revision adds
+Galaxy's Footprint O update and links the 5.13591373 BTC Chainabuse owner report
+to the already-recorded August 2 consolidation. It publishes no Footprint O
+address list and adds no separate source loss beyond that overlapping owner
+subset. Balance-only revisions refreshed fiat pricing but did not change the 22
+balances tracked here.
 The substantive `4a35019` revision records that the 5.61303754 BTC initially
 received by `1N8kn…fDo` was
 fully spent in two transactions. Direct mempool.space checks confirm that
@@ -392,30 +427,32 @@ exactly match the earlier stated 448.73 BTC core.
 ## Search scope and negative results
 
 This review searched current Coinkite and Block publications; Galaxy Research,
-owner, and analyst posts (including live RSS mirrors and X's public syndication
-endpoint); public Chainabuse reports linked from the tracker; public GitHub
-issue/repository search; the community tracker through pinned revision
-`f8b1a4aeff27c63a149b22fa82c9a460e8ac3650`; Bloomberg's owner interview;
-new CoinDesk, Decrypt, Bitcoin Magazine, Protos, Coinpaper, and The Block
-coverage; Hacker News; Google/Bing-indexed reporting; and public explorer data.
+owner, and analyst posts (including direct public status mirrors); public
+Chainabuse reports linked from the tracker; public GitHub issue/repository
+search; the community tracker through pinned revision
+`1d51b219aaab6c0b428d2f5e28504f4b7525e863`; Bloomberg's owner interview; new
+CoinDesk, Decrypt, Bitcoin Magazine, Protos, Coinpaper, Fortune, and other
+current coverage; Google/Bing News; and public explorer data.
 
-This pass found no newer primary victim case, transaction identifier, or revised
-analyst aggregate. Current coverage repeats Galaxy's 1,596 BTC high-confidence
-headline and 2,055 BTC including potential Wave 4 without publishing the complete
-address/transaction corpus. The prior pass found two primary owner reports
-with transaction identifiers: the
-5.39099821 BTC Mk3 case that overlaps Galaxy Wave 3 and three transactions
-receiving 0.17998515 BTC in a separate P2TR sink. New reporting after Galaxy's
-thread repeats its 1,596 BTC confirmed and 2,055 BTC including-Wave-4 figures
-without publishing the underlying corpus. Earlier general-interest coverage
-repackaged the potential Wave 4 figures (often as a rounded 1,816 BTC total) or
-the already-recorded nearly 30 BTC / approximately 17 BTC victim report. The
-Duel.com coverage still points to Thorn's already-reviewed post and does not
-publish the referenced victim, BTC/ETH addresses, or transaction IDs. Other
-coverage restates Thorn's corrected 709-address / 448.73 BTC potential Wave 4
-rather than adding a complete primary transaction corpus.
-Reddit's public search endpoint was inaccessible (HTTP 403). No reviewed primary
-source provided:
+This pass found one additional transaction-backed primary owner case: 23
+published Mk3 source addresses totaling 5.13591373 BTC inside the already-known
+August 2 consolidation. It also found Galaxy's newer Footprint O report: 12 BTC
+from 126 addresses, discovered from one anonymous victim report of less than 1
+BTC, but without public identifiers or a revised cumulative headline. Current
+coverage otherwise repeats Galaxy's 1,596 BTC high-confidence headline and
+2,055 BTC including potential Wave 4. A new Protos article links several tiny
+OP_RETURN/message transactions sent to a published Wave 1 destination; those
+unsolicited deposits are communications of unknown provenance, not verified
+victim payments or additional theft. All 22 tracked confirmed-plus-mempool
+balances were unchanged at the cutoff.
+
+The complete approximately 7,300-address corpus remains unpublished. Earlier
+general-interest coverage repackaged the potential Wave 4 figures (often as a
+rounded 1,816 BTC total) or the already-recorded nearly 30 BTC / approximately
+17 BTC victim report. The Duel.com coverage still points to Thorn's
+already-reviewed post and does not publish the referenced victim, BTC/ETH
+addresses, or transaction IDs. Reddit's public search endpoint remained
+inaccessible (HTTP 403). No reviewed primary source provided:
 
 - an official Coinkite loss total or complete victim list;
 - a machine-readable primary-source list of the approximately 7,300 source

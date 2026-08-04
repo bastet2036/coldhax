@@ -236,23 +236,27 @@ time-stamped measurements. A lack of publicly verified cases must be reported as
 such rather than interpreted as proof that no theft occurred.
 
 `PUBLIC_INCIDENTS.md` records the public evidence found through 2026-08-04
-09:54:06 UTC. Galaxy Research's newest high-confidence cumulative estimate is
+13:02:05 UTC. Galaxy Research's August 3 high-confidence cumulative estimate is
 1,596 BTC across approximately 7,300 source addresses in three victim-confirmed
 major waves plus 14 smaller incidents. Galaxy says 73 individual victims
 contacted its analyst, but publishes no complete address/transaction corpus; the
 aggregate cannot be independently reconstructed and is not a seed-to-address
 proof. It supersedes rather than adds to the earlier 1,367.05 BTC / 4,585-address
-snapshot.
+snapshot. An August 4 follow-up raises the smaller-footprint count to 15 and
+reports Footprint O as 12 BTC from 126 addresses, identified through one
+anonymous victim report of less than 1 BTC. It publishes no revised cumulative
+headline or identifiers, so no derived addition is made.
 
-Two public Chainabuse owner reports materially improve transaction-level
+Three public Chainabuse owner reports materially improve transaction-level
 evidence. One owner reports an exact 5.39099821 BTC Mk3 loss; its cited
 transaction pays exactly that amount and then moves once into a published Galaxy
 Wave 3 vault. A second owner identifies three Coldcard-hack transactions paying
-0.17998515 BTC into a P2TR sink. The latter sink is part of a 46.97389047 BTC
+0.17998515 BTC into a P2TR sink. A third Mk3 owner publishes 23 source addresses
+inside the August 2 consolidation; explorer data matches every input and their
+exact 5.13591373 BTC sum. None is added again to an overlapping transaction,
+cluster, or Galaxy total. The P2TR sink is part of a 46.97389047 BTC
 three-destination community sample, but only the owner's three identified
 receipts are owner-corroborated; the remainder is fingerprint attribution.
-Neither amount is added to Galaxy's total because the Mk3 case overlaps Wave 3
-and the P2TR sample is separately classified.
 
 Other owner/witness reports identify Coldcard-origin wallets in the sweeps,
 including one Mk3 testing-wallet report with a public transaction ID, an owner

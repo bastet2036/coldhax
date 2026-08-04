@@ -41,11 +41,19 @@ class PublicIncidentTests(unittest.TestCase):
             r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$",
         )
         observations = self.data["destination_balance_observations"]
+        self.assertIn("mempool", self.data["balance_definition"])
         self.assertEqual(len(observations), 22)
         self.assertEqual(len({row["address"] for row in observations}), 22)
         for row in observations:
             self.assertIsInstance(row["current_balance_sats"], int)
             self.assertGreaterEqual(row["current_balance_sats"], 0)
+
+        wave1_main = next(
+            row
+            for row in observations
+            if row["address"] == "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r"
+        )
+        self.assertIn("546-sat unconfirmed", wave1_main["note"])
 
     def test_owner_case_does_not_double_count_consolidation(self) -> None:
         erik = next(

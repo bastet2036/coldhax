@@ -1,9 +1,10 @@
 {
   "schema_version": 1,
-  "research_cutoff_utc": "2026-08-04T06:41:36Z",
-  "onchain_observed_at_utc": "2026-08-04T06:41:36Z",
+  "research_cutoff_utc": "2026-08-04T09:54:06Z",
+  "onchain_observed_at_utc": "2026-08-04T09:54:06Z",
   "network": "bitcoin-mainnet",
   "explorer_api": "https://mempool.space/api",
+  "balance_definition": "Confirmed chain plus mempool funded outputs minus spent outputs at the observation cutoff.",
   "classification": {
     "affected_or_exposed": "Public evidence says the wallet or source population used an affected COLDCARD generation path.",
     "unauthorized_spend": "An owner or analyst reports the spend was unauthorized, with an on-chain transaction or cluster.",
@@ -411,7 +412,7 @@
       "address": "bc1qq85v2c926eg6pgxhwp6q7lf6cnsz80qs3fcu9r",
       "cluster": "galaxy-wave-1",
       "current_balance_sats": 56202065443,
-      "note": "The 103,142-sat increase above the representative consolidation receipt is unsolicited inbound activity at a public destination and is not added to stolen-funds totals."
+      "note": "The 103,142-sat increase above the representative consolidation receipt includes a 546-sat unconfirmed output at the cutoff. It is unsolicited inbound activity at a public destination and is not added to stolen-funds totals."
     },
     {
       "address": "bc1qx76cae2706qd5q576feh7xq8rfcsjpf2htfhe3",
@@ -544,8 +545,8 @@
     "victim_confirmation": "The analyst explicitly stated that no direct victim report had yet confirmed Wave 4.",
     "secondary_reconstruction": {
       "source": "https://github.com/SamSamskies/coldcard-hack-tracker/commit/b6c7529e5b994cd47b0719d0996c9d1ff35887ef",
-      "latest_reviewed_revision": "ff2cdce971c566262cd22cb385d51c62acde864e",
-      "latest_reviewed_at_utc": "2026-08-04T06:41:36Z",
+      "latest_reviewed_revision": "f8b1a4aeff27c63a149b22fa82c9a460e8ac3650",
+      "latest_reviewed_at_utc": "2026-08-04T09:54:06Z",
       "additional_prior_history_destinations_excluded": 6,
       "additional_prior_history_btc_excluded": 5.39,
       "derived_addresses": 703,

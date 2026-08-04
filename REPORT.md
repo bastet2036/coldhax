@@ -236,7 +236,7 @@ time-stamped measurements. A lack of publicly verified cases must be reported as
 such rather than interpreted as proof that no theft occurred.
 
 `PUBLIC_INCIDENTS.md` records the public evidence found through 2026-08-04
-06:41:36 UTC. Galaxy Research's newest high-confidence cumulative estimate is
+09:54:06 UTC. Galaxy Research's newest high-confidence cumulative estimate is
 1,596 BTC across approximately 7,300 source addresses in three victim-confirmed
 major waves plus 14 smaller incidents. Galaxy says 73 individual victims
 contacted its analyst, but publishes no complete address/transaction corpus; the

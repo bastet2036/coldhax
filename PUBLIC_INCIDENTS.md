@@ -1,8 +1,9 @@
 # Public incident accounting
 
-Research cutoff: **2026-08-04 06:41:36 UTC**. On-chain balances below were
+Research cutoff: **2026-08-04 09:54:06 UTC**. On-chain balances below were
 queried from the public [mempool.space API](https://mempool.space/api) at that
-same time. The machine-readable observations and exact classifications are in
+same time and include confirmed plus mempool funded outputs minus spent outputs.
+The machine-readable observations and exact classifications are in
 [`evidence/public-incidents.json`](evidence/public-incidents.json).
 
 ## Bottom line
@@ -288,8 +289,11 @@ proof of defect attribution. Their balances are observations, not additional
 losses.
 
 The tracker was reviewed again at pinned revision
-[`ff2cdce`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/ff2cdce971c566262cd22cb385d51c62acde864e).
-Changes after `4a35019` were balance-snapshot-only and added no new public case.
+[`f8b1a4a`](https://github.com/SamSamskies/coldcard-hack-tracker/commit/f8b1a4aeff27c63a149b22fa82c9a460e8ac3650).
+The revision refreshes balances and adds one previously confirmed 0.24 BTC
+second-hop transaction to its snapshot; it adds no new owner report, source
+loss, or public case. The transaction predates this cutoff and is downstream
+movement rather than another theft amount.
 The substantive `4a35019` revision records that the 5.61303754 BTC initially
 received by `1N8kn…fDo` was
 fully spent in two transactions. Direct mempool.space checks confirm that
@@ -320,9 +324,9 @@ reports. The 46.97389047 BTC sample is therefore not treated as a complete wave
 or added to any loss headline.
 
 The Wave 1 main destination now holds 103,142 sats more than its representative
-consolidation receipt. That unsolicited inbound activity at a published address
-is reflected in current balance but is not treated as stolen value or a new
-victim payment.
+consolidation receipt, including a 546-sat unconfirmed output at the cutoff.
+That unsolicited inbound activity at a published address is reflected in
+current balance but is not treated as stolen value or a new victim payment.
 
 The four published Wave 1 destinations total 1,082.57030044 BTC at the cutoff;
 the two listed Wave 2 destinations total 76.08730323 BTC. Their six-address sum
@@ -391,15 +395,14 @@ This review searched current Coinkite and Block publications; Galaxy Research,
 owner, and analyst posts (including live RSS mirrors and X's public syndication
 endpoint); public Chainabuse reports linked from the tracker; public GitHub
 issue/repository search; the community tracker through pinned revision
-`ff2cdce971c566262cd22cb385d51c62acde864e`; Bloomberg's owner interview;
+`f8b1a4aeff27c63a149b22fa82c9a460e8ac3650`; Bloomberg's owner interview;
 new CoinDesk, Decrypt, Bitcoin Magazine, Protos, Coinpaper, and The Block
 coverage; Hacker News; Google/Bing-indexed reporting; and public explorer data.
 
-This pass found Galaxy's new primary thread raising its high-confidence
-cumulative headline to 1,596 BTC across approximately 7,300 addresses in three
-major waves and 14 smaller incidents, based in part on reports from 73 victims.
-It publishes no complete address/transaction corpus, so that aggregate could not
-be independently reconstructed. The prior pass found two primary owner reports
+This pass found no newer primary victim case, transaction identifier, or revised
+analyst aggregate. Current coverage repeats Galaxy's 1,596 BTC high-confidence
+headline and 2,055 BTC including potential Wave 4 without publishing the complete
+address/transaction corpus. The prior pass found two primary owner reports
 with transaction identifiers: the
 5.39099821 BTC Mk3 case that overlaps Galaxy Wave 3 and three transactions
 receiving 0.17998515 BTC in a separate P2TR sink. New reporting after Galaxy's
